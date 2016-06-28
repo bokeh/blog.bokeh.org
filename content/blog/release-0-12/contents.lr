@@ -56,10 +56,17 @@ Here are just a few of the things that are new:
 * Server features for threading and simpler deployments
 * New hosted demos at https://demo.bokehplots.com
 
-And as usual, many bugfixes and documentation additions. Here are some details
-about a few of these areas of improvement.
+And as usual, many bugfixes and documentation additions. For full details,
+see the [CHANGELOG](https://github.com/bokeh/bokeh/blob/0.12.0/CHANGELOG)
+and [Release Notes](http://bokeh.pydata.org/en/latest/docs/releases/0.12.0.html).
+
+This release can most easily be installed in the usual ways:
+``conda install bokeh`` if you are using [Anaconda](https://www.continuum.io/downloads)
+or ``pip install bokeh`` otherwise.
 
 ----
+
+Here are some details about a few of these areas of improvement.
 
 #### Layout and Styling
 
@@ -73,7 +80,7 @@ capabilities include:
 * Toolbars can be "sticky" and adhere closer to the plot.
 
 In addition to the layout improvements, Bokeh also got a style refresh. Here
-are the major changes in appearance: Titles are also **bold**, closer the to
+are the major changes in appearance: Titles are also **bold**, closer to
 the plot, and left-aligned by default. Axes labels are smaller and
 *italic*. For individual plots, toolbars are now on the right side. Finally,
 Bokeh widget appearance is more "flat" in general.
@@ -104,7 +111,7 @@ consult the [Migration Guide](http://bokeh.pydata.org/en/latest/docs/releases/0.
 #### Bokeh App Improvements and Examples
 
 In addition to the layout improvements, a number of fixes and features directly
-related the the Bokeh server were made. This included better support for using
+related the the Bokeh server were made. This includes better support for using
 threads with Bokeh apps, a new default index page, the ability to configure
 multiple processes easily with ``--num-procs``, as well as bugfixes and
 performance improvements. Together, all of these made it simple to create
