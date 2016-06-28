@@ -8,6 +8,19 @@ title: Bokeh 0.12 Released
 ---
 body:
 
+<style>
+  .wrap { width: 620px; height: 380px; margin: 15px; overflow: hidden;}
+  .frame { width: 1280px; height: 786px; border: none}
+
+  .frame {
+    -moz-transform: scale(0.6);
+    -moz-transform-origin: 0 0;
+    -o-transform: scale(0.6);
+    -o-transform-origin: 0 0;
+    -webkit-transform: scale(0.6);
+    -webkit-transform-origin: 0 0;
+}
+</style>
 
 I'm pleased to announce that Bokeh Version 0.12 has been released! This a
 major update with many new improvements. Before getting into the details,
@@ -30,58 +43,112 @@ releases, more often. But *this* release represents a giant step forward.
 Here are just a few of the things new in 0.12:
 
 * Responsive layout and styling improvements throughout
-* BokehJS plotting and charts APIs for pure JS dev
+* First-class BokehJS APIs for plotting and charts
 * Legends can be placed outside / next to the central plot area
-* Expanded WebGL support to all markers, fixed webgl bugs
-* New color palettes: Viridis, Magma, Inferno, and Plasma
-* New types: Arrow, Title, and Label annotations, LogColorMapper, FuncTickFormatter
-* Support for computed transforms (e.g. Jitter) on data columns
+* New color palettes: *Viridis, Magma, Inferno, and Plasma*
+* Expanded WebGL support to all markers and fixed WebGL bugs
+* New annotations: *Arrow, Title, Label, LogColorMapper, FuncTickFormatter*
+* Support for computed transforms (e.g. [Jitter](http://bokeh.pydata.org/en/latest/docs/gallery/jitter.html)) on data columns
 * Server features for threading and simpler deployments
 * New hosted demos at https://demo.bokehplots.com
 
+And as usual, many bugfixes and documentation additions.
+
 #### Layout and Styling
 
-* toolbar moved to the right, and made sticky, by default
-* left aligned title, closer in, by default
-* smaller, italic axes labels
+One of the primary focus areas of the 0.12 release cycle was a major overhaul
+to the way Bokeh lays out documents and components.
+
+In addition to the layout improvements, Bokeh also got a style refresh. Here
+are the major changes in appearance:
+
+* "sticky" toolbar on the right side
+* left aligned top title, closer to plot
+* smaller italic axes labels
+
+<div class="bk-root">
+
+  <script
+      src="bokeh-plot.js"
+      id="b2d13824-3b3d-4de8-879a-5affc8b58701"
+      data-bokeh-model-id="9609f6ba-5d48-47e1-83ba-a53a4cd6b3ad"
+      data-bokeh-doc-id="097e2936-f0c6-4079-b33b-870ada838b47"
+  ></script>
+
+</div>
+
+In order to accomplish this large undertaking, some old interfaces had to be
+deprecated, and two small breaking changes introduced. For full details,
+consult the [Migration Guide](http://bokeh.pydata.org/en/latest/docs/releases/0.12.0.html#migration-guide).
 
 #### New App Examples
 
-Bokeh 0.12 has several new example applications.  Many of these can be viewed at https://demo.bokehplots.com, including the new ``crossfilter`` example, embedded live below:
-
-<style>
-  .wrap { width: 620px; height: 380px; padding: 0; overflow: hidden;}
-  .frame { width: 1280px; height: 786px; border: 1px solid black}
-
-  .frame {
-    -moz-transform: scale(0.6);
-    -moz-transform-origin: 0 0;
-    -o-transform: scale(0.6);
-    -o-transform-origin: 0 0;
-    -webkit-transform: scale(0.6);
-    -webkit-transform-origin: 0 0;
-}
-</style>
+In addition to the layout improvements, a number of fixes and features directly
+related the the Bokeh server were made. This included better support for using
+threads with Bokeh apps, a new default index page, the ability to configure
+multiple processes easily with ``--num-procs``, as well as bugfixes and
+performance improvements. All of these togetehr made it easy to create several
+new compelling example applications. Many of these can be viewed at
+https://demo.bokehplots.com, including the new ``crossfilter`` example,
+embedded live below:
 
 <div class="wrap">
   <iframe class="frame" src="https://demo.bokehplots.com/apps/crossfilter"></iframe>
 </div>
 
+Select different fields from the dropdowns to query the data along different
+dimensions.
+
 #### BokehJS APIs
 
 Until recently, BokehJS has mostly been an internal implementation detail to
 support the Python (and other language) bindings for Bokeh. But there has
-been interest in developing a BokehJS as a first-class JavaScript library in
+been interest in developing a BokehJS as a compelling JavaScript library in
 its own right. With 0.12 BokehJS now has its own set of APIs:
 [Bokeh.Models](http://bokeh.pydata.org/en/latest/docs/user_guide/bokehjs.html#low-level-models)
 and [Bokeh.Plotting](http://bokeh.pydata.org/en/latest/docs/user_guide/bokehjs.html#bokeh-plotting), which largely follow the corresponding Python APIs, and
 [Bokeh.Charts](http://bokeh.pydata.org/en/latest/docs/user_guide/bokehjs.html#bokeh-charts)
 which is a new API for high-level charts unique to BokehJS.
 
+Below is a small example using *Bokeh.Plotting* and the streaming interface:
 
 <div id="bkjs"></div>
 
-In addition to the new User's Guide section on the BokehJS APIs, there is also
+The code for creating the plot is similar to the Python code for creating a
+comparable plot:
+
+```javascript
+  var plot = plt.figure({
+      tools: "pan,wheel_zoom,save,reset",
+      title: "Streaming Stocks",
+      plot_width: 600,
+      plot_height: 400,
+      background_fill_color: "#eeeeff",
+      x_axis_label: "time",
+      x_axis_type: "datetime",
+      y_axis_label: "price",
+  });
+```
+
+As is the code for streaming data to a data source:
+
+```javascript
+  var t = 8;
+  var period = 0.5; // seconds
+  function new_data() {
+      t += period;
+      var d = {
+          t: [t * 1000],
+          corp_a: [Math.sin(t * 0.3 + 0) * 2 + Math.random() + 3.0],
+          corp_b: [Math.sin(t * 0.5 + 1) * 2 + Math.random() + 3.4],
+          corp_c: [Math.sin(t * 0.7 + 2) * 2 + Math.random() + 3.8],
+      };
+      source.stream(d, 50);
+  }
+  setInterval(new_data, period * 1000);
+```
+
+Besides the new User's Guide section on the BokehJS APIs, there is also
 a new section on [Extending Bokeh](http://bokeh.pydata.org/en/latest/docs/user_guide/extensions.html)
 that contains more information about using BokehJS directly, from the perspective
 of building custom user extensions.
@@ -133,8 +200,6 @@ individuals.
   var period = 0.5; // seconds
   function new_data() {
       t += period;
-      // XXX: explicit type annotation required due to TypeScript#6041.
-      // Remove when TypeScript 2.0 is available.
       var d = {
           t: [t * 1000],
           corp_a: [Math.sin(t * 0.3 + 0) * 2 + Math.random() + 3.0],
