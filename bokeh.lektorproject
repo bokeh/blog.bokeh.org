@@ -1,8 +1,8 @@
 [project]
-name = bokeh-blog
+name = bokeh
 
 [servers.ghpages]
-target = ghpages+https://bokeh/blog
+target = ghpages+https://bokeh/bokeh.github.io
 
 [packages]
 lektor-markdown-highlighter = 0.1
