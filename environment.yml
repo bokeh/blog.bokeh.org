@@ -1,0 +1,10 @@
+name: bokeh_blog
+channels:
+  - asmeurer
+dependencies:
+- python=2
+- bokeh
+- watchdog
+- flask
+- pip:
+  - Lektor
