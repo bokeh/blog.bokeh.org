@@ -2,41 +2,66 @@ title: Bokeh 0.12 Released
 ---
 body:
 
-Bokeh Version ``0.12.0`` is a large release with many new
-improvements:
+
+I'm pleased to announce that Bokeh Version 0.12 has been released. This a large release with many new
+improvements. Before getting into the details, I'd first like to also announce: 
+
+***0.12.x is the last line of releases before Bokeh 1.0***
+
+There will be more to say about the roadmap to 1.0 later this year in a separate blog post, but for now I'll just mention  that the primary focus will be: bugfixes, performance and optimization, build and test automation to support API stability and semantic version, and a very few high-priority remaining features. 
+
+----
+
+The 0.12 release cycle was longer than most Bokeh release cycles. The result is a 
 
 * Responsive layout and styling improvements throughout
 * BokehJS plotting and charts APIs for pure JS dev
 * Legends can be placed outside / next to the central plot area
 * Expanded WebGL support to all markers, fixed webgl bugs
 * New color palettes: Viridis, Magma, Inferno, and Plasma
-* New model types:
-
-  - Arrow, Title, and Label annotations
-  - LogColorMapper for scaled color mapping
-  - FuncTickFormatter for simpler custom ticking
-
+* New types: Arrow, Title, and Label annotations, LogColorMapper, FuncTickFormatter
 * Support for computed transforms (e.g. Jitter) on data columns
-* Documentation improvements:
-
-  - re-done user gude sections for layout
-  - new user guide sections for JS APIs
-  - new user guide sections for custom extensions
-
-* Server features:
-
-  - unlocked callbacks for use with threads
-  - "--num-threads" option for simpler deployment
-  - new index landing page listing installed aps
-
-* UX improvements
-
-  - toolbar moved to the right, and made sticky, by default
-  - left aligned title, closer in, by default
-  - smaller, italic axes labels
-
+* Server features for threading and simpler deployments
 * New hosted demos at https://demo.bokehplots.com
-* Many small bug fixes
+
+#### Layout and Styling
+
+* toolbar moved to the right, and made sticky, by default
+* left aligned title, closer in, by default
+* smaller, italic axes labels
+
+#### New App Examples
+
+Bokeh 0.12 has several new example applications.  Many of these can be viewed at https://demo.bokehplots.com, including the new ``crossfilter`` example, embedded live below:
+
+<style>
+  .wrap { width: 620px; height: 380px; padding: 0; overflow: hidden;}
+  .frame { width: 1280px; height: 786px; border: 1px solid black}
+
+  .frame {
+    // zoom: 0.6;
+    -moz-transform: scale(0.6);
+    -moz-transform-origin: 0 0;
+    -o-transform: scale(0.6);
+    -o-transform-origin: 0 0;
+    -webkit-transform: scale(0.6);
+    -webkit-transform-origin: 0 0;
+}
+</style>
+
+<div class="wrap">
+  <iframe class="frame" src="https://demo.bokehplots.com/apps/crossfilter"></iframe>
+</div>
+
+#### BokehJS APIs 
+
+
+----
+
+Finally, I would just like to say Thank You to all the core contributors, new contributors, and the Bokeh community at large, for helping to make Bokeh the success that it is today. 
+
+<script type="text/javascript" src="http://cdn.pydata.org/bokeh/release/bokeh-0.12.0.min.js"</script>
+
 ---
 author: Bryan Van de Ven
 ---
