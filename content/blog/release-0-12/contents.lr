@@ -10,8 +10,6 @@ improvements. Before getting into the details, I'd first like to also announce:
 
 There will be more to say about the roadmap to 1.0 later this year in a separate blog post, but for now I'll just mention  that the primary focus will be: bugfixes, performance and optimization, build and test automation to support API stability and semantic version, and a very few high-priority remaining features. 
 
-----
-
 The 0.12 release cycle was longer than most Bokeh release cycles. The result is a 
 
 * Responsive layout and styling improvements throughout
@@ -39,7 +37,6 @@ Bokeh 0.12 has several new example applications.  Many of these can be viewed at
   .frame { width: 1280px; height: 786px; border: 1px solid black}
 
   .frame {
-    // zoom: 0.6;
     -moz-transform: scale(0.6);
     -moz-transform-origin: 0 0;
     -o-transform: scale(0.6);
@@ -56,12 +53,61 @@ Bokeh 0.12 has several new example applications.  Many of these can be viewed at
 #### BokehJS APIs 
 
 
-----
-
 Finally, I would just like to say Thank You to all the core contributors, new contributors, and the Bokeh community at large, for helping to make Bokeh the success that it is today. 
 
 <script type="text/javascript" src="http://cdn.pydata.org/bokeh/release/bokeh-0.12.0.min.js"</script>
-
+<script>
+console.log("FOOOOOO")
+var plt = Bokeh.Plotting;
+var pie_data = {
+  labels: ['Work', 'Eat', 'Commute', 'Sport', 'Watch TV', 'Sleep'],
+  values: [8, 2, 2, 4, 0, 8],
+};
+var p11 = Bokeh.Charts.pie(pie_data);
+var p12 = Bokeh.Charts.pie(pie_data, {
+  inner_radius: 0.2,
+  start_angle: Math.PI / 2
+});
+var p13 = Bokeh.Charts.pie(pie_data, {
+  inner_radius: 0.2,
+  start_angle: Math.PI / 6,
+  end_angle: 5 * Math.PI / 6
+});
+var p14 = Bokeh.Charts.pie(pie_data, {
+  inner_radius: 0.2,
+  palette: "Oranges9",
+  slice_labels: "percentages"
+});
+var bar_data = [
+  ['City', '2010 Population', '2000 Population'],
+  ['New York City, NY', 8175000, 8008000],
+  ['Los Angeles, CA', 3792000, 3694000],
+  ['Chicago, IL', 2695000, 2896000],
+  ['Houston, TX', 2099000, 1953000],
+  ['Philadelphia, PA', 1526000, 1517000],
+];
+var p21 = Bokeh.Charts.bar(bar_data, {
+  axis_number_format: "0.[00]a"
+});
+var p22 = Bokeh.Charts.bar(bar_data, {
+  axis_number_format: "0.[00]a",
+  stacked: true
+});
+var p23 = Bokeh.Charts.bar(bar_data, {
+  axis_number_format: "0.[00]a",
+  orientation: "vertical"
+});
+var p24 = Bokeh.Charts.bar(bar_data, {
+  axis_number_format: "0.[00]a",
+  orientation: "vertical",
+  stacked: true
+});
+var plots = [
+  [p11, p12, p13, p14],
+  [p21, p22, p23, p24],
+];
+plt.show(plt.gridplot(plots));
+</script>
 ---
 author: Bryan Van de Ven
 ---
