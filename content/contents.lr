@@ -3,7 +3,7 @@ title: Welcome
 body:
 
 <section class="site-header">
-  <div><img class="header-logo" src="/images/logo.png">
+  <div><img class="header-logo" src="/images/logo.svg">
   <h2 class="title">The Bokeh Organization</h2></div>
 </section>
 
@@ -25,20 +25,20 @@ body:
 
         <li class="talk-header">
             <a href="http://bokeh.pydata.org/en/latest/">Bokeh</a>:
-            Core library&mdash;BokehJS, Python Bindings, and Bokeh Server
+            Core library&mdash;BokehJS client library, Python bindings, and Bokeh Server
         </li>
             <li class="talk-header">
             <a href="http://hafen.github.io/rbokeh/">rBokeh</a>:
-                R Bindings for BokehJS
+                R bindings for BokehJS
             </li>
             <li class="talk-header">
                 <a href="https://github.com/bokeh/bokeh-scala">bokeh-scala</a>:
-                Scala Bindings for BokehJS
+                Scala bindings for BokehJS
             </li>
             <li class="talk-header">
                 <a href="http://datashader.readthedocs.io/en/latest/">Datashader</a>:
-                A graphics pipeline visual query system for creating meaningful representations from
-                large data sets.
+                A graphics pipeline and visual query system for creating meaningful
+                visual representations from large data sets.
             </li>
         </ul>
     </div>

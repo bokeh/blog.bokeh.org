@@ -82,6 +82,15 @@ pre {
   padding: 15px 20px;
 }
 
+div.about {
+  p {
+    display: block;
+    text-align: justify;
+    text-justify: inter-word;
+    font-size: 0.8em;
+  }
+}
+
 div.slideshow-wrapper {
   overflow: hidden;
 }
@@ -164,6 +173,8 @@ div.pagination {
 div.blog-snippet {
   line-height: 1.6;
   margin: 25px 0;
+  text-align: justify;
+  text-justify: inter-word;
 
   h2, p {
     line-height: 1.6;
