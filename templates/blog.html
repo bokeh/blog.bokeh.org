@@ -1,12 +1,28 @@
-{% extends "layout.html" %}
-{% from "macros/blog.html" import render_blog_post, title_date_link %}
+{% extends "blog-layout.html" %}
 {% from "macros/pagination.html" import render_pagination %}
-{% block title %}{{ this.title }}{% endblock %}
-{% block body %}
-  <h2> Blog </h2>
-  {% for child in this.pagination.items %}
-
-    {{ title_date_link(child) }}
+{% block title %}Autofocus{% endblock %}
+  {% block blog_body %}
+  <h1>Autofocus</h1>
+  {% for post in this.pagination.items %}
+  <div class="blog-snippet">
+    <h2><a href="{{ post|url }}">{{ post.title }}</a></h2>
+    <p class="summary">
+      {{ post.summary }}
+      <a class="more" href="{{ post|url }}">Read more …</a>
+    <p class="meta">
+      by
+      {% if post.twitter_handle %}
+        <a href="https://twitter.com/{{ post.twitter_handle }}">{{
+          post.author or post.twitter_handle }}</a>
+      {% else %}
+        {{ post.author }}
+      {% endif %}
+      on {{ post.pub_date|dateformat }}
+    </p>
+  </div>
   {% endfor %}
 
+  {% if this.pagination.pages > 1 %}
+    {{ render_pagination(this.pagination) }}
+  {% endif %}
 {% endblock %}

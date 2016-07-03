@@ -1,12 +1,20 @@
+title: Bokeh 0.12 Released
+---
+summary:
+
+Bokeh 0.12 is released, bringing JavaScript APIs, improved layout capabilities,
+new annotations, increased WebGL support, and more.
+---
+pub_date: 2016-06-28
+---
 author: Bryan Van de Ven
 ---
 twitter_handle: bigreddot
 ---
-pub_date: 2016-06-28
----
-title: Bokeh 0.12 Released
----
 body:
+
+#### text-block ####
+text:
 
 <style>
   .wrap { width: 620px; height: 380px; margin: 15px; overflow: hidden;}
@@ -38,7 +46,7 @@ bugfixes, performance and optimization, build and test automation to
 support API stability and semantic versioning, and a few high-priority
 remaining features.
 
-----
+-----
 
 The 0.12 release cycle was longer than most Bokeh release cycles. We plan
 to move to a time-based schedule in the near future, with more incremental
@@ -64,11 +72,11 @@ This release can most easily be installed in the usual ways:
 ``conda install bokeh`` if you are using [Anaconda](https://www.continuum.io/downloads)
 or ``pip install bokeh`` otherwise.
 
-----
+-----
 
 Here are some details about a few of these areas of improvement.
 
-#### Layout and Styling
+## Layout and Styling
 
 One of the primary focus areas of this release cycle was a major overhaul
 to the way Bokeh lays out documents and components. Some of the new
@@ -108,7 +116,7 @@ NOTE: In order to accomplish this undertaking, some old interfaces had to be
 deprecated and two small breaking changes introduced. For full details,
 consult the [Migration Guide](http://bokeh.pydata.org/en/latest/docs/releases/0.12.0.html#migration-guide).
 
-#### Bokeh App Improvements and Examples
+## Bokeh App Improvements and Examples
 
 In addition to the layout improvements, a number of fixes and features directly
 related the the Bokeh server were made. This includes better support for using
@@ -126,7 +134,7 @@ embedded live below:
 Select different fields from the dropdowns to query the data along different
 dimensions.
 
-#### BokehJS APIs
+## BokehJS APIs
 
 Until recently, BokehJS has mostly been an internal implementation detail to
 support the Python (and other language) bindings for Bokeh. But there has
@@ -180,7 +188,7 @@ a new section on [Extending Bokeh](http://bokeh.pydata.org/en/latest/docs/user_g
 that contains more information about using BokehJS directly, from the perspective
 of building custom user extensions.
 
-----
+-----
 
 Finally, I would just like to say **Thank You** to all the core contributors,
 new contributors, and the Bokeh community at large. Bokeh is the success that
@@ -240,3 +248,6 @@ individuals.
   // show the plot
   plt.show(plot, "#bkjs");
 </script>
+
+----
+class: default

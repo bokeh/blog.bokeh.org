@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="{{ '/static/normalize.css'|url }}">
 <link rel="stylesheet" href="{{ '/static/skeleton.css'|url }}">
 <link rel="stylesheet" href="{{ '/static/style.css'|url }}">
+<link rel="stylesheet" href="{{ '/static/gen/styles.css'|url }}">
 <link rel="stylesheet" href="{{ '/static/custom.css'|url }}">
 <link rel="stylesheet" href="{{ get_pygments_stylesheet()|url }}">
 
@@ -18,7 +19,7 @@
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
 
-<title>{% block title %}Welcome{% endblock %} — Bokeh-Blog</title>
+<title>{% block title %}Welcome{% endblock %} | Bokeh Org</title>
 
 <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-0.12.0.min.js"></script>
 
@@ -29,21 +30,49 @@
       <div class="container">
         <ul class="navbar-list">
             <li class="navbar-item"><a class="navbar-link" href="/">Home</a></li>
+            <li class="navbar-item"><a class="navbar-link" href="http://bokeh.pydata.org/en/latest">Documentation</a></li>
             <li class="navbar-item"><a class="navbar-link" href="/blog">Blog</a></li>
         </ul>
       </div>
     </nav>
 
-    <div class="container">
+    <div class="body-wrapper">
+      {% block outerbody %}
+      <div class="container">
+        {% block body %}{% endblock %}
+      </div>
+      {% endblock %}
+    </div>
 
+    {% block bottomsummary %}
+    <div class="bottomsummary">
+      <div class="container">
+      </div>
+    </div>
+    {% endblock %}
+
+    {% block footer %}
+    <footer>
+      <div class="container">
         <div class="row">
-            <div class="three columns" style="margin-top: 5%">
-                &nbsp;
-            </div>
-
-     <div class="eleven columns"  style="margin-top: 5%">
-       {% block body %}{% endblock %}
-     </div>
+          <div class="four columns icon-bar">
+            <a href="https://github.com/bokeh/bokeh/" title="Bokeh on GitHub"
+              ><i class="fa fa-github"></i></a>
+            <a href="https://github.com/bokeh/bokeh/issues/" title="Report Issues for Bokeh"
+              ><i class="fa fa-bug"></i></a>
+            <a href="https://twitter.com/BokehPlots" title="Find Bokeh on Twitter"
+              ><i class="fa fa-twitter"></i></a>
+            <a href="https://gitter.im/bokeh/bokeh" title="Chat on Gitter"
+              ><i class="fa fa-comment"></i></a>
+            {%- if this.path %}
+            <a href="https://github.com/bokeh/bokeh.github.io/tree/master/content{{ this.path.split('@')[0]
+              }}/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+            {%- endif %}
+          </div>
+        </div>
+      </div>
+    </footer>
+    {% endblock %}
 
 <!-- JS
 ================================================== -->

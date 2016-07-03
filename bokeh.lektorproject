@@ -6,3 +6,4 @@ target = ghpages+https://bokeh/bokeh.github.io
 
 [packages]
 lektor-markdown-highlighter = 0.1
+lektor-webpack-support = 0.1

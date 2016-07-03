@@ -146,10 +146,6 @@ font-style:italic;
 margin: 4% 1% 0 0;
 }
 
-h3 {
-font-family: 'Raleway', cursive;
-}
-
 .site-icon{
 margin: 0.5%;
 width: 7%;
@@ -180,7 +176,8 @@ margin-bottom:0px;
 margin-top:5px;
 bottom:0px;
 width:100%;
-background:white;
+z-index: 10000;
+background: #444;
 position:fixed;
 }
 
@@ -459,3 +456,5 @@ font-weight: 400;
   .popover-item:first-child .popover-link:hover:after {
     border-bottom-color: #23A1E4; }
 }
+
+
