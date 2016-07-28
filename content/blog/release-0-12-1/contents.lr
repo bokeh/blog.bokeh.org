@@ -1,0 +1,161 @@
+title: Bokeh 0.12.1 Released
+---
+summary:
+
+Bokeh 0.12.1 is released, bringing new glyphs, efficient partial updates
+for data soruces, a simple way to toggle glyphs on and off, and several
+bugfixes.
+---
+pub_date: 2016-06-28
+---
+author: Bryan Van de Ven
+---
+twitter_handle: bigreddot
+---
+body:
+
+#### text-block ####
+text:
+
+
+I'm pleased to announce that Bokeh Version 0.12.1 has been released! This is
+a minor, incremental update that adds a few new small features and fixes several
+bugs. Some of the highlights include:
+
+* Add ``.patch`` method to ``ColumnDataSource`` for efficient partial updates.
+* Add ``.visible`` property to all glyphs for easy on/off capability.
+* Add qualitative Brewer colormapps to ``bokeh.palettes``.
+* Add new ``VBar`` and ``HBar`` glyph types.
+* Update BokehJS to use use RBush 2.0.1 for more efficient spatial indexing.
+* Restore ``ResizeTool`` functionality for simple layouts.
+* Fix Windows support for conda build, docs build, and running unit tests.
+* Fix a bug in the HTML template for ``autoload_server`` causing incorrect layouts.
+* Fix a bug in the toolbar CSS, causing it to interfere with hit testing and selection.
+* Fix WebGL support for Safari, and WebGL bug affecting line thickness.
+* Fix intermittent issues with BokehJS loading in Jupyter notebooks.
+
+-----
+
+For full details, see the [CHANGELOG](https://github.com/bokeh/bokeh/blob/0.12.1/CHANGELOG)
+and [Release Notes](http://bokeh.pydata.org/en/latest/docs/releases/0.12.1.html).
+
+This release can most easily be installed in the usual ways:
+``conda install bokeh`` if you are using [Anaconda](https://www.continuum.io/downloads)
+or ``pip install bokeh`` otherwise.
+
+-----
+
+#### Glyph ``visible`` property
+
+An often requested feature is a simpler way to toggle glyph visibility on and
+off. This is now possible to do by setting the ``.visible`` property of a
+glyph renderer to ``True`` or ``False``. This property can be used in Bokeh
+Applications as well as in standalone documents that utilize ``CustomJS``
+callbacks. Here is an example of the latter:
+
+```python
+from numpy import linspace, sin, cos
+from bokeh.io import output_file, show
+from bokeh.layouts import row
+from bokeh.plotting import figure
+from bokeh.models import CheckboxGroup, CustomJS
+
+output_file("line_on_off.html")
+
+x = linspace(0, 10, 100)
+
+p = figure(plot_width=500, plot_height=300)
+l0 = p.line(x, sin(x), color="firebrick", legend="line 0", line_width=4)
+l1 = p.line(x, cos(x), color="navy", legend="line 1", line_width=4)
+p.legend.location = "bottom_left"
+
+checkbox = CheckboxGroup(labels=["line 0", "line 1"], active=[0, 1], width=100)
+checkbox.callback = CustomJS(args=dict(l0=l0, l1=l1, checkbox=checkbox), code="""
+l0.visible = 0 in checkbox.active;
+l1.visible = 1 in checkbox.active;
+""")
+
+show(row(checkbox, p))
+```
+
+Running the script generates the plot below. Click the checkbox to toggle
+the different lines on and off:
+
+<div class="bk-root">
+
+  <script
+      src="on_off.js"
+      id="c0de583f-da1b-4c14-ba8e-9394360fa861"
+      data-bokeh-model-id="e0726c48-cc3d-4119-a534-d8b7575b9101"
+      data-bokeh-doc-id="37ef83f8-2be4-42d5-9836-4b749a73af07"
+  ></script>
+
+</div>
+
+You can see an example of using this in a Bokeh application in the
+[line_on_off.py demo](https://github.com/bokeh/bokeh/blob/0.12.1/examples/app/line_on_off.py)
+in the GitHub repository.
+
+In a future release, this groundwork will enable toggling directly through
+interactive legends.
+
+#### Patching for ColumnDataSource
+
+One of the fundamental features of Bokeh Applications is that they
+automatically keep Python objects and JavaScript objects in sync. This makes
+it easy to write simple python scripts that respond to user events or
+interactions to update the application in the browser. But there is room for
+optimization in some cases. Bokeh already provides ``stream`` method for
+efficiently streaming new data to the end of ``ColumnDataSource`` columns.
+See the [OHLC demo](https://github.com/bokeh/bokeh/tree/0.12.1/examples/app/ohlc)
+for one example of streaming.
+
+Another place where optimization can help is when only a few  individual values
+in a large ``ColumnDataSource`` need updating. Previously, this required
+re-sending the entire data set, but now there is a new ``patch`` method that
+can make these sorts of updates much more efficent. The ``patch`` method is
+called with a dictionary that specifies a list of ``(index, newval)`` tuples
+for any columns in the data source:
+
+```python
+source.patch(dict(
+    x=[(index, newval), (index, newval), ...]
+    y=[(index, newval), ...],
+    ...
+))
+```
+
+When used to update individual elements in columns, ``patch`` only sends the
+specified updated values over the network.
+
+
+#### WebGL support for Safari
+
+With the `0.12` release, WebGL support in Bokeh was extended to a number of
+new glyph types. However, WebGL support also suffered a major problem: an
+obscure bug prevented it from
+
+<div class="bk-root">
+
+  <script
+      src="webgl.js"
+      id="e469eaf5-9a34-4297-9544-9f88adbdb27a"
+      data-bokeh-model-id="85f9da2c-176e-4a6a-9cce-36e1cb0c1692"
+      data-bokeh-doc-id="7bf066ff-f61c-4888-8dd2-5c61e54da4e9"
+  ></script>
+
+</div>
+
+-----
+
+Finally, I would just like to say **Thank You** to all the new contributors.
+There was a terrific group of SciPy sprinters: Julia Signell, Sarah Heim,
+Tim Snyder, Steven Howell, Andrea Erlund, and Eric Ma. And other recent
+contributions have come from: Nikola Hardi, John Dimattio, James Guillochon,
+Chris Coutinho, and Brigita Sipocz. (Apologies to anyone I have unintentionally
+left off.) Individual contributions such as these help move Bokeh development
+faster than could otherwise be possible, and are *always* welcome!
+
+
+----
+class: default
