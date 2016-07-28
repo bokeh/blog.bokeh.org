@@ -16,6 +16,8 @@ body:
 #### text-block ####
 text:
 
+<link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-0.12.0.min.css">
+
 <style>
   .wrap { width: 620px; height: 380px; margin: 15px; overflow: hidden;}
   .frame { width: 1280px; height: 786px; border: none}
@@ -194,6 +196,8 @@ Finally, I would just like to say **Thank You** to all the core contributors,
 new contributors, and the Bokeh community at large. Bokeh is the success that
 it is today only because of the tremendous work and feedback from so many
 individuals.
+
+<script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-0.12.0.min.js"></script>
 
 <script>
   var plt = Bokeh.Plotting;
