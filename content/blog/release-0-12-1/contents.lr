@@ -70,7 +70,8 @@ l1 = p.line(x, cos(x), color="navy", legend="line 1", line_width=4)
 p.legend.location = "bottom_left"
 
 checkbox = CheckboxGroup(labels=["line 0", "line 1"], active=[0, 1], width=100)
-checkbox.callback = CustomJS(args=dict(l0=l0, l1=l1, checkbox=checkbox), code="""
+checkbox.callback = CustomJS(args=dict(l0=l0, l1=l1, checkbox=checkbox),
+                             lang="coffeescript", code="""
 l0.visible = 0 in checkbox.active;
 l1.visible = 1 in checkbox.active;
 """)
