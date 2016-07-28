@@ -134,9 +134,9 @@ specified updated values over the network.
 With the `0.12` release, WebGL support in Bokeh was extended to a number of
 new glyph types. However, WebGL support also suffered a major problem: an
 obscure bug prevented it from working on Safari. We were finally able to
-connect Almar Klein to laptop that could use for debugging, and he squashed
-the bug in short order. As an example, you can see the plot below with
-10,000 points panning and zooming smoothly on all platforms:
+connect Almar Klein to a real Mac laptop to use for debugging, and then he
+squashed the bug in short order. As an example, you can see the plot below
+with 10,000 points panning and zooming smoothly on all platforms:
 
 <div class="bk-root">
 
