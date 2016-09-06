@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         return false;
       }
     
-      var js_urls = ['https://cdn.pydata.org/bokeh/release/bokeh-0.12.2.min.js', 'https://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.2.min.js', 'https://cdn.pydata.org/bokeh/release/bokeh-compiler-0.12.2.min.js'];
+      var js_urls = ['https://cdn.pydata.org/bokeh/release/bokeh-0.12.2.min.js'];
     
       var inline_js = [
         function(Bokeh) {
