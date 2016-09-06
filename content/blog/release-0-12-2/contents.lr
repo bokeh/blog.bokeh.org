@@ -36,6 +36,12 @@ visualizations that offers Bokeh as a back-end:
 [blog post](https://www.continuum.io/blog/developer-blog/introducing-geoviews)
 that's a worthwhile read.
 
+Finally, we'd like to share a fun Bokeh visualization from Megan Bedell,
+an astronomy doctoral student at University of Chicago. On her academic page,
+she has plot of exoplanet compositions and masses versus radii with elements
+that link to the planetary system's page at www.openexoplanetcatalogue.com/
+when clicked. So cool!
+
 -----
 
 For full details, see the [CHANGELOG](https://github.com/bokeh/bokeh/blob/0.12.2/CHANGELOG)
