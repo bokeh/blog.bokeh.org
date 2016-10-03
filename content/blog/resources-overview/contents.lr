@@ -23,7 +23,10 @@ Recently, [@birdsarah](https://twitter.com/birdsarah) and I have given a few Bok
 
 The [Main Project Documentation Page](http://bokeh.pydata.org/en/latest) is always a good place to start. It has links to many other resources, but to help make navigating the docs easier, here are some shortcuts:
 
-* [User's Guide](http://bokeh.pydata.org/en/latest/docs/user_guide.html) &mdash;
+-----
+
+##### [User's Guide](http://bokeh.pydata.org/en/latest/docs/user_guide.html)
+
 The user's guide has many topic-oriented subsections, for example
  - [Plotting with Basic Glyphs](http://bokeh.pydata.org/en/latest/docs/user_guide/plotting.html)
  - [Adding Interactions](http://bokeh.pydata.org/en/latest/docs/user_guide/interaction.html)
@@ -32,13 +35,22 @@ The user's guide has many topic-oriented subsections, for example
 
  And many others. Each user's guide section typically example code and corresponding live plots that demomnstrate how to accomplish various tasks.
 
-* [Gallery](http://bokeh.pydata.org/en/latest/docs/gallery.html) &mdash;
+-----
+
+##### [Gallery](http://bokeh.pydata.org/en/latest/docs/gallery.html)
+
 One of the best ways to learn is to find an existing example similar to what you want, and to study it and then use it as a starting place. Starting from a known working example can often save time and effort when getting started by allowing you to make small, incremental changes and observing the outcome. The Bokeh docs have a large thumbnail gallery that links to live plots and apps with corresponding code.
 
-* [Reference Guide](http://bokeh.pydata.org/en/latest/docs/reference.html) &mdash;
+-----
+
+##### [Reference Guide](http://bokeh.pydata.org/en/latest/docs/reference.html)
+
 If you are already familiar with Bokeh and have questions about specific details of the objects you are already using, the reference guide is a good resource for finding information. The reference guide is automatically generated from the project source code and is a complete resources for all Bokeh models and their properties.
 
-* [Search page](http://bokeh.pydata.org/en/latest/search.html) &mdash;
+-----
+
+##### [Search page](http://bokeh.pydata.org/en/latest/search.html)
+
 If you want to search the Bokeh docs, the search page on the site is the best place. General web searches can sometime return results for old versions or out of date information. The site search always returns information for the latest version, and results for any older versions in separate tabs.
 
 ### Example Applications and Scripts
