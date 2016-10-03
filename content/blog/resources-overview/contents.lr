@@ -18,12 +18,12 @@ text:
 
 Recently, [@birdsarah](https://twitter.com/birdsarah) and I have given a few Bokeh talks and tutorials. As part of that, we recently updated the ["Additional Resources" notebook](http://nbviewer.jupyter.org/github/bokeh/bokeh-notebooks/blob/master/tutorial/A1%20-%20Extra%20Resources.ipynb). It seemed like a good idea to collect and expand upon that information here, to provide a quick guide to getting around.
 
+-----
 
 ### Documentation
 
 The [Main Project Documentation Page](http://bokeh.pydata.org/en/latest) is always a good place to start. It has links to many other resources, but to help make navigating the docs easier, here are some shortcuts:
 
------
 
 ##### [User's Guide](http://bokeh.pydata.org/en/latest/docs/user_guide.html)
 
@@ -35,23 +35,21 @@ The user's guide has many topic-oriented subsections, for example
 
  And many others. Each user's guide section typically example code and corresponding live plots that demomnstrate how to accomplish various tasks.
 
------
 
 ##### [Gallery](http://bokeh.pydata.org/en/latest/docs/gallery.html)
 
 One of the best ways to learn is to find an existing example similar to what you want, and to study it and then use it as a starting place. Starting from a known working example can often save time and effort when getting started by allowing you to make small, incremental changes and observing the outcome. The Bokeh docs have a large thumbnail gallery that links to live plots and apps with corresponding code.
 
------
 
 ##### [Reference Guide](http://bokeh.pydata.org/en/latest/docs/reference.html)
 
 If you are already familiar with Bokeh and have questions about specific details of the objects you are already using, the reference guide is a good resource for finding information. The reference guide is automatically generated from the project source code and is a complete resources for all Bokeh models and their properties.
 
------
-
 ##### [Search page](http://bokeh.pydata.org/en/latest/search.html)
 
 If you want to search the Bokeh docs, the search page on the site is the best place. General web searches can sometime return results for old versions or out of date information. The site search always returns information for the latest version, and results for any older versions in separate tabs.
+
+-----
 
 ### Example Applications and Scripts
 
@@ -90,20 +88,27 @@ A good place to start with for questions (especially for related projects such a
 
 In any of these places, if you happen to know the answer to a question, please take a little time to post it! There are a finite number of hours in a day, so as the number of users grows, the only sustainable path for "getting answers" is to have more people *providing answers*.
 
+-----
+
 ### Project Development
 
 From filing bug and feature issues, helping with documentation and small bugfixes, or diving into more involved development, the long-term success of the Bokeh project relies on having an engaged and active community tending to it. Here are some resources to help get involved with helping the project:
 
-* [Source code](https://github.com/bokeh/bokeh) &mdash;
+##### [Source code](https://github.com/bokeh/bokeh)
+
 Go here to clone the GitHub repo (in order to contribute or get the examples), or to submit issues to the issue tracker
 
-* [Issue tracker](https://github.com/bokeh/bokeh/issues) &mdash;
+##### [Issue tracker](https://github.com/bokeh/bokeh/issues)
+
 The GitHub issue tracker is the place to go to submit bug reports and feature requests. For bug reports, always include *as much information as possible*, including: version and platform details, a thorough descriptions, and ***most importantly*** a minimal, complete, runnable example to reproduce the issue. More than anything else, this will help to have the issue looked at promptly.
 
   ***NOTE:*** *The issue tracker is **not** an appropriate place to go for general support questions.* For those, see the "General Community Support" links above.
 
-* [Developer's Guide](http://bokeh.pydata.org/en/latest/docs/dev_guide.html) &mdash;
+##### [Developer's Guide](http://bokeh.pydata.org/en/latest/docs/dev_guide.html)
+
 If you are interesting in becoming a contributor to Bokeh, the developer's guide is the place to start. It has information about getting a development environment set up, the library architecture, writing and running tests, and more.
+
+-----
 
 ----
 class: default
