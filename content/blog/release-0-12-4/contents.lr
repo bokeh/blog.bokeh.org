@@ -193,7 +193,7 @@ Even more fixes and improvements to log plotting are on the way.
 
 #### What's Next?
 
-A lot of the older, or "bigger vision" tasks have getting put to rest.
+A lot of the older (or "bigger vision") tasks are getting put to rest.
 There is still plenty to do, but it's time to focus on a few remaining features, polishing, and stabilizing.
 With that in mind, I expect the `0.12.5` release notes to look something like:
 
