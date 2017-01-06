@@ -65,9 +65,9 @@ Since the project's start, Bokeh has taken a fairly straightforward approach to 
 With Bokeh applications, this also happens to happen over a websocket, but it's still the same JSON mechanism, with the same associated overhead.
 For many common use cases this works just fine, but when the data starts to grow larger (for example when dealing with data for images where the size grows as N<sup>2</sup>), this overhead becomes noticeable.
 
-For a long time we have wanted to investigate the use of a binary encoding for arrays, to help improve the performance of serializing array data.
+For a long time we have wanted to investigate the use of a binary encoding for arrays, to help improve the performance of serialization.
 I am happy to say that this task has been accomplished, thanks to the great work of **Philipp Rudigger**, who is also a core contributor to the [Holoviews](http://holoviews.org/) project.
-As a result of Phillip's effort, integer and floating point column data source arrays are now automatically serialized using a binary format.
+As a result of Philipp's effort, integer and floating point column data source arrays are now automatically serialized using a binary format.
 Encoding this way is already more efficient by itself, but it also means that BokehJS can now ingest data directly into JavaScript typed arrays, another efficiency improvement.
 
 One quick as easy benchmark compares the time to render images of differnet sizes using the old and new code:
@@ -83,7 +83,7 @@ One quick as easy benchmark compares the time to render images of differnet size
 <center>
 </div>
 
-As can be seen, things could get ***really*** bad for image sizes above 500x500. The new encoding reduces the time to display drastically.
+As can be seen, things could get ***really*** bad for image sizes above 500x500. The new binary encoding reduces the time to display drastically.
 
 Finally, during the course of implementing this, Philip also discovered that the internal logic that prevents Bokeh app events from "boomeranging" between the client and server could be greatly simplified.
 This opened up even more opportunity for performance improvement.
@@ -177,7 +177,7 @@ Of course, these proprties work with the new `js_on_change` feature introduced a
 
 Basic log plot capability was added on early in Bokeh's history.
 But it has not seen much attention since then.
-Recently, more users have been asking for improvements to log plotting, so recent contributor **Claire Tang tore** through a whole pile of issues related to log plots:
+Recently, more users have been asking for improvements to log plotting, so recent contributor **Claire Tang** tore through a whole pile of issues related to log plots:
 
 * [#2789&mdash;Range padding possibly discards the log axis properties](https://github.com/bokeh/bokeh/issues/2789)
 
@@ -207,9 +207,9 @@ With that in mind, I expect the `0.12.5` release notes to look something like:
 
 For more details, see the current [`0.12.5` Milestone on GitHub](https://github.com/bokeh/bokeh/milestone/29) or the larger [Roadmap Document](http://bokehplots.com/pages/roadmap.html).
 These are not set in stone, and may certainly change.
-We do welcome feedback and discussion to help shape priorities.
+We do welcome feedback and discussion to help shape and set priorities.
 
-As always, with more help, we can get more done, more quickly.
+Of course, with more help, we can get more done, more quickly.
 So please consider [getting involved](http://bokehplots.com/pages/contribute.html).
 
 -----
