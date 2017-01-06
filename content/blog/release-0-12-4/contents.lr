@@ -158,7 +158,7 @@ Check out the [`bokeh.core`](http://bokeh.pydata.org/en/latest/docs/reference/co
 
 #### Client-side Read-only Properties
 
-Another long-requested feature (by the [Holoviews](http://holoviews.org) and [Datashader](http://datashader.readthedocs.io/en/latest/) project and other) is the ability to determine and respond to the "inner" dimensions on a plot.
+Another long-requested feature (by the [Holoviews](http://holoviews.org) and [Datashader](http://datashader.readthedocs.io/en/latest/) project and others) is the ability to determine and respond to the "inner" dimensions on a plot.
 
 <div class="image"><center><img src="innerdims.png"></center></div>
 
@@ -192,6 +192,10 @@ Recently, more users have been asking for improvements to log plotting, so recen
 Even more fixes and improvements to log plotting are on the way.
 
 #### What's Next?
+
+A lot of the older, or "bigger vision" tasks have getting put to rest.
+There is still plenty to do, but it's time to focus on a few remaining features, polishing, and stabilizing.
+With that in mind, I expect the `0.12.5` release notes to look something like:
 
 * Fix lingering issues with layouts, changing `Document` children, and custom extensions
 * Add a new interactive legend capability for muting or hiding glyphs
