@@ -178,15 +178,15 @@ Of course, these properties work with the new `js_on_change` feature introduced 
 Basic log plot capability was added on early in Bokeh's history, but has not seen much attention since then.
 Recently, more users have been asking for improvements to log plotting, so recent contributor **Claire Tang** tore through a whole pile of issues related to log plots:
 
-* [#2789&mdash;Range padding possibly discards the log axis properties](https://github.com/bokeh/bokeh/issues/2789)
+[#2789&mdash;Range padding possibly discards the log axis properties](https://github.com/bokeh/bokeh/issues/2789)
 
-* [#3834&mdash;Plot is empty when log scale is used](https://github.com/bokeh/bokeh/issues/3834)
+[#3834&mdash;Plot is empty when log scale is used](https://github.com/bokeh/bokeh/issues/3834)
 
-* [#5389&mdash;Creating a line plot with `x_axis_type='log'` fails when `x_max < 1`](https://github.com/bokeh/bokeh/issues/5389)
+[#5389&mdash;Creating a line plot with `x_axis_type='log'` fails when `x_max < 1`](https://github.com/bokeh/bokeh/issues/5389)
 
-* [#5549&mdash;Correctly handle data values <= 0 on a log scale](https://github.com/bokeh/bokeh/issues/5549)
+[#5549&mdash;Correctly handle data values <= 0 on a log scale](https://github.com/bokeh/bokeh/issues/5549)
 
-* [#5576&mdash;Initial range calculation for log plots can cause empty plots](https://github.com/bokeh/bokeh/issues/5576)
+[#5576&mdash;Initial range calculation for log plots can cause empty plots](https://github.com/bokeh/bokeh/issues/5576)
 
 Even more fixes and improvements to log plotting are on the way.
 
