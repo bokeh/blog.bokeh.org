@@ -162,16 +162,18 @@ Another long-requested feature (by the [Holoviews](http://holoviews.org) and [Da
 
 <div class="image"><center><img src="innerdims.png"></center></div>
 
-The main obstacle to implementing this was the lack of a mechanism for "read-only" properties, properties that are only able to be set from BokehJS, in the browser.
+The main obstacle to implementing this was the lack of a mechanism for "read-only" properties, which is to say, properties that are only able to be set from BokehJS, in the browser.
 The inner dimensions of a plot, determined on the fly by the BokehJS layout machinery, are just like this.
-**Mateusz Paprocki** implemented a mechanism for client-only properties in general, that can be used with with `on_change` callbacks just like any other properties.
+**Mateusz Paprocki** implemented a mechanism for client-only properties in general, that can be used with with `on_change` callbacks in Bokeh applications, just like any other properties.
 The first two such properties added were `inner_width` and `inner_height`, on plots:
 
 ```python
 p.on_change("inner_width", some_callback)
 p.on_change("inner_height", some_callback)
 ```
-Of course, these properties work with the new `js_on_change` feature introduced above, as well.
+
+As a reminder, `on_change` style callbacks require a Bokeh server.
+However, these properties work in any situation with the new `js_on_change` feature introduced above, as well.
 
 #### Improvements to Log Plotting
 
