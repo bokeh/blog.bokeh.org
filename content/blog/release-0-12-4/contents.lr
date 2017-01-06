@@ -98,6 +98,13 @@ After Philip's changes, the execution handling each event is clearly separated:
 
 #### General JS Callbacks
 
+Early on, when we were still sorting out the vision and kinks of the Bokeh server, the capability to add little snippets of JavaScript was added to afford people more possibilities for rich interactions.
+Until now, these points were `CustomJS` callbacks could be user were added in an ad-hoc fashion, often as a `callback` property on some Bokeh model.
+For instance, column data sources have a `callback` property that can trigger a JavaScript callback whenever a selection is made.
+This mechanism proved popular, with user's wanting to put `CustomJS` callbacks... basically everywhere.
+It's time to make a more solid, generalized means for adding these callbacks.
+Now `CustomJS` callbacks can be added to any property of any Bokeh model, using the `js_on_change` method:
+
 ```python
 callback = CustomJS(args=dict(source=source), code="""
     x0 = cb_obj.start;
@@ -128,7 +135,7 @@ With this code, we can make a simple plot with a `CustomJS` callback that update
 Of course, you might have more interesting real-world use-cases, such as time-series or other windowed data!
 
 The original motivation for this was actually to be able to have JS callbacks for `ColumnDataSource` streaming events.
-That's possible with an expression like this:
+That's also possible with an expression like this:
 
 ```python
 source.js_on_change('stream', stream_callback)
