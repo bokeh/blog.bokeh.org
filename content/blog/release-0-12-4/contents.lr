@@ -21,8 +21,8 @@ This update has the following highlights:
 
 * Efficient binary array protocol for column data sources.
 * Generalized mechanism to add `CustomJS` callbacks to any property.
-* Several fixes to log plots, as well custom extensions.
-* Support for read-only (client-side) properties, such as a plot's "inner" screen dimensions
+* Several fixes to log plots, as well as custom extensions.
+* Support for read-only (client-side) properties, such as a plot's "inner" screen dimensions.
 * Improved documentation and Sphinx extensions for the [`bokeh.palettes`](http://bokeh.pydata.org/en/latest/docs/reference/palettes.html) module.
 * Major refactor of [`bokeh.core`](http://bokeh.pydata.org/en/latest/docs/reference/core.html)  including tests and expanded documentation relevant to extension authors.
 
@@ -35,22 +35,22 @@ As a reminder, we now package and upload examples for each Bokeh release to our 
 -----
 
 
-This release can most easily be installed from the Bokeh channel on Anaconda.org via
+This release can most easily be installed from the Bokeh channel on [Anaconda.org](https://anaconda.org/bryanv/dashboard) by executing the command
 ``conda install -c bokeh bokeh`` if you are using [Anaconda](https://www.continuum.io/downloads) or ``pip install bokeh`` otherwise.
 
 -----
 
 #### Community
 
-Before getting to the technical details of this release, I wanted to take a moment to recognize some of stats about the community:
+Before getting to the technical details of this release, I wanted to take a moment to recognize some stats about the community:
 
 * The [public mailing list](https://groups.google.com/a/continuum.io/forum/?pli=1#!forum/bokeh) has more than 700 members
 * The number of GitHub stars just hit 5200 (!)
 * Before the holidays, combined conda+pip downloads exceeded **120k/month**
 
-Any one of these facts alone is a humbling, and a testament the work of so many contributors over the last few years.
-Which actually brings me to the most impressive number yet.
-Several people rose to the [End of 2016 Contributor Challenge](https://groups.google.com/a/continuum.io/forum/?pli=1#!topic/bokeh/Gb8CLTVopLY) I posed on the mailing list, and I am happy to report that the tally is now:
+Any one of these facts alone is humbling, and a testament to the work of so many contributors over the last few years.
+Which brings me to the most impressive number yet.
+Several people rose to the [End of 2016 Contributor Challenge](https://groups.google.com/a/continuum.io/forum/?pli=1#!topic/bokeh/Gb8CLTVopLY) I posted on the mailing list, and I am happy to report that the tally is now:
 
 <div class="image"><center><img src="contributors.png"></center></div>
 
@@ -62,15 +62,15 @@ Several small but important features and fixes were made by them, quickly, and B
 #### Binary Array Protocol
 
 Since the project's start, Bokeh has taken a fairly straightforward approach to serializing data to and from BokehJS, namely *"JSON all the things"*.
-With Bokeh applications, this also happens to happen over a websocket, but it's still the same JSON mechanism, with the same associated overhead.
-For many common use cases this works just fine, but when the data starts to grow larger (for example when dealing with data for images where the size grows as N<sup>2</sup>), this overhead becomes noticeable.
+With Bokeh applications, this also happens to occur over a websocket, but it's still the same JSON mechanism, with the same associated overhead.
+For many common use cases this is fine, but when the data starts to grow larger (for example when dealing with data for images where the size grows as N<sup>2</sup>), this overhead becomes noticeable.
 
 For a long time we have wanted to investigate the use of a binary encoding for arrays, to help improve the performance of serialization.
 I am happy to say that this task has been accomplished, thanks to the great work of **Philipp Rudigger**, who is also a core contributor to the [Holoviews](http://holoviews.org/) project.
 As a result of Philipp's effort, integer and floating point column data source arrays are now automatically serialized using a binary format.
 Encoding this way is already more efficient by itself, but it also means that BokehJS can now ingest data directly into JavaScript typed arrays, another efficiency improvement.
 
-One quick as easy benchmark compares the time to render images of differnet sizes using the old and new code:
+One quick and easy benchmark compares the "before" and "after" time to render images of different sizes:
 
 <div>
 <center>
@@ -85,23 +85,23 @@ One quick as easy benchmark compares the time to render images of differnet size
 
 As can be seen, things could get ***really*** bad for image sizes above 500x500. The new binary encoding reduces the time to display drastically.
 
-Finally, during the course of implementing this, Philip also discovered that the internal logic that prevents Bokeh app events from "boomeranging" between the client and server could be greatly simplified.
+Finally, during the course of implementing this, Philipp also discovered that the internal logic that prevents Bokeh app events from "boomeranging" between the client and server could be greatly simplified.
 This opened up even more opportunity for performance improvement.
 
 Another way of visualizing the collective effect of these changes is shown below: A before and after execution log of a running Bokeh app with a periodic callback updating a plot every 100ms. In the before picture, individual events can be seen to be stacking up:
 
 <div class="image"><center><img src="before.png"></center></div>
 
-After Philip's changes, the execution handling each event is clearly separated:
+After Philipp's changes, the execution handling each event is clearly separated:
 
 <div class="image"><center><img src="after.png"></center></div>
 
 #### General JS Callbacks
 
 Early on, when we were still sorting out the vision and kinks of the Bokeh server, the capability to add little snippets of JavaScript was added to afford people more possibilities for rich interactions.
-Until now, these points were `CustomJS` callbacks could be user were added in an ad-hoc fashion, often as a `callback` property on some Bokeh model.
+Until now, the places where `CustomJS` callbacks could be used were added in an ad-hoc fashion, often as a `callback` property on some Bokeh model.
 For instance, column data sources have a `callback` property that can trigger a JavaScript callback whenever a selection is made.
-This mechanism proved popular, with user's wanting to put `CustomJS` callbacks... basically everywhere.
+This mechanism proved popular, with users wanting to put `CustomJS` callbacks... basically everywhere.
 It's time to make a more solid, generalized means for adding these callbacks.
 Now `CustomJS` callbacks can be added to any property of any Bokeh model, using the `js_on_change` method:
 
@@ -145,16 +145,16 @@ One last thing to mention: with a general way to add `CustomJS` callbacks anywhe
 
 #### Documentation Improvements
 
-The documentation for palettes was improved by adding full docstrings throughout the module, as well as by creating a new `:bokeh-palette:` Sphinx extensions for displaying nice visual palettes in the docs.
+The documentation for palettes was improved by adding full docstrings throughout the module, as well as by creating a new `:bokeh-palette:` Sphinx extension for displaying visual palettes in the docs.
 The result is nice sections like this one:
 
 <div class="image"><center><img src="palette.png"></center></div>
 
 You can check out the full changes in the [`bokeh.palettes`](http://bokeh.pydata.org/en/latest/docs/reference/palettes.html) section of the [Reference Guide](http://bokeh.pydata.org/en/latest/docs/reference.html).
 
-Speaking of the Reference Guide, some parts of the library that were previously "internal" are now more interesting to general users, especially those who might be writing [custom extensions to Bokeh].
+Speaking of the Reference Guide, some parts of the library that were previously "internal" are now more interesting to general users, especially those who might be writing [custom extensions](http://bokeh.pydata.org/en/latest/docs/user_guide/extensions.html).
 Accordingly, we've made a big push to much better document those parts.
-Check out the [`bokeh.core`](http://bokeh.pydata.org/en/latest/docs/reference/core.html) section of the Reference Guide to see more.
+Check out the [`bokeh.core`](http://bokeh.pydata.org/en/latest/docs/reference/core.html) docs section.
 
 #### Client-side Read-only Properties
 
@@ -162,10 +162,10 @@ Another long-requested feature (by the [Holoviews](http://holoviews.org) and [Da
 
 <div class="image"><center><img src="innerdims.png"></center></div>
 
-The main obstacle to implementing this was the lack of a mechanism for "read-only" properties which can only be set from BokehJS, in the browser.
+The main obstacle to implementing this was the lack of a mechanism for "read-only" properties, properties that are only able to be set from BokehJS, in the browser.
 The inner dimensions of a plot, determined on the fly by the BokehJS layout machinery, are just like this.
 **Mateusz Paprocki** implemented a mechanism for client-only properties in general, that can be used with with `on_change` callbacks just like any other properties.
-The first two such properties added were `inner_height` and `outer_height` on plots:
+The first two such properties added were `inner_height` and `outer_height`, on plots:
 
 ```python
 p.on_change("inner_width", some_callback)
@@ -175,8 +175,7 @@ Of course, these properties work with the new `js_on_change` feature introduced 
 
 #### Improvements to Log Plotting
 
-Basic log plot capability was added on early in Bokeh's history.
-But it has not seen much attention since then.
+Basic log plot capability was added on early in Bokeh's history, but has not seen much attention since then.
 Recently, more users have been asking for improvements to log plotting, so recent contributor **Claire Tang** tore through a whole pile of issues related to log plots:
 
 * [#2789&mdash;Range padding possibly discards the log axis properties](https://github.com/bokeh/bokeh/issues/2789)
@@ -197,13 +196,13 @@ A lot of the older (or "bigger vision") tasks are getting put to rest.
 There is still plenty to do, but it's time to focus on a few remaining features, polishing, and stabilizing.
 With that in mind, I expect the `0.12.5` release notes to look something like:
 
-* Fix lingering issues with layouts, changing `Document` children, and custom extensions
-* Add a new interactive legend capability for muting or hiding glyphs
-* Remove JQuery, which will shrink BokehJS by another 10 percent
-* Expose the UI event bus to make it accessible to JS and python callbacks
-* Refactor categoricals to be more efficient, and support nested coordinate systems
-* Continue strong pushes on documentation and testing
-* Fix many other small (but annoying) bugs
+* Fix lingering issues with layouts, changing `Document` children, and custom extensions.
+* Add a new interactive legend capability for muting or hiding glyphs.
+* Remove JQuery, which will shrink BokehJS by another 10 percent.
+* Expose the UI event bus to make it accessible to JS and python callbacks.
+* Refactor categoricals to be more efficient, and support nested coordinate systems.
+* Continue strong pushes on documentation and testing.
+* Fix many other small (but annoying) bugs.
 
 For more details, see the current [`0.12.5` Milestone on GitHub](https://github.com/bokeh/bokeh/milestone/29) or the larger [Roadmap Document](http://bokehplots.com/pages/roadmap.html).
 These are not set in stone, and may certainly change.
