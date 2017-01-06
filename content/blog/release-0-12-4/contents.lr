@@ -44,8 +44,8 @@ This release can most easily be installed from the Bokeh channel on [Anaconda.or
 
 Before getting to the technical details of this release, I wanted to take a moment to recognize some stats about the community:
 
-* The [public mailing list](https://groups.google.com/a/continuum.io/forum/?pli=1#!forum/bokeh) has more than 700 members
-* The number of GitHub stars just hit 5200 (!)
+* The [public mailing list](https://groups.google.com/a/continuum.io/forum/?pli=1#!forum/bokeh) has more than **700** members
+* The number of GitHub stars just hit **5200** (!)
 * Before the holidays, combined conda+pip downloads exceeded **120k/month**
 
 Any one of these facts alone is humbling, and a testament to the work of so many contributors over the last few years.
