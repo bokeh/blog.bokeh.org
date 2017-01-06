@@ -150,7 +150,7 @@ The result is nice sections like this one:
 
 <div class="image"><center><img src="palette.png"></center></div>
 
-You can check out the full changes in the [`bokeh.palettes`](http://bokeh.pydata.org/en/latest/docs/reference/palettes.html) section of the Reference Guide.
+You can check out the full changes in the [`bokeh.palettes`](http://bokeh.pydata.org/en/latest/docs/reference/palettes.html) section of the [Reference Guide](http://bokeh.pydata.org/en/latest/docs/reference.html).
 
 Speaking of the Reference Guide, some parts of the library that were previously "internal" are now more interesting to general users, especially those who might be writing [custom extensions to Bokeh].
 Accordingly, we've made a big push to much better document those parts.
@@ -171,7 +171,7 @@ The first two such properties added were `inner_height` and `outer_height` on pl
 p.on_change("inner_width", some_callback)
 p.on_change("inner_height", some_callback)
 ```
-Of course, these proprties work with the new `js_on_change` feature introduced above, as well.
+Of course, these properties work with the new `js_on_change` feature introduced above, as well.
 
 #### Improvements to Log Plotting
 
