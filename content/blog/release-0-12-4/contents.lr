@@ -23,6 +23,7 @@ This update has the following highlights:
 * Generalized mechanism to add `CustomJS` callbacks to any property.
 * Several fixes to log plots, as well as custom extensions.
 * Support for read-only (client-side) properties, such as a plot's "inner" screen dimensions.
+* [Guidance](http://bokeh.pydata.org/en/latest/docs/user_guide/server.html#embedding-bokeh-server-as-a-library) and [examples](https://github.com/bokeh/bokeh/tree/master/examples/howto/server_embed/) for embedding a Bokeh server directly in standalone scripts, Jupyter notebooks, and Tornado and Flask applications.
 * Improved documentation and Sphinx extensions for the [`bokeh.palettes`](http://bokeh.pydata.org/en/latest/docs/reference/palettes.html) module.
 * Major refactor of [`bokeh.core`](http://bokeh.pydata.org/en/latest/docs/reference/core.html)  including tests and expanded documentation relevant to extension authors.
 
@@ -45,6 +46,7 @@ This release can most easily be installed from the Bokeh channel on [Anaconda.or
 Before getting to the technical details of this release, I wanted to take a moment to recognize some stats about the community:
 
 * The [public mailing list](https://groups.google.com/a/continuum.io/forum/?pli=1#!forum/bokeh) has more than **700** members
+* [@BokehPlots](https://twitter.com/bokehplots) has nearly **4000** followers
 * The number of GitHub stars just hit **5200** (!)
 * Before the holidays, combined conda+pip downloads exceeded **120k/month**
 
@@ -54,7 +56,7 @@ Several people rose to the [End of 2016 Contributor Challenge](https://groups.go
 
 <div class="image"><center><img src="contributors.png"></center></div>
 
-It seems to be an iron rule that the number of issues grows with the number of users, so growing a base of developers to help with those issues is crucial to the long term health of the project.
+Without fail, the number of issues grows with the number of users, so growing a base of developers to help with those issues is crucial to the long term health of the project.
 I'd like in particular to thank new contributors: [bgbg](https://github.com/bgbg), [ivan-krukov](https://github.com/ivan-krukov), [jfinkels](https://github.com/jfinkels), and [souravsingh](https://github.com/souravsingh).
 Several small but important features and fixes were made by them, quickly, and Bokeh is all the better for it. Some of them are already working on their second PRs!
 
