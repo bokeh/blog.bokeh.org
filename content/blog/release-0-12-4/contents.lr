@@ -28,7 +28,7 @@ This update has the following highlights:
 * Major refactor of [`bokeh.core`](http://bokeh.pydata.org/en/latest/docs/reference/core.html)  including tests and expanded documentation relevant to extension authors.
 
 As well as many other small bugfixes and docs additions.
-For full details, see the [CHANGELOG](https://github.com/bokeh/bokeh/blob/0.12.4/CHANGELOG) and [Release Notes](http://bokeh.pydata.org/en/latest/docs/releases/0.12.4.html).
+For full details, see the [CHANGELOG](https://github.com/bokeh/bokeh/blob/master/CHANGELOG) and [Release Notes](http://bokeh.pydata.org/en/latest/docs/releases/0.12.4.html).
 
 As a reminder, we now package and upload examples for each Bokeh release to our CDN.
 [Click here to download](https://cdn.pydata.org/bokeh/examples/examples-0.12.4.zip).
