@@ -98,6 +98,26 @@ After Philipp's changes, the execution handling each event is clearly separated:
 
 <div class="image"><center><img src="after.png"></center></div>
 
+#### Guidance for Embedding Bokeh Servers
+
+As nice and useful as it is to run Bokeh applications with `bokeh serve app.py` there are also
+situations where it might be preferable to be able to *embed* a Bokeh server inside another
+script or application.
+
+In particular an important missing piece has been the ability to define and interact with Bokeh applications directly in Jupyter notebooks.
+Although there is still some work to do to refine this capability, an example notebook was added that demonstrates a technique that can be used immediately.
+You can see the result below:
+
+<div class="image"><center><img src="embed.gif"></center></div>
+
+In addition to the notebook, examples were added to show how to embed a Bokeh server in a standalone script, a Flask application, and a Tornado application.
+You can see all the examples in th GitHub repository:
+
+* [flask_embed.py](https://github.com/bokeh/bokeh/tree/master/examples/howto/server_embed/flask_embed.py)
+* [notebook_embed.ipynb](https://github.com/bokeh/bokeh/tree/master/examples/howto/server_embed/notebook_embed.ipynb)
+* [standalone_embed.py](https://github.com/bokeh/bokeh/tree/master/examples/howto/server_embed/standalone_embed.py)
+* [tornado_embed.py](https://github.com/bokeh/bokeh/tree/master/examples/howto/server_embed/tornado_embed.py)
+
 #### General JS Callbacks
 
 Early on, when we were still sorting out the vision and kinks of the Bokeh server, the capability to add little snippets of JavaScript was added to afford people more possibilities for rich interactions.
