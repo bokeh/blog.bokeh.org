@@ -147,10 +147,10 @@ With this code, we can make a simple plot with a `CustomJS` callback that update
 
 <div>
     <script
-        src="jscallback.js"
-        id="959670ac-943e-4453-acc0-d308f7032e0a"
-        data-bokeh-model-id="ccbb30b3-0998-4ee9-b649-559b27d4ef14"
-        data-bokeh-doc-id="2cca4877-feb5-41e1-8061-383976efccf8"
+        src="jscallbacks.js"
+        id="e938d7b9-355c-4a5f-b605-11621a96bd08"
+        data-bokeh-model-id="f8e557d9-4434-466e-8d7c-a510d15cb7e7"
+        data-bokeh-doc-id="79464cdd-56e4-43fa-a661-256d89a2cb2f"
     ></script>
 </div>
 
