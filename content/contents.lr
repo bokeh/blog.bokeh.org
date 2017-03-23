@@ -36,9 +36,14 @@ body:
                 Scala bindings for BokehJS
             </li>
             <li class="talk-header">
-                <a href="http://datashader.readthedocs.io/en/latest/">Datashader</a>:
+                <a href="http://datashader.readthedocs.org">datashader</a>:
                 A graphics pipeline and visual query system for creating meaningful
                 visual representations from large data sets.
+            </li>
+            <li class="talk-header">
+                <a href="http://holoviews.org">HoloViews</a>:
+                A high-level declarative interface to Bokeh for exploring and
+                interacting with data.
             </li>
         </ul>
     </div>
