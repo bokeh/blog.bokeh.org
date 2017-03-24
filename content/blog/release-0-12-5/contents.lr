@@ -1,0 +1,286 @@
+title: Bokeh 0.12.5 Released
+---
+summary:
+
+Bokeh 0.12.5 has been released, bringing .
+
+---
+pub_date: 2017-03-23
+---
+author: Bryan Van de Ven
+---
+twitter_handle: bigreddot
+---
+body:
+
+#### text-block ####
+text:
+
+We're pleased to announce the release of Bokeh 0.12.5!
+This update has the following highlights:
+
+* New general capability for Python/JS events
+* Bokeh apps easily viewable inline in Jupyter Notebooks
+* Confusing ``--host`` parameter no longer necessary
+* Interactive legends can now control glyph visibility
+* Many fixes and improvements to ``GMapPlot``
+* ``CustomJSTransform`` now available for CDS columns
+* Sophisticated ["pivot"](https://github.com/bokeh/bokeh/tree/master/examples/app/pivot) example app contributed by [`mmowers`](https://github.com/mmowers)
+* Themes now work with ``components`` and in Jupyter notebooks
+* New glyphs can be added to running Bokeh server applications
+* A Community Code of Conduct has been adopted
+
+As well as many other small bugfixes and docs additions.
+For full details, see the [CHANGELOG](https://github.com/bokeh/bokeh/blob/master/CHANGELOG)
+and [Release Notes](http://bokeh.pydata.org/en/latest/docs/releases/0.12.5.html).
+
+As a reminder, we now package and upload examples for each Bokeh release
+to our CDN. [Click here to download](https://cdn.pydata.org/bokeh/examples/examples-0.12.5.zip).
+
+-----
+
+This release can most easily be installed from the Bokeh channel on
+[Anaconda.org](https://anaconda.org/bryanv/dashboard) by executing the
+command ``conda install -c bokeh bokeh`` if you are using
+[Anaconda](https://www.continuum.io/downloads) or ``pip install bokeh``
+otherwise.
+
+-----
+
+There are several great fixes, improvements, and features to show off
+below. But first I should get one important announcement out of the way.
+Sometimes there are things that we might like to do, but must ultimately
+admit that we do not have the ability to do. This is one of those instances:
+
+<center><h5><b>Support for Matplotlib compatibility is deprecated.</b></h5></center>
+
+The Bokeh team unfortunately does not have the resources to continue
+supporting this functionality in its current form. It was always *extremely*
+limited in the first place, and often produced substandard results. In order
+to support the long term health of the Bokeh project, all MPL compatibility
+support will be removed on the occasion of a 1.0 release. Any code that
+currently uses ``to_bokeh`` will continue to work with a deprecation warning
+until that time.
+
+#### Improvements to Google Maps plots
+
+For quite some time there have been a number of lingering issues with using
+``GMapPlot``. Not all of them were "big" on their own, but they could add up
+to some severe usability problems. I am happy to report that a major pass was
+made over this corner of Bokeh:
+
+[#2822&mdash;GMapPlot Resets to (0, 0)](https://github.com/bokeh/bokeh/issues/2822)
+
+[#2940&mdash;GMapPlot Coordinate Axes](https://github.com/bokeh/bokeh/issues/2940)
+
+[#3737&mdash;GMapPlot doesn't display anything in Jupyter v.4](https://github.com/bokeh/bokeh/issues/3737)
+
+[#4835&mdash;Multiple GMap plots whiting out  in notebook. ](https://github.com/bokeh/bokeh/issues/4835)
+
+[#5592&mdash;GMapOptions are not dynamically applied](https://github.com/bokeh/bokeh/issues/5592)
+
+[#5801&mdash;GMap underflowing Bokeh figured](https://github.com/bokeh/bokeh/issues/5801)
+
+[#5826&mdash;Add bokeh.plotting.gmap to create GMapPlot correctly and easily](https://github.com/bokeh/bokeh/issues/5826)
+
+[#5845&mdash;add support for GMap scale control](https://github.com/bokeh/bokeh/issues/5845)
+
+In particular, it's now easier than ever to create Google Maps plots.
+Previously, map plots required writing a
+[fair chunk of code](https://github.com/bokeh/bokeh/blob/master/examples/models/file/maps.py)
+using the low level `bokeh.models` API. But now all it takes is one call
+to the new `bokeh.plotting.gmap` function:
+
+```python
+map_options = GMapOptions(lat=30.2861, lng=-97.7394, map_type="roadmap", zoom=13)
+
+plot = gmap("GOOGLE_API_KEY", map_options)
+
+show(plot)
+```
+
+When you create map plots this way, they will automatically be configured
+with the new axes that display human-friendly latitude and longitude values.
+Additionally, now map options like map styles can be updated dynamically.
+
+The example plot below expands on this snippet to demonstrate more of the
+fixes and features in the list:
+
+<div>
+<center>
+<script
+    src="gmap.js"
+    id="2b7026f2-9f7a-4608-b958-dcd772383506"
+    data-bokeh-model-id="e9eec7ed-3b9b-4675-bb83-2732fe223578"
+    data-bokeh-doc-id="afb47a02-4c54-41ce-8acc-53d08d5c819e"
+></script>
+</center>
+</div>
+
+#### Interactive Legends for Hiding Glyphs
+
+One long-requested feature has been to have interactive legends that users
+could click on to hide, or possibly mute the corresponding glyphs. That has
+been added in this release. To have the legend completely hide glyphs, set
+the `click_policy` to hide:
+
+```python
+plot.legend.click_policy = "hide"
+```
+
+You can also set the policy to mute the associate glyph in some way.
+Typically in this case you'll want to configure the parameters such as
+`muted_line_alpha` to control exactly how the muted glyph appear:
+
+```python
+plot.line(x='x', y='y', source=source, legend="Stuff", muted_line_alpha=0.1)
+plot.legend.click_policy = "mute"
+```
+
+You can see these interactive legend in action in the plot example
+for the next section.
+
+#### Custom Client Side Data Transformations
+
+```python
+v_func = """\
+    var first = xs[0]
+    var norm = new Float64Array(xs.length)
+    for (i = 0; i < xs.length; i++) { norm[i] = xs[i] / first }
+    return norm
+"""
+
+normalize = CustomJSTransform(func="", v_func=v_func)
+
+plot.line(x='date', y=dict(field='close', transform=normalize), source=aapl_source)
+```
+
+<div>
+<script
+    src="transform.js"
+    id="6ef5bfff-32f0-4d50-88e6-0e78fd62f350"
+    data-bokeh-model-id="a5dccc23-8f56-4eb5-8647-a0d2ed4ed923"
+    data-bokeh-doc-id="7b2db52b-79c7-4e5c-86b6-5fdc9cdaea9e"
+></script>
+</div>
+
+Oh, and be sure to click on the legend to mute the visibility of the
+different series!
+
+
+#### JS and Python Callbacks for General UI Events
+
+Another often-requested feature has been a way to respond to events in a more
+fine-grained way. I am happy to say that JS and Python callbacks are now
+possible on many different kinds of events: low level mouse and wheel actions,
+higher level pan, tap and button click actions, as well as responding to
+the start and stop of "Level of Detail" mode:
+
+<div class="image"><center><img src="events.gif"></center></div>
+
+More events are planned for future releases. You can see how these events are
+used with `CustomJS` callbacks in this snippet:
+
+```python
+s = ColumnDataSource(data=dict(x=[], y=[]))
+
+p.circle('x', 'y', color='c', size=20, alpha=0.4, source=s)
+
+p.js_on_event(Tap, CustomJS(args=dict(s=s1), code="""
+    event = cb_obj;
+    s.data.x.push(event.x)
+    s.data.y.push(event.y)
+    s.trigger('change')
+"""))
+```
+
+The example below uses this code and some additional callbacks for pan and
+double tap events to create a simple drawing canvas:
+
+<div>
+<center>
+<script
+    src="events.js"
+    id="84d8eacb-f049-49b8-8192-d7c833902e4e"
+    data-bokeh-model-id="f1fd335e-42f4-47a7-bfa7-706896ca88ea"
+    data-bokeh-doc-id="0d91aa1e-efa4-42e2-a763-b97d3a385b60"
+></script>
+</center>
+</div>
+
+These examples show how to use these new events with `CustomJS`
+callbacks that run in the browser. But they work just as well in Bokeh
+server apps as well. Just use the `on_event` method instead of `js_on_event`.
+Of course, Bokeh is extensible, so it's possible to define your own
+custom events as well.
+
+#### Bokeh Server Options Simplified
+
+#### Bokeh Apps Fully Support in Jupyter Notebooks
+
+The previous Proof-of-Concept demonstrated for embedding Bokeh applications
+Jupyter notebooks that was demonstrated inthe `0.12.4` release has been
+fully fleshed out. It's now easy to create and show Bokeh applications
+directly inline in Jupyter notebooks, using the same `show` function that
+is used for standalone Bokeh plots:
+
+<div class="image"><center><img src="notebook.gif"></center></div>
+
+You can find the notebook above [in the GitHub repository](https://github.com/bokeh/bokeh/blob/0.12.5/examples/howto/server_embed/tornado_embed.py).
+
+#### Code of Conduct Adopted
+
+With the help of input from several people,
+[BEP 3: Community Code](https://github.com/bokeh/bokeh/wiki/BEP-3:-Community-Code)
+has been implemented. This is an important and required step in order to
+pursue [NumFocus Fiscal Sponsorship](http://www.numfocus.org/information-on-fiscal-sponsorship.html).
+
+The details can be found in the link, but as mentioned there, the Bokeh
+community has been fantastic since day one, and a one-line summary of the
+CoC is simply a reflection of the community values already on display:
+
+> Please be always kind and courteous. There's never a need to be mean or rude or disrespectful.
+
+#### What's Next?
+
+One of the focus areas for the next
+[0.12.6 release](https://github.com/bokeh/bokeh/milestone/30) is to clean
+up and refactor the layout system to make it more robust, maintainable, and
+performant. Additionally, we plan to clean up the handling of categorical
+data as well as support nested coordinate systems.
+
+We hope to make 0.12.6 a smaller milestone with a shorter release cycle.
+
+One other important announcement for `0.12.6`: *the `bokeh.charts` API will
+be moved into a separate GitHub project.* The new project will be called
+`bkcharts`. For now, Bokeh will depend on the new `bkcharts` package,
+and import its contents automatically. All existing code will work with a
+warning message until the 1.0 release, when the dependency will be dropped
+and `bkcharts` charts will have to be explicitly installed to be used.
+
+Finally, while I can't make definite statements about timelines, I can
+say that resources have been allocated specifically to work on all the
+following important tasks:
+
+* Programmatic static image (PNG) generation using Selenium
+* Large graph support in [Datashader](http://datashader.readthedocs.io/en/latest/) / Small graph support in Bokeh
+* Core improvements to support the [RBokeh](http://hafen.github.io/rbokeh/) project
+
+-----
+
+As we're getting closer to a Bokeh 1.0 release, I'd like to thank the 216
+total [contributors](https://github.com/bokeh/bokeh/graphs/contributors) who
+have helped make Bokeh such an amazing project. As always, for questions,
+technical assistance or if you're interested in contributing, please ask the
+[Bokeh mailing list](https://groups.google.com/a/continuum.io/forum/#!forum/bokeh)
+or join the chat on [Gitter](https://gitter.im/bokeh/bokeh).
+
+Thanks,
+
+Bryan Van de Ven
+
+----
+class: default
+----
+_discoverable: no
+
