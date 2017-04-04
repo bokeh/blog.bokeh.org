@@ -2,10 +2,12 @@ title: Bokeh 0.12.5 Released
 ---
 summary:
 
-Bokeh 0.12.5 has been released, bringing .
+Bokeh 0.12.5 has been released, bringing support for callbacks on user
+interaction events, interactive legends, custom computed transforms, and
+much more.
 
 ---
-pub_date: 2017-03-23
+pub_date: 2017-04-05
 ---
 author: Bryan Van de Ven
 ---
@@ -17,11 +19,12 @@ body:
 text:
 
 We're pleased to announce the release of Bokeh 0.12.5!
+
 This update has the following highlights:
 
 * New general capability for Python/JS events
 * Bokeh apps easily viewable inline in Jupyter Notebooks
-* Confusing ``--host`` parameter no longer necessary
+* Confusing ``--host`` Bokeh Server CLI parameter no longer necessary
 * Interactive legends can now control glyph visibility
 * Many fixes and improvements to ``GMapPlot``
 * ``CustomJSTransform`` now available for CDS columns
@@ -216,6 +219,11 @@ custom events as well.
 
 #### Bokeh Server Options Simplified
 
+The ``--host`` parameter to the Bokeh Server CLI has been obviated and
+deprecated. It will be removed and trigger an error in a future release. If
+you're running a Bokeh Server process from a different address than your
+webserver, use the ``--allow-websockets-origin`` parameter.
+
 #### Bokeh Apps Fully Support in Jupyter Notebooks
 
 The previous Proof-of-Concept demonstrated for embedding Bokeh applications
@@ -283,4 +291,3 @@ Bryan Van de Ven
 class: default
 ---
 _discoverable: no
-
