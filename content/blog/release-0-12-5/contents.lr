@@ -113,9 +113,9 @@ fixes and features in the list:
 <center>
 <script
     src="gmap.js"
-    id="2b7026f2-9f7a-4608-b958-dcd772383506"
-    data-bokeh-model-id="e9eec7ed-3b9b-4675-bb83-2732fe223578"
-    data-bokeh-doc-id="afb47a02-4c54-41ce-8acc-53d08d5c819e"
+    id="5722c96b-e8f5-4ec4-b21a-e19ae5d13fac"
+    data-bokeh-model-id="f699ff86-1019-4e91-a73f-fa27b2d5fcf4"
+    data-bokeh-doc-id="7c7e29bc-2997-4bbb-b53f-193f0171556d"
 ></script>
 </center>
 </div>
@@ -161,9 +161,9 @@ plot.line(x='date', y=dict(field='close', transform=normalize), source=aapl_sour
 <div>
 <script
     src="transform.js"
-    id="6ef5bfff-32f0-4d50-88e6-0e78fd62f350"
-    data-bokeh-model-id="a5dccc23-8f56-4eb5-8647-a0d2ed4ed923"
-    data-bokeh-doc-id="7b2db52b-79c7-4e5c-86b6-5fdc9cdaea9e"
+    id="70195796-0dc7-4eb0-bf98-4ba75f0b6028"
+    data-bokeh-model-id="18b2f400-3489-4722-8c75-29ec3c2d05f3"
+    data-bokeh-doc-id="18eb47e2-444d-47c6-a200-a0dee4294713"
 ></script>
 </div>
 
@@ -204,9 +204,9 @@ double tap events to create a simple drawing canvas:
 <center>
 <script
     src="events.js"
-    id="84d8eacb-f049-49b8-8192-d7c833902e4e"
-    data-bokeh-model-id="f1fd335e-42f4-47a7-bfa7-706896ca88ea"
-    data-bokeh-doc-id="0d91aa1e-efa4-42e2-a763-b97d3a385b60"
+    id="6da0290f-39bf-4f28-a0af-7f585f9ebc95"
+    data-bokeh-model-id="678c8a8a-426a-44a6-b1fc-7bfca503a19f"
+    data-bokeh-doc-id="9dc36987-699b-40db-b61e-deeb6102b946"
 ></script>
 </center>
 </div>
