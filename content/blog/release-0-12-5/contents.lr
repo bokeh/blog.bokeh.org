@@ -237,7 +237,7 @@ is used for standalone Bokeh plots:
 
 <div class="image"><center><img src="notebook.gif"></center></div>
 
-You can find the notebook above [in the GitHub repository](https://github.com/bokeh/bokeh/blob/0.12.5/examples/howto/server_embed/tornado_embed.py).
+You can find the notebook above [in the GitHub repository](https://github.com/bokeh/bokeh/blob/0.12.5/examples/howto/server_embed/notebook_embed.ipynb).
 
 #### Code of Conduct Adopted
 
