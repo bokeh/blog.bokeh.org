@@ -1,0 +1,341 @@
+<!doctype html>
+<meta charset="utf-8">
+<head>
+
+<link rel="stylesheet" href="../../../../../static/normalize.css">
+<link rel="stylesheet" href="../../../../../static/skeleton.css">
+<link rel="stylesheet" href="../../../../../static/style.css">
+<link rel="stylesheet" href="../../../../../static/gen/styles.css">
+<link rel="stylesheet" href="../../../../../static/custom.css">
+<link rel="stylesheet" href="../../../../../static/pygments.css">
+
+<!-- Mobile Specific Metas
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- FONT
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+<title>Bokeh 0.12 Released | Bokeh Org</title>
+
+</head>
+<body>
+    <div class="navbar-spacer"></div>
+    <nav class="navbar">
+      <div class="container">
+        <ul class="navbar-list">
+            <li class="navbar-item"><a class="navbar-link" href="/">Home</a></li>
+            <li class="navbar-item"><a class="navbar-link" href="http://bokeh.pydata.org/en/latest">Documentation</a></li>
+            <li class="navbar-item"><a class="navbar-link" href="/blog">Blog</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="body-wrapper">
+      
+  <div class="blog-post">
+    
+  
+    
+  <div class="container">
+    <div class="row">
+      <div class="eleven columns">
+        
+      <div class="meta-bar">
+        <h1>Bokeh 0.12 Released</h1>
+        <p class="meta">
+          by
+          
+            <a href="https://twitter.com/bigreddot">Bryan Van de Ven</a>
+          
+          on Tuesday, June 28, 2016
+        </p>
+      </div>
+    
+      </div>
+    </div>
+  </div>
+
+  
+  
+    
+      
+  <div class="container">
+    <div class="row">
+      <div class="eleven columns">
+        <div class="text-block text-block-default">
+  <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-0.12.0.min.css">
+
+<style>
+  .wrap { width: 620px; height: 380px; margin: 15px; overflow: hidden;}
+  .frame { width: 1280px; height: 786px; border: none}
+
+  .frame {
+    -moz-transform: scale(0.6);
+    -moz-transform-origin: 0 0;
+    -o-transform: scale(0.6);
+    -o-transform-origin: 0 0;
+    -webkit-transform: scale(0.6);
+    -webkit-transform-origin: 0 0;
+}
+</style><p>I'm pleased to announce that Bokeh Version 0.12 has been released! This is
+a major update with many new improvements. Before getting into the details,
+I'd first like to also announce:</p>
+<center>
+<div style="font-weight: bold; padding-bottom: 15px;">
+0.12.x is the last line of releases before Bokeh 1.0
+</div>
+</center><p>There will be more to say in a separate blog post about the roadmap to 1.0
+later this year, but for now I'll mention that the primary focus will be:
+bugfixes, performance and optimization, build and test automation to
+support API stability and semantic versioning, and a few high-priority
+remaining features.</p>
+<hr>
+<p>The 0.12 release cycle was longer than most Bokeh release cycles. We plan
+to move to a time-based schedule in the near future, with more incremental
+releases, more often. But <em>this</em> release represents a giant step forward.</p>
+<p>Here are just a few of the things that are new:</p>
+<ul>
+<li>Responsive layout and styling improvements throughout</li>
+<li>First-class BokehJS APIs for plotting and charts</li>
+<li>Legends can be placed outside / next to the central plot area</li>
+<li>New color palettes: <em>Viridis, Magma, Inferno, and Plasma</em></li>
+<li>Expanded WebGL support to all markers and fixed WebGL bugs</li>
+<li>New annotations: <em>Arrow, Title, Label, LogColorMapper, FuncTickFormatter</em></li>
+<li>Support for computed transforms (e.g. <a href="http://bokeh.pydata.org/en/latest/docs/gallery/jitter.html">Jitter</a>) on data columns</li>
+<li>Server features for threading and simpler deployments</li>
+<li>New hosted demos at <a href="https://demo.bokehplots.com">https://demo.bokehplots.com</a></li>
+</ul>
+<p>And as usual, many bugfixes and documentation additions. For full details,
+see the <a href="https://github.com/bokeh/bokeh/blob/0.12.0/CHANGELOG">CHANGELOG</a>
+and <a href="http://bokeh.pydata.org/en/latest/docs/releases/0.12.0.html">Release Notes</a>.</p>
+<p>This release can most easily be installed in the usual ways:
+<code>conda install -c bokeh bokeh</code> if you are using <a href="https://www.continuum.io/downloads">Anaconda</a>
+or <code>pip install bokeh</code> otherwise.</p>
+<hr>
+<p>Here are some details about a few of these areas of improvement.</p>
+<h2>Layout and Styling</h2>
+<p>One of the primary focus areas of this release cycle was a major overhaul
+to the way Bokeh lays out documents and components. Some of the new
+capabilities include:</p>
+<ul>
+<li>Titles can be laid out on any side of a plot</li>
+<li>Plot axes and widget extents align automatically, when possible</li>
+<li>New responsive sizing modes <em>scale_width</em>, <em>stretch_both</em>, and others</li>
+<li>Toolbars can be "sticky" and adhere closer to the plot.</li>
+</ul>
+<p>In addition to the layout improvements, Bokeh also got a style refresh. Here
+are the major changes in appearance: Titles are also <strong>bold</strong>, closer to
+the plot, and left-aligned by default. Axes labels are smaller and
+<em>italic</em>. For individual plots, toolbars are now on the right side. Finally,
+Bokeh widget appearance is more "flat" in general.</p>
+<p>Putting all this together, we can see a nice example below with the styling
+changes as well as the nice layout</p>
+<div class="bk-root">
+
+  <script
+      src="bokeh-plot.js"
+      id="b2d13824-3b3d-4de8-879a-5affc8b58701"
+      data-bokeh-model-id="45a064ee-dab5-4d57-91a9-33ea97e27604"
+      data-bokeh-doc-id="097e2936-f0c6-4079-b33b-870ada838b47"
+  ></script>
+
+</div><p>The extensive work on layout and styling is still fresh, and there are some
+specific use-cases and issues to hammer out. We will be making incremental
+improvements consistently with micro point releases in the coming weeks and
+months.</p>
+<p>NOTE: In order to accomplish this undertaking, some old interfaces had to be
+deprecated and two small breaking changes introduced. For full details,
+consult the <a href="http://bokeh.pydata.org/en/latest/docs/releases/0.12.0.html#migration-guide">Migration Guide</a>.</p>
+<h2>Bokeh App Improvements and Examples</h2>
+<p>In addition to the layout improvements, a number of fixes and features directly
+related the the Bokeh server were made. This includes better support for using
+threads with Bokeh apps, a new default index page, the ability to configure
+multiple processes easily with <code>--num-procs</code>, as well as bugfixes and
+performance improvements. Together, all of these made it simple to create
+new compelling example applications. Many of these can be viewed at
+<a href="https://demo.bokehplots.com">https://demo.bokehplots.com</a>, including the new <code>crossfilter</code> example,
+embedded live below:</p>
+<div class="wrap">
+  <iframe class="frame" src="https://demo.bokehplots.com/apps/crossfilter"></iframe>
+</div><p>Select different fields from the dropdowns to query the data along different
+dimensions.</p>
+<h2>BokehJS APIs</h2>
+<p>Until recently, BokehJS has mostly been an internal implementation detail to
+support the Python (and other language) bindings for Bokeh. But there has
+been interest in developing a BokehJS as a compelling JavaScript library in
+its own right. With the 0.12 release, BokehJS gains its own set of APIs:
+<a href="http://bokeh.pydata.org/en/latest/docs/user_guide/bokehjs.html#low-level-models">Bokeh.Models</a>
+and <a href="http://bokeh.pydata.org/en/latest/docs/user_guide/bokehjs.html#bokeh-plotting">Bokeh.Plotting</a>, which largely follow the corresponding Python APIs, and
+<a href="http://bokeh.pydata.org/en/latest/docs/user_guide/bokehjs.html#bokeh-charts">Bokeh.Charts</a>
+which is a new API for high-level charts unique to BokehJS.</p>
+<p>Below is a small example using <em>Bokeh.Plotting</em> and the streaming interface:</p>
+<p><div id="bkjs"></div></p>
+<p>The code for creating the plot is similar to the Python code for creating a
+comparable plot:</p>
+<div class="highlight"><pre><span></span>  <span class="kd">var</span> <span class="nx">plot</span> <span class="o">=</span> <span class="nx">plt</span><span class="p">.</span><span class="nx">figure</span><span class="p">({</span>
+      <span class="nx">tools</span><span class="o">:</span> <span class="s2">&quot;pan,wheel_zoom,save,reset&quot;</span><span class="p">,</span>
+      <span class="nx">title</span><span class="o">:</span> <span class="s2">&quot;Streaming Stocks&quot;</span><span class="p">,</span>
+      <span class="nx">plot_width</span><span class="o">:</span> <span class="mi">600</span><span class="p">,</span>
+      <span class="nx">plot_height</span><span class="o">:</span> <span class="mi">400</span><span class="p">,</span>
+      <span class="nx">background_fill_color</span><span class="o">:</span> <span class="s2">&quot;#eeeeff&quot;</span><span class="p">,</span>
+      <span class="nx">x_axis_label</span><span class="o">:</span> <span class="s2">&quot;time&quot;</span><span class="p">,</span>
+      <span class="nx">x_axis_type</span><span class="o">:</span> <span class="s2">&quot;datetime&quot;</span><span class="p">,</span>
+      <span class="nx">y_axis_label</span><span class="o">:</span> <span class="s2">&quot;price&quot;</span><span class="p">,</span>
+  <span class="p">});</span>
+</pre></div>
+<p>As is the code for streaming data to a data source:</p>
+<div class="highlight"><pre><span></span>  <span class="kd">var</span> <span class="nx">t</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">period</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span> <span class="c1">// seconds</span>
+  <span class="kd">function</span> <span class="nx">new_data</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">t</span> <span class="o">+=</span> <span class="nx">period</span><span class="p">;</span>
+      <span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="p">{</span>
+          <span class="nx">t</span><span class="o">:</span> <span class="p">[</span><span class="nx">t</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">],</span>
+          <span class="nx">corp_a</span><span class="o">:</span> <span class="p">[</span><span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span> <span class="mf">0.3</span> <span class="o">+</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">+</span> <span class="mf">3.0</span><span class="p">],</span>
+          <span class="nx">corp_b</span><span class="o">:</span> <span class="p">[</span><span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span> <span class="mf">0.5</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">+</span> <span class="mf">3.4</span><span class="p">],</span>
+          <span class="nx">corp_c</span><span class="o">:</span> <span class="p">[</span><span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span> <span class="mf">0.7</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">+</span> <span class="mf">3.8</span><span class="p">],</span>
+      <span class="p">};</span>
+      <span class="nx">source</span><span class="p">.</span><span class="nx">stream</span><span class="p">(</span><span class="nx">d</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="nx">setInterval</span><span class="p">(</span><span class="nx">new_data</span><span class="p">,</span> <span class="nx">period</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">);</span>
+</pre></div>
+<p>Besides the new User's Guide section on the BokehJS APIs, there is also
+a new section on <a href="http://bokeh.pydata.org/en/latest/docs/user_guide/extensions.html">Extending Bokeh</a>
+that contains more information about using BokehJS directly, from the perspective
+of building custom user extensions.</p>
+<hr>
+<p>Finally, I would just like to say <strong>Thank You</strong> to all the core contributors,
+new contributors, and the Bokeh community at large. Bokeh is the success that
+it is today only because of the tremendous work and feedback from so many
+individuals.</p>
+<script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-0.12.0.min.js"></script>
+
+<script>
+  var plt = Bokeh.Plotting;
+
+  // Create source
+  var source = new Bokeh.ColumnDataSource({
+      data: {
+          t: [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000],
+          corp_a: [1, 4, 3, 5, 2, 3, 2, 4],
+          corp_b: [4, 5, 7, 6, 8, 6, 7, 4],
+          corp_c: [2, 1, 2, 1, 3, 1, 2, 3],
+      }
+  });
+
+  // Create plot
+  var plot = plt.figure({
+      tools: "pan,wheel_zoom,save,reset",
+      title: "Streaming Stocks",
+      plot_width: 600,
+      plot_height: 400,
+      background_fill_color: "#eeeeff",
+      x_axis_label: "time",
+      x_axis_type: "datetime",
+      y_axis_label: "price",
+  });
+
+  // Add a line for each entry in the source
+  var colors = ['#aa0000', '#00aa00', '#0000aa', '#aaaa00', '#aa00aa', '#00aaaa'];
+  var i = -1;
+  for (var key in source.data) {
+      if (key != 't') {
+          i += 1;
+          plot.line({ field: 't' }, { field: key }, { source: source, legend: key, line_color: colors[i % 6], line_width: 2 });
+      }
+  }
+
+  // Make source update on an interval
+  var t = 8;
+  var period = 0.5; // seconds
+  function new_data() {
+      t += period;
+      var d = {
+          t: [t * 1000],
+          corp_a: [Math.sin(t * 0.3 + 0) * 2 + Math.random() + 3.0],
+          corp_b: [Math.sin(t * 0.5 + 1) * 2 + Math.random() + 3.4],
+          corp_c: [Math.sin(t * 0.7 + 2) * 2 + Math.random() + 3.8],
+      };
+      source.stream(d, 50);
+  }
+  setInterval(new_data, period * 1000);
+
+  // show the plot
+  plt.show(plot, "#bkjs");
+</script>
+</div>
+      </div>
+    </div>
+  </div>
+
+    
+  
+
+
+    
+    
+    
+    <div class="container">
+      <div class="row">
+        <div class="eight columns">
+        
+          <div class="nav-prev">
+            <a href="../../../../../blog/2016/9/2/release-0-12-2/">Previous: Bokeh 0.12.2 Released</a>
+          </div>
+        
+        
+          <div class="nav-next">
+            <a href="../../../../../blog/2016/6/28/release-0-12-1/">Next: Bokeh 0.12.1 Released</a>
+          </div>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+
+    </div>
+
+    
+    <div class="bottomsummary">
+      <div class="container">
+      </div>
+    </div>
+    
+
+    
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="four columns icon-bar">
+            <a href="https://github.com/bokeh/bokeh/" title="Bokeh on GitHub"
+              ><i class="fa fa-github"></i></a>
+            <a href="https://github.com/bokeh/bokeh/issues/" title="Report Issues for Bokeh"
+              ><i class="fa fa-bug"></i></a>
+            <a href="https://twitter.com/BokehPlots" title="Find Bokeh on Twitter"
+              ><i class="fa fa-twitter"></i></a>
+            <a href="https://gitter.im/bokeh/bokeh" title="Chat on Gitter"
+              ><i class="fa fa-comment"></i></a>
+            <a href="https://github.com/bokeh/bokeh.github.io/tree/source/content/blog/release-0-12/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+
+<!-- JS
+================================================== -->
+<script src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-27761864-7', 'pydata.org');
+  ga('send', 'pageview');
+</script>
+
+</body>
