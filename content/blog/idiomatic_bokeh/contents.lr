@@ -1,0 +1,229 @@
+title: Idiomatic Bokeh
+---
+summary:
+
+---
+pub_date: @todo
+---
+author: Luke Canavan
+---
+twitter_handle: canavandl
+---
+body:
+
+#### text-block ####
+text:
+
+-----
+
+## Intro
+
+I want to write about developing visualzations using Bokeh. Bokeh offers a
+low-level, primatives-based plotting API that I find to be ideal for developing
+visualizations
+
+Bokeh has three API levels:
+* bokeh.charts for high-level, "canned" visualizations like Histograms or Pie Charts
+* bokeh.plotting for mid-level, with reasonable defaults for conciseness
+* bokeh.models for low-level, very explicit development
+
+One caveat - I haven't used Bokeh much in an exploratory manner, so I don't
+know how well the below workflow fits. Usually I have as idea of the shape of
+my data and what my intended visualization looks like.
+
+Before delving into things, it's helpful to define some Bokeh terminology. In
+Bokeh most things are ``Models``. Models are simply classes that have some
+defined properties (i.e. ``Plot`` models have a ``plot_height`` and
+``plot_width``), as well as some associated event handling (i.e. changing the
+``Plot.background_fill_color`` property will cause the plot to re-render and
+update the background_fill_color).
+
+Link: http://bokeh.pydata.org/en/latest/docs/reference/models.html
+
+Glyphs are a subset of models and represent Bokeh's plotting primitives
+- the Lines, Circles and Rects that compose visualizations. You could think
+of them as the equivalent to D3's elements.
+
+Link: http://bokeh.pydata.org/en/latest/docs/reference/models/glyphs.html
+
+-----
+
+## Using the ``bokeh.models.plots.Plot`` object
+
+The core of using the low-level ``bokeh.models`` API is building visualizations
+using the ```Plot`` Model. A ``Plot`` object is the foundation onto which any
+Bokeh visualization is composed - it holds all of axes, grids, glyphs and
+toolbar tools. Additionally, it manages a few Plot-specific properties like
+height, width and background color. The
+The [documentation](http://bokeh.pydata.org/en/latest/docs/reference/models/plots.html#bokeh.models.plots.Plot)
+is a good reference for these.
+
+In order to be rendered, a ``Plot`` object only requires having set it's
+``x_range`` and ``y_range`` properties. I generally do this in the
+Plot's initializer, you can also set via the ``Plot.x_range`` and
+``Plot.y_range`` properties later. Outputting this (using the ``bokeh.io.show``
+method, for example) will yield an empty rectangle, which is exactly what we
+expect. It's an empty canvas without any axes, glyphs or tools!
+
+```python
+from bokeh.models import Plot, Range1d
+
+plot = Plot(x_range=Range1d(), y_range=Range1d())
+```
+
+## TODO add code output
+
+### Defining Ranges: Using a Range1d vs FactorRange vs DataRange1d
+
+There are three range types and it's helpful to pick the right one. The
+``Range1d`` model is used when you want to set the start and end values of
+your range, regardless of what data is being plotted. For example, I would
+use a Range1d when I want a range to span from 0 - 100%, even if my data's
+range is from 12 - 94%.
+
+```python
+range = Range(start=0, end=100)
+```
+
+The FactorRange model is similar to the Range1d model, except that handles
+categorical values instead of continuous ones. An example situation to use
+a FactorRange is when plotting values by months of the year.
+
+```python
+range = FactorRange(factors=["Jan", "Feb", "Mar", "Apr", "May", "Jun"])
+```
+
+The ``DataRange1d`` model is used when you want the range to reflect the extent
+of your plotted data. For example, Dask.distributed uses Bokeh for its
+diagnostic web interface [link](https://distributed.readthedocs.io/en/latest/web.html).
+The interface takes advantage of a several DataRange1d models to plot the
+progress of computation tasks and CPU/memory usage over time. The DataRange1d
+will inspect the min and max of the plotted values and automatically adjust the
+visible range accordingly.
+
+```python
+range = DataRange1d()
+```
+
+-----
+
+## Additive development, not subtractive or mutative
+
+In general, I prefer to develop Bokeh visualizations in an additive manner,
+where each element or interaction is explicitly added. While the end result
+is often more verbose, I feel the resulting code is easier to write and read
+later.
+
+I think it's best to show a counter-example to demonstrate the situation
+I'm hoping to avoid. The core of the bokeh.plotting API is the ``figure``
+method, which creates a subclassed instance of Plot with defaults related to
+ranges, axes, grids, tools, etc.
+
+```python
+from bokeh.plotting import figure
+
+plot = figure()
+```
+
+These defaults are very reasonable and many can be modified via arguments to
+the ``figure`` method. In my experience however, these defaults often include
+models I need to remove or modify and my code starts to look like this:
+
+```python
+from bokeh.plotting import figure
+
+plot = figure()
+
+# hide the x and y grids
+plot.xgrid.visible = False
+plot.ygrid.visible = False
+
+# change x axis defaults
+plot.xaxis[0].ticker = BasicTicker(num_desired_ticks=2)
+plot.xaxis[0].formatter = NumericalTickFormatter(format="0b")
+plot.xaxis[0].min_tick_line_width = 4
+plot.xaxis[0].major_tick_line_width = 2
+```
+
+At this level of customization, it's easier to explicitly set the property
+values via the model initializers or not have created unwanted models in
+the first place. The code below generated the same output as above, but feels
+clearer.
+
+```python
+plot = Plot(x_range=x_range, y_range=y_range)
+
+x_axis = LinearAxis(
+  formatter=NumericalTickFormatter(format="0b"),
+  ticker=BasicTicker(num_desired_ticks=2),
+  min_tick_line_width=4,
+  major_tick_line_width=2)
+y_axis = LinearAxis()
+
+plot.add_layout(x_axis, 'below')
+plot.add_layout(y_axis, 'left')
+```
+
+which is better (above or below?)
+
+```python
+plot = Plot(x_range=x_range, y_range=y_range)
+
+plot.add_layout(
+  LinearAxis(
+    formatter=NumericalTickFormatter(format="0b"),
+    ticker=BasicTicker(num_desired_ticks=2),
+    min_tick_line_width=4,
+    major_tick_line_width=2),
+  'below')
+plot.add_layout(LinearAxis(), 'left')
+```
+
+## Tools
+
+Tools benefit similarly from an explicit approach. Instead of selecting and
+mutating a tool that already exists on the plot, it's cleaner to create then
+add the tool.
+
+```python
+
+# Don't do this
+hover = plot.select_one(HoverTool)
+hover.tooltips = custom_tooltips
+hover.line_policy = 'nearest'
+pan = plot.select_one(PanTool)
+pan.dimension = 'x'
+
+# Do this instead
+hover = HoverTool(tooltips=custom_tooltips, line_policy='nearest')
+pan = PanTool(dimension="x")
+plot.add_tools(hover, pan)
+
+```
+
+The Plot object doesn't have the glyph methods that ``Figure`` does
+
+Finally, glyphs are added via the ``add_glyph`` method.
+
+## Adding glyphs
+
+```python
+# add rect and circle glyphs
+source = ColumnDataSource(data=dict(
+  x=[], y=[], height=[]
+))
+
+plot.add_glyph(
+  source,
+  Rect(x='x', y='y', width='width', height='height', fill_color='red', line_color='blue'))
+
+```
+
+## Wrap up
+
+To summarize, when developing customized visualizations in Bokeh, it's often
+easiest to use the low-level ``bokeh.models`` API to incrementally add the
+visual and interactive components.
+
+----
+class: default
