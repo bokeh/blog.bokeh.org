@@ -21,7 +21,7 @@ We're pleased to announce the release of Bokeh 0.12.6!
 This update has the following highlights:
 
 * *Headless, programmatic export of SVG and PNG images*
-* *New annotations `Band` and `Whisker` for displaying error estimates*
+* *New annotations [`Whisker`](http://bokeh.pydata.org/en/0.12.6/docs/user_guide/annotations.html#whiskers) and [`Band`](http://bokeh.pydata.org/en/0.12.6/docs/user_guide/annotations.html#bands) for displaying error estimates*
 * *Fine-grained sub-element patching for images and other "multi" glyphs*
 * *Hover hit-testing extended to segments and all markers*
 * *Fixes for sorting and selecting from DataTables*
@@ -109,10 +109,15 @@ There's still more work to do, but this work puts the Bokeh layout capability of
 This code can be seen at work in the plot below:
 
 
-For good measure, this plot shows off the new `Whisker` and `Band` error annotations as well.
+For good measure, this plot shows off the new [`Whisker`](http://bokeh.pydata.org/en/0.12.6/docs/user_guide/annotations.html#whiskers) and [`Band`](http://bokeh.pydata.org/en/0.12.6/docs/user_guide/annotations.html#bands) error annotations as well.
 
-#### Efficient Streaming for Image Data
+#### Efficient Streaming for Higher Dimensional Data
 
+Bokeh has had `patch` and `stream` methods on `ColumnDataSource` for some time now. These allow for efficient or incremental updates to individual items in CDS columns. For most cases, where the columns are one-dimensional arrays, this is a great benefit. But for some glyphs, such as `MultiLine` and `Image`, the items in the columns are more arrays. In these cases, `patch` was not nearly as useful as it could be&mdash;until now. Now it is possible to use `patch` to partially update individual locations or slices of CDS column items that are arrays. The demo below shows `patch` being used to update subsets of circles, multi-lines, and images all at once:
+
+<div class="image"><center><img src="patch.gif"></center></div>
+
+You can find more information in the [Reference Guide](http://bokeh.pydata.org/en/dev/docs/reference/models/sources.html#bokeh.models.sources.ColumnDataSource.patch) or check out and run the source code for the above example at [`examples/howto/patch_app.py`](https://github.com/bokeh/bokeh/blob/master/examples/howto/patch_app.py).
 
 #### High-level Charts
 
@@ -137,6 +142,8 @@ In addition to close integration with Bokeh, Holoviews can also coordinate the [
 
 
 #### Next Steps
+
+As stated above, there aren't a lot of big-ticket features left to put in to Bokeh before we are ready to cut a `1.0` release. Here is a rough outline (subject to change) of the work we plan to do over the next few months:
 
 ###### ``0.12.7``
 
