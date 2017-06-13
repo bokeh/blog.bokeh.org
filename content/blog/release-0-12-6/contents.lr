@@ -96,7 +96,7 @@ Bokeh `0.12` introduced a new layout system for entire documents, affording the 
 
 [#6213&mdash;Appending layout regression](https://github.com/bokeh/bokeh/issues/6213)
 
-Additionally, a lot of behind the scenes refactoring puts the Bokeh layout capability of solid footing for the future.
+Additionally, a lot of behind the scenes refactoring puts the Bokeh layout capability on solid footing for the future.
 
 #### Bands and Whiskers
 
@@ -138,7 +138,7 @@ Looking towards a 1.0 release, we are in the process of paring down Bokeh for lo
 
 The new project is called [`bkcharts`](https://github.com/bokeh/bkcharts). Current usage of `bokeh.charts` will work (with a deprecation warning) until Bokeh 1.0 is released. At that time, it will be be necessary to separately install and import from the `bkcharts` package to continue using this API. However, due to resource constraints, *support and maintenance for `bkcharts` by the current team will be extremely minimal from this point on .*
 
-Accordingly, I would instead encourage everyone looking for very high level charting with Bokeh to look in a new (and much better) direction: [HoloViews](http://holoviews.org/) is a separately maintained package that provides a concise declarative interface for building Bokeh plots. It is actively maintained by Jean-Luc Stevens, Philipp Rudiger, and Jim Bednar. HoloViews is particularly focused on interactive use in a Jupyter notebook, allowing quick prototyping of figures for data analysis. Click on any of the thumbnails below to see concrete usage of HoloViews very high level, data-oriented API:
+Accordingly, I would instead encourage everyone looking for very high level charting with Bokeh to look in a new (and much better) direction: [HoloViews](http://holoviews.org/) is a separately maintained package that provides a concise declarative interface for building Bokeh plots. It is actively maintained by Jean-Luc Stevens, Philipp Rudiger, and Jim Bednar. HoloViews is particularly focused on interactive use in a Jupyter notebook, allowing quick prototyping of figures for data analysis. Click on any of the thumbnails below to see concrete usage of HoloViews' very high level, data-oriented API:
 
 <a href="http://build.holoviews.org/gallery/streams/bokeh/bounds_selection.html"><img height=120 src="bounds_selection.gif" /></a>
 <a href="http://build.holoviews.org/gallery/demos/bokeh/bachelors_degrees_by_gender.html"><img height=120 src="degrees.png" /></a>
