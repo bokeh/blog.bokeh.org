@@ -2,10 +2,10 @@ title: Bokeh 0.12.6 Released
 ---
 summary:
 
-Bokeh 0.12.6 has been released, bringing support for
+Bokeh 0.12.6 has been released, bringing support for static image output!
 
 ---
-pub_date: 2017-05-08
+pub_date: 2017-06-13
 ---
 author: Bryan Van de Ven
 ---
@@ -191,5 +191,3 @@ Bryan Van de Ven
 
 ----
 class: default
----
-_discoverable: no
