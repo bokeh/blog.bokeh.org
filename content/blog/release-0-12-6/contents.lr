@@ -140,14 +140,14 @@ The new project is called [`bkcharts`](https://github.com/bokeh/bkcharts). Curre
 
 Accordingly, I would instead encourage everyone looking for very high level charting with Bokeh to look in a new (and much better) direction: [HoloViews](http://holoviews.org/) is a separately maintained package that provides a concise declarative interface for building Bokeh plots. It is actively maintained by Jean-Luc Stevens, Philipp Rudiger, and Jim Bednar. HoloViews is particularly focused on interactive use in a Jupyter notebook, allowing quick prototyping of figures for data analysis. Click on any of the thumbnails below to see concrete usage of HoloViews very high level, data-oriented API:
 
-<a href=""><img height=120 src="bounds_selection.gif" /></a>
-<a href=""><img height=120 src="degrees.png" /></a>
-<a href=""><img height=120 src="heatmap_tap.gif" /></a>
-<a href=""><img height=120 src="quiver.png" /></a>
-<a href=""><img height=120 src="measles.png" /></a>
-<a href=""><img height=120 src="image.png" /></a>
-<a href=""><img height=120 src="range_histogram.gif" /></a>
-<a href=""><img height=120 src="relief.png" /></a>
+<a href="http://build.holoviews.org/gallery/streams/bokeh/bounds_selection.html"><img height=120 src="bounds_selection.gif" /></a>
+<a href="http://build.holoviews.org/gallery/demos/bokeh/bachelors_degrees_by_gender.html"><img height=120 src="degrees.png" /></a>
+<a href="http://build.holoviews.org/gallery/streams/bokeh/heatmap_tap.html"><img height=120 src="heatmap_tap.gif" /></a>
+<a href="http://build.holoviews.org/gallery/elements/bokeh/VectorField.html"><img height=120 src="quiver.png" /></a>
+<a href="http://build.holoviews.org/gallery/demos/bokeh/measles_example.html"><img height=120 src="measles.png" /></a>
+<a href="http://build.holoviews.org/gallery/demos/bokeh/square_limit.html"><img height=120 src="escher.png" /></a>
+<a href="http://build.holoviews.org/gallery/streams/bokeh/range_histogram.html"><img height=120 src="range_histogram.gif" /></a>
+<a href="http://build.holoviews.org/gallery/demos/bokeh/topographic_hillshading.html"><img height=120 src="relief.png" /></a>
 
 In addition to close integration with Bokeh, Holoviews can also coordinate the [Datashader](http://datashader.readthedocs.io/en/latest/) library for dealing with large (billion+ point) data sets. Together, these three projects bring together the vision for *"high-level data applications for large and streaming data in the browser"* that Peter Wang and I set out to create four years ago. Expect much more information, demonstration, and documentation about using these tools seamlessly together in the coming weeks. In particular, there will be a tutorial at [SciPy 2017](https://scipy2017.scipy.org/ehome/220975/493418/) in July (available afterward on YouTube).
 
