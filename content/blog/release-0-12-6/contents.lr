@@ -128,7 +128,7 @@ Bokeh has had `patch` and `stream` methods on `ColumnDataSource` for some time n
 
 <div class="image"><center><img src="patch.gif"></center></div>
 
-You can find more information in the [Reference Guide](http://bokeh.pydata.org/en/dev/docs/reference/models/sources.html#bokeh.models.sources.ColumnDataSource.patch) or check out and run the source code for the above example at [`examples/howto/patch_app.py`](https://github.com/bokeh/bokeh/blob/master/examples/howto/patch_app.py).
+You can find more information in the [Reference Guide](http://bokeh.pydata.org/en/0.12.6/docs/reference/models/sources.html#bokeh.models.sources.ColumnDataSource.patch) or check out and run the source code for the above example at [`examples/howto/patch_app.py`](https://github.com/bokeh/bokeh/blob/0.12.6/examples/howto/patch_app.py).
 
 #### High-level Charts
 
