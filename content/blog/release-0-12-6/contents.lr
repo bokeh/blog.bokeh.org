@@ -82,7 +82,7 @@ To use this new capability, some additional optional dependencies (such as Selen
 
 #### Layout System Improvements
 
-Bokeh `0.12` introduced a new layout system for entire documents, affording the ability to display sophisticated data applications with multiple controls and plots. However, the layout system is complex, and more than a few problems have turned up since it was added. Thanks to the tireless work of Mateusz Paprocki, this release saw a major cleanup of the entire layout system, resulting in many fixed bugs:
+Bokeh `0.12` introduced a new layout system for entire documents, affording the ability to display sophisticated data applications with multiple controls and plots. However, the layout system is complex, and more than a few problems have turned up since it was added. Thanks to the tireless work of Mateusz Paprocki, this release saw a major cleanup of the entire layout system. In general, the responsiveness of layout has been improved, but most importantly many bugs were fixed:
 
 [#4764&mdash;Issue with interactions between widgets and plots using bokeh server](https://github.com/bokeh/bokeh/issues/4764)
 
@@ -96,7 +96,7 @@ Bokeh `0.12` introduced a new layout system for entire documents, affording the 
 
 [#6213&mdash;Appending layout regression](https://github.com/bokeh/bokeh/issues/6213)
 
-In general, the responsiveness of layout has been improved as well. There's still more work to do, but this work puts the Bokeh layout capability of solid footing for the future.
+Additionally, a lot of behind the scenes refactoring puts the Bokeh layout capability of solid footing for the future.
 
 #### Bands and Whiskers
 
@@ -113,9 +113,9 @@ Another long-requested feature is annotations for reporting errors and uncertain
 </center>
 </div>
 
-Future planned improvements include an `errorbar` function to help add these to plots more easily.
+Future planned improvements include an `errorbar` function to help make using these annotations even easier.
 
-For good measure, this plot also shows off some new syntax for overriding tick formatting more easily. The x-coordinates in the plot number successive trading days. We want to label every fifth value (i.e. every Monday) as a new week, which can now be done easily like this:
+For good measure, this plot also shows off some new syntax that makes overriding tick formatting a snap. The x-coordinates in the plot number successive trading days. We want to label every fifth value (i.e. every Monday) as a new week, which can now be done easily like this:
 
 ```python
 p.xaxis.ticker = mondays # [0, 5, 10, ...]
