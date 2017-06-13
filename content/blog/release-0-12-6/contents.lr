@@ -18,7 +18,7 @@ text:
 
 We're pleased to announce the release of Bokeh 0.12.6!
 
-This update has the following highlights:
+This update includes the following highlights:
 
 * *Headless, programmatic export of SVG and PNG images*
 * *New annotations [`Whisker`](http://bokeh.pydata.org/en/0.12.6/docs/user_guide/annotations.html#whiskers) and [`Band`](http://bokeh.pydata.org/en/0.12.6/docs/user_guide/annotations.html#bands) for displaying error estimates*
@@ -28,7 +28,7 @@ This update has the following highlights:
 * *Large cleanup and refactor of the layout system*
 * *Improved formatting options for hover tool fields and axis tick labels*
 
-As well as many other small bugfixes and docs additions.
+Additionally, this release contains many other small bugfixes and docs additions.
 For full details, see the [CHANGELOG](https://github.com/bokeh/bokeh/blob/master/CHANGELOG)
 and [Release Notes](http://bokeh.pydata.org/en/latest/docs/releases/0.12.6.html).
 
@@ -40,7 +40,7 @@ to our CDN. [Click here to download](https://cdn.pydata.org/bokeh/examples/examp
 This release can most easily be installed from the Bokeh channel on
 [Anaconda.org](https://anaconda.org/bryanv/dashboard) by executing the
 command ``conda install -c bokeh bokeh`` if you are using
-[Anaconda](https://www.continuum.io/downloads) or ``pip install bokeh``
+[Anaconda](https://www.continuum.io/downloads), or ``pip install bokeh``
 otherwise.
 
 -----
@@ -48,9 +48,9 @@ otherwise.
 
 #### SVG and PNG Export
 
-Not surprisingly, [#538&mdash;Headless static (svg, png) image generation](https://github.com/bokeh/bokeh/issues/538) was one of the oldest open issues on the Bokeh issue tracker. Despite enormous interest in this capability (from users and the core devs alike) technical hurdles and trade-offs prevented realizing this feature until now.
+Not surprisingly, [#538&mdash;Headless static (svg, png) image generation](https://github.com/bokeh/bokeh/issues/538) was one of the oldest open issues on the Bokeh issue tracker. Despite enormous interest in this capability (from users and the core devs alike), technical hurdles and trade-offs prevented realizing this feature until now.
 
-I am very happy to report that this old issue has been completed! It is now possible to export static SVGs and PNGs directly from python code thanks to the great work of Luke Canavan.
+I am very happy to report that this issue has been completed! It is now possible to export static SVGs and PNGs directly from Python code thanks to the great work of Luke Canavan.
 
 Exporting to PNG is as simple as calling one function:
 
@@ -58,31 +58,31 @@ Exporting to PNG is as simple as calling one function:
 export_png(plot, filename="plot.png")
 ```
 
-This function will generate a PNG image that is essentially a full screenshot of what would be rendered in the browser. Here is a PNG of the unemployment example:
+This function generates a PNG image that is essentially a full screenshot of what would be rendered in the browser. Here is a PNG of the unemployment example:
 
 <div class="image"><center><img src="unemployment.png" width="75%"></center></div>
 
 
 -----
 
-It's also possible to generate SVG output, which is often requested from people wanting to use Bokeh plots in scientific publications:
+It's also possible to generate SVG output, which is often requested by people wanting to use Bokeh plots in scientific publications:
 
 ```python
 plot.output_backend = "svg"
 export_svgs(plot, filename="plot.svg")
 ```
-Do note the *plural* in the function name. When exporting grid plots or layouts with multiple plots, `export_svgs` will generate a separate SVG for every plot: `plot.svg`, `plot_1.svg`, `plot_2.svg`, etc. This is unlike the "full screenshot" style of the PNG export, but should be useful for those embedding plots into publications and want finer control of what goes where.
+Do note the *plural* in the function name. When exporting grid plots or layouts with multiple plots, `export_svgs` will generate a separate SVG for every plot: `plot.svg`, `plot_1.svg`, `plot_2.svg`, etc. This is different from the "full screenshot" style of the PNG export, but should be useful for those embedding plots into publications who want finer control of what-goes-where.
 Here is an SVG of the same unemployment example above:
 
 <div class="image"><center><img src="unemployment.svg" width="75%" ></center></div>
 
 -----
 
-To use this new capability, some additional optional dependencies (such as Selenium) must first be installed. See the new User's Guide section [Exporting Plots](http://bokeh.pydata.org/en/latest/docs/user_guide/export.html) for information about how to get everything up and running. Like all new features, there will almost certainly be some kinks to straighten out. Please report any issues (with full details) on the [issue tracker](https://github.com/bokeh/bokeh/issues).
+To use this new capability, some additional optional dependencies (such as Selenium) must first be installed. See the new User's Guide section [Exporting Plots](http://bokeh.pydata.org/en/0.12.6/docs/user_guide/export.html) for information about how to get everything up and running. Like all new features, there will almost certainly be some kinks to straighten out. Please report any issues (with full details) on the [issue tracker](https://github.com/bokeh/bokeh/issues).
 
 #### Layout System Improvements
 
-Bokeh `0.12` introduced a new layout system for entire documents, affording the ability to display sophisticated data applications with multiple controls and plots. However, the layout system is complex, and more than a few problems have turned up since it was added. Thanks to the tireless work of Mateus Paprocki, this release saw a major cleanup of the entire layout system, resulting in many fixed bugs:
+Bokeh `0.12` introduced a new layout system for entire documents, affording the ability to display sophisticated data applications with multiple controls and plots. However, the layout system is complex, and more than a few problems have turned up since it was added. Thanks to the tireless work of Mateusz Paprocki, this release saw a major cleanup of the entire layout system, resulting in many fixed bugs:
 
 [#4764&mdash;Issue with interactions between widgets and plots using bokeh server](https://github.com/bokeh/bokeh/issues/4764)
 
@@ -96,24 +96,35 @@ Bokeh `0.12` introduced a new layout system for entire documents, affording the 
 
 [#6213&mdash;Appending layout regression](https://github.com/bokeh/bokeh/issues/6213)
 
-And probably several others that just have not been explicitly identified yet. In general, the responsiveness of layout has been improved as well.
+In general, the responsiveness of layout has been improved as well. There's still more work to do, but this work puts the Bokeh layout capability of solid footing for the future.
 
-There's still more work to do, but this work puts the Bokeh layout capability of solid footing for the future.
+#### Bands and Whiskers
 
-#### New Formatting for Hover Fields and Fixed Axis Ticks
+Another long-requested feature is annotations for reporting errors and uncertainty. The plot below shows off the new [`Whisker`](http://bokeh.pydata.org/en/0.12.6/docs/user_guide/annotations.html#whiskers) and [`Band`](http://bokeh.pydata.org/en/0.12.6/docs/user_guide/annotations.html#bands) annotations:
+
+<div>
+<center>
+<script
+    src="error.js"
+    id="56320aac-19a0-4054-9a45-e8adaf04d7ba"
+    data-bokeh-model-id="d5ca1cab-a386-491d-ad1c-14b07835f09f"
+    data-bokeh-doc-id="8a4d34ae-bf9f-4bcf-a19f-902216d6c453"
+></script>
+</center>
+</div>
+
+Future planned improvements include an `errorbar` function to help add these to plots more easily.
+
+For good measure, this plot also shows off some new syntax for overriding tick formatting more easily. The x-coordinates in the plot number successive trading days. We want to label every fifth value (i.e. every Monday) as a new week, which can now be done easily like this:
 
 ```python
-
+p.xaxis.ticker = mondays # [0, 5, 10, ...]
+p.xaxis.major_label_overrides = { d: "week %d" % i for i, d in enumerate(mondays)}
 ```
-
-This code can be seen at work in the plot below:
-
-
-For good measure, this plot shows off the new [`Whisker`](http://bokeh.pydata.org/en/0.12.6/docs/user_guide/annotations.html#whiskers) and [`Band`](http://bokeh.pydata.org/en/0.12.6/docs/user_guide/annotations.html#bands) error annotations as well.
 
 #### Efficient Streaming for Higher Dimensional Data
 
-Bokeh has had `patch` and `stream` methods on `ColumnDataSource` for some time now. These allow for efficient or incremental updates to individual items in CDS columns. For most cases, where the columns are one-dimensional arrays, this is a great benefit. But for some glyphs, such as `MultiLine` and `Image`, the items in the columns are more arrays. In these cases, `patch` was not nearly as useful as it could be&mdash;until now. Now it is possible to use `patch` to partially update individual locations or slices of CDS column items that are arrays. The demo below shows `patch` being used to update subsets of circles, multi-lines, and images all at once:
+Bokeh has had `patch` and `stream` methods on `ColumnDataSource` for some time now. These allow for efficient or incremental updates to individual items in CDS columns. For most cases, where the columns are one-dimensional arrays, this is a great benefit. But for some glyphs, such as `MultiLine` and `Image`, the items in the columns are themselves arrays. In these cases, `patch` was not nearly as useful as it could be&mdash;until now. Now it is possible to use `patch` to partially update individual locations or slices of CDS column items that are arrays. The demo below shows `patch` being used to update subsets of circles, multi-lines, and images all at once:
 
 <div class="image"><center><img src="patch.gif"></center></div>
 
@@ -125,7 +136,7 @@ Looking towards a 1.0 release, we are in the process of paring down Bokeh for lo
 
 <center><h5><b>bokeh.charts is now a separate package.</b></h5></center>
 
-The new project is called [`bkcharts`](https://github.com/bokeh/bkcharts). Current usage of `bokeh.charts` will work (with a deprecation warning) until Bokeh 1.0 is released. At that time, it will be be necessary to separately install and import from the `bkcharts` package to continue using this API. However, due to resource constraints, *support and maintenance for `bkcharts` will be extremely minimal from this point on .*
+The new project is called [`bkcharts`](https://github.com/bokeh/bkcharts). Current usage of `bokeh.charts` will work (with a deprecation warning) until Bokeh 1.0 is released. At that time, it will be be necessary to separately install and import from the `bkcharts` package to continue using this API. However, due to resource constraints, *support and maintenance for `bkcharts` by the current team will be extremely minimal from this point on .*
 
 Accordingly, I would instead encourage everyone looking for very high level charting with Bokeh to look in a new (and much better) direction: [HoloViews](http://holoviews.org/) is a separately maintained package that provides a concise declarative interface for building Bokeh plots. It is actively maintained by Jean-Luc Stevens, Philipp Rudiger, and Jim Bednar. HoloViews is particularly focused on interactive use in a Jupyter notebook, allowing quick prototyping of figures for data analysis. Click on any of the thumbnails below to see concrete usage of HoloViews very high level, data-oriented API:
 
