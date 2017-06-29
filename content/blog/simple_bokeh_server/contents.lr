@@ -148,9 +148,9 @@ server.start()
 <br>
 
 By changing around the figures (or combining multiple figures, text, other
-visual elements, etc.) you have full freedom over the visual styling of your
+visual elements, and so on) you have full freedom over the visual styling of your
 web service.  By changing around the update function you can pull data from
-sensors, shove in more interesting data, etc..  This toy example is meant to
+sensors, shove in more interesting data, and so on.  This toy example is meant to
 provide the skeleton of a simple application; hopefully you can fill in details
 from your application.
 
@@ -194,7 +194,7 @@ def make_document(doc):
     doc.add_periodic_callback(update, 100)
 ```
 
-You can also have buttons, sliders, widgets, etc..  I rarely use these
+You can also have buttons, sliders, widgets, and so on.  I rarely use these
 personally though so they don't interest me as much.
 
 Final Thoughts
@@ -202,8 +202,7 @@ Final Thoughts
 
 I've found the Bokeh server to be incredibly helpful in my work and also very
 approachable once you understand how to set one up (as you now do). I hope
-that this post serves people well.  If you want to try things out yourself.
-This blogpost is available as a [Jupyter
+that this post serves people well. This blogpost is available as a [Jupyter
 notebook](https://gist.github.com/e014f11aab7eb3fd12d83a746d8c87df) if you want
 to try it out yourself.
 
