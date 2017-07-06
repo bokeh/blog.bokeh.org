@@ -1,0 +1,172 @@
+title: Bokeh 0.12.6 Released
+---
+summary:
+
+@todo
+
+---
+pub_date: 2017-07-12
+---
+author: Luke Canavan
+---
+twitter_handle: canavandl
+---
+body:
+
+#### text-block ####
+text:
+
+### Introduction
+
+In web development, it's typical to confine your business logic into JS files,
+your layout into HTML templates, and your styling into CSS files. This
+decoupling makes navigating and working on a code base easier. In Bokeh,
+there's similar value to decoupling the styles of your Models (the glyphs,
+plots, axes, grids, etc) from the business logic that generates them.
+
+There are two best practice patterns that have arisen out of my experience in
+styling Bokeh visualizations that I'll discuss in this post.
+
+### Using Styling Dictionaries
+
+One solution is to create a python module containing all of my styles
+(I generally call it "styles.py") that contains dictionaries of Bokeh style
+properties.
+
+contents of styles.py
+```python
+from bokeh.models import BasicTicker, PrintfTickFormatter
+
+DARK_GRAY = "#282828"
+BROWN_GRAY = "#49483E"
+
+PLOT_OPTS = dict(
+  background_fill_color=DARK_GRAY,
+  border_fill_color=DARK_GRAY,
+  outline_line_color=BROWN_GRAY
+)
+
+AXIS_OPTS = dict(
+  axis_label_standoff=10,
+  axis_label_text_font_size="15pt",
+  axis_line_color=BROWN_GRAY,
+  ticker=BasicTicker(num_minor_ticks=2),
+  formatter=PrintfTickFormatter(format="%4.1e")
+)
+```
+
+I'll even include some Bokeh Models like Tickers and Formatters that are
+responsible for are styling-focused and not business logic-focused. Then I'll
+splat these style dictionaries into the appropriate Models when creating them.
+
+```
+from bokeh.models import Plot, Range1d, LinearAxis
+from .styles import PLOT_OPTS, AXIS_OPTS
+
+plot = Plot(x_range=Range1d(), y_range=Range1d(), **PLOT_OPTS)
+plot.add_layout(
+  LinearAxis(**AXIS_OPTS), "left"
+)
+plot.add_layout(
+  LinearAxis(**AXIS_OPTS), "below"
+)
+```
+
+Styling plots via styling.py dicts
+- Don't have to (explicitly) deal with Documents and Themes
+- Good for bokeh.embed.components (and other static-style outputs?)
+- Can have multiple styles for the same Model type
+- Works best for visualizations written in bokeh.models API style
+- pure python dicts that undergo runtime bokeh prop checks
+
+### Using Bokeh Themes
+
+The alternative to using styling dictionaries is creating Bokeh Themes. Themes
+are a specification for creating new defaults for Bokeh Models via a YAML
+file or a JSON.
+
+You can read more about Themes in the
+[documentation](http://bokeh.pydata.org/en/latest/docs/reference/themes.html#bokeh-themes).
+
+contents of theme.yaml
+```yaml
+attrs:
+    Plot:
+        background_fill_color: "#282828"
+        border_fill_color: "#282828"
+        outline_line_color: "#49483E"
+    Axis:
+        axis_label_standoff: 10
+        axis_label_text_font_size="15pt"
+        axis_line_color: "#49483E"
+    BasicTicker:
+        num_minor_ticks: 2
+    PrintfTickFormatter:
+        format: "%4.1e"
+```
+
+Then you attach the theme to the Document.
+
+```python
+from bokeh.theme import Theme
+
+theme = Theme(filename="./theme.yaml")
+
+doc = Document(theme=theme)
+doc.add_root(plot)
+
+```
+
+### When to use styling dictionaries or Themes?
+
+The benefit of using style dictionaries are their simplicity. You don't have to
+deal with Documents or Themes, just simple python dictionaries. I've used this
+approach when embedding layouts in other applications like Django web apps.
+Additionally, the style dicts support having different styles for the same
+model in your final visualization (i.e. having a x-axis and y-axis of
+LinearAxis that have different ticking)
+
+Themes are nice because your single stylesheet will automatically propagate to
+all of the appropriate models inside of your Document.
+
+Finally, themes are easier to share with others. Leading to...
+
+Styling plots via themes
+- good for server apps
+- Can have single style propagate to multiple models inside of Document automatically
+- YAML ain't bad?
+- easy to share
+
+### Quick styling tips
+
+* It's possible to make transparent plots by setting a Plot's
+``background_fill_color`` and ``border_fill_color`` to ``None``. It's useful
+when you want your HTML document styling to be the background of your plot.
+* You can either specify a custom template for your document and either
+inline styles or load a custom CSS file. Alternatively, if you're 
+
+Quick tricks:
+- Adding custom CSS via template or __css__ prop on Model
+- background_fill_color/border_fill_color=None will make transparent plots so
+that html document background_color will show through.
+
+
+### Announcing the new bokeh-themes package
+
+New package of bokeh themes, users can contribute. First is inspired by
+Monokai Dark.
+
+Introducing bokeh/bokeh-themes
+- repo of pip installable themes
+- First Monokai Dark
+
+styling dicts can override themes. but use with caution, potential for creating
+two sources of styles instead of one.
+
+
+
+Call to action
+- try Monokai dark, open PRs for others
+
+----
+class: default
