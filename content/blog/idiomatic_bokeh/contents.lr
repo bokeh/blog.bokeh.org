@@ -23,10 +23,10 @@ text:
 I was inspired to write a cookbook-style bokeh educational guide after reading
 Tom Auspurger's recent [Modern Pandas](https://tomaugspurger.github.io/modern-1.html)
 series. As a Bokeh developer who has written a lot of Bokeh visualizations,
-I've developed a some personal opinions on best practices for using Bokeh. Some
-helpful resources for following along include the
+I've developed a some personal opinions on best practices for using Bokeh. A
+great resource for following along is the
 [User Guide](http://bokeh.pydata.org/en/latest/docs/user_guide.html)
-section of the Bokeh documentation, x Bryan talk, and x Sarah Bird talk.
+section of the Bokeh documentation.
 
 ## Introduction
 
