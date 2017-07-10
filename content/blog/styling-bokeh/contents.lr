@@ -21,20 +21,23 @@ text:
 In web development, it's typical to confine your business logic into JS files,
 your layout into HTML templates, and your styling into CSS files. This
 decoupling makes navigating and working on a code base easier. In Bokeh,
-there's similar value to decoupling the styles of your Models (the glyphs,
-plots, axes, grids, etc) from the business logic that generates them.
+there's similar value to decoupling the styles of your Models from the
+business logic that generates them. For example, if you want to change the
+tick interval of an axis or outline color of a Circle glyph, it should be
+immediately obvious where the appropriate code to modify is.
 
-There are two best practice patterns that have arisen out of my experience in
-styling Bokeh visualizations that I'll discuss in this post.
+I've found two general patterns for grouping styling code in my experience of
+creating Bokeh visualizations that I'll share in this post.
 
 ### Using Styling Dictionaries
 
-One solution is to create a python module containing all of my styles
+One solution is to create a sidecar python module containing all of my styles
 (I generally call it "styles.py") that contains dictionaries of Bokeh style
-properties.
+properties. Here's an example on one:
 
-contents of styles.py
 ```python
+### contents of styles.py
+
 from bokeh.models import BasicTicker, PrintfTickFormatter
 
 DARK_GRAY = "#282828"
@@ -53,11 +56,17 @@ AXIS_OPTS = dict(
   ticker=BasicTicker(num_minor_ticks=2),
   formatter=PrintfTickFormatter(format="%4.1e")
 )
+
 ```
 
 I'll even include some Bokeh Models like Tickers and Formatters that are
-responsible for are styling-focused and not business logic-focused. Then I'll
-splat these style dictionaries into the appropriate Models when creating them.
+responsible for are styling elements and aren't implementing business logic.
+From visualization to visualization these can change - sometimes colors are
+manually chosen and should be in a styles dict while other times they're
+dynamically computed based on data values and should stay in the business logic.
+Then I'll splat these style dictionaries into the appropriate Models when
+creating them. This allow for creating reusable styles across different model
+instances, i.e. all of the axes look the same.
 
 ```
 from bokeh.models import Plot, Range1d, LinearAxis
@@ -70,23 +79,17 @@ plot.add_layout(
 plot.add_layout(
   LinearAxis(**AXIS_OPTS), "below"
 )
-```
 
-Styling plots via styling.py dicts
-- Don't have to (explicitly) deal with Documents and Themes
-- Good for bokeh.embed.components (and other static-style outputs?)
-- Can have multiple styles for the same Model type
-- Works best for visualizations written in bokeh.models API style
-- pure python dicts that undergo runtime bokeh prop checks
+```
 
 ### Using Bokeh Themes
 
 The alternative to using styling dictionaries is creating Bokeh Themes. Themes
-are a specification for creating new defaults for Bokeh Models via a YAML
-file or a JSON.
-
-You can read more about Themes in the
-[documentation](http://bokeh.pydata.org/en/latest/docs/reference/themes.html#bokeh-themes).
+are a specification for creating custom defaults for Bokeh Models via a YAML
+file or a JSON. I think that Themes are a fantastic way to maintaining a
+consistent style across a larger set of visualizations because you don't have
+to remember to explicitly add styles to individual models. Here's an example of
+a theme file:
 
 contents of theme.yaml
 ```yaml
@@ -103,9 +106,12 @@ attrs:
         num_minor_ticks: 2
     PrintfTickFormatter:
         format: "%4.1e"
+
 ```
 
-Then you attach the theme to the Document.
+Then you simply attach the theme to the Document and all of the custom styles
+are applied to the appropriate models. You can read more about Themes in the
+[documentation](http://bokeh.pydata.org/en/latest/docs/reference/themes.html#bokeh-themes).
 
 ```python
 from bokeh.theme import Theme
@@ -113,6 +119,7 @@ from bokeh.theme import Theme
 theme = Theme(filename="./theme.yaml")
 
 doc = Document(theme=theme)
+### or Document().theme = theme
 doc.add_root(plot)
 
 ```
@@ -121,52 +128,49 @@ doc.add_root(plot)
 
 The benefit of using style dictionaries are their simplicity. You don't have to
 deal with Documents or Themes, just simple python dictionaries. I've used this
-approach when embedding layouts in other applications like Django web apps.
-Additionally, the style dicts support having different styles for the same
-model in your final visualization (i.e. having a x-axis and y-axis of
-LinearAxis that have different ticking)
+approach when embedding smaller layouts via the ``bokeh.embed.components`` in
+other applications like Django web apps. If you're creating Bokeh Server
+applications, you're generally deal with Documents anyway, so it's less of a
+convenience.
 
-Themes are nice because your single stylesheet will automatically propagate to
-all of the appropriate models inside of your Document.
+Also, styling dictionary approach seems to work best when developing via the
+``bokeh.models`` API where you're explicitly creating and adding all of your
+models. You can read my previous blog post about how that works
+[here](https://bokeh.github.io/blog/2017/7/5/idiomatic_bokeh/). In the
+``bokeh.plotting`` API some plot components, like axes for example, are
+implicitly created inside the ``figure`` method. This is where Themes are
+probably a better solution because they will automatically propagate to all of
+the appropriate models inside of your Document.
 
-Finally, themes are easier to share with others. Leading to...
+What if you want different styles for the same model type? It's possible to
+have different style dictionaries that you splat in by having unique
+``X_AXIS_OPTS`` and ``Y_AXIS_OPTS`` dicts  for a LinearAxis model. Alternatively,
+since Themes just change the model defaults, it's possible to override the new
+defaults however you normally would. It's even possible to combine both the
+styling dicts and Themes approach to styling Bokeh visualizations, but I'd
+recommend doing so in very limited cases because the whole point was to isolate
+your styles into a single location.
 
-Styling plots via themes
-- good for server apps
-- Can have single style propagate to multiple models inside of Document automatically
-- YAML ain't bad?
-- easy to share
+Finally, themes are easier to share with others. I've created a gist [add link]
+that contains a Monokai Dark-inspired theme that I've created. You should be
+able to download or copy and paste it into a file an attach to any visualization
+you already have.
 
 ### Quick styling tips
 
-* It's possible to make transparent plots by setting a Plot's
-``background_fill_color`` and ``border_fill_color`` to ``None``. It's useful
-when you want your HTML document styling to be the background of your plot.
-* You can either specify a custom template for your document and either
-inline styles or load a custom CSS file. Alternatively, if you're 
+Here are some assorted styling tips
 
-Quick tricks:
-- Adding custom CSS via template or __css__ prop on Model
-- background_fill_color/border_fill_color=None will make transparent plots so
-that html document background_color will show through.
+* If you want your html body (or whatever container) style to be visible
+behind your plots, set the Plot ``background_fill_color`` and
+``border_fill_color`` attributes to ``None``.
 
+* If you want to add custom CSS to your layout (i.e. in order to change the html
+body background color) you can **** or you can specify a custom template for
+your Document and either inline or load your custom CSS there.
 
-### Announcing the new bokeh-themes package
+### Conclusion
 
-New package of bokeh themes, users can contribute. First is inspired by
-Monokai Dark.
-
-Introducing bokeh/bokeh-themes
-- repo of pip installable themes
-- First Monokai Dark
-
-styling dicts can override themes. but use with caution, potential for creating
-two sources of styles instead of one.
-
-
-
-Call to action
-- try Monokai dark, open PRs for others
+@todo
 
 ----
 class: default
