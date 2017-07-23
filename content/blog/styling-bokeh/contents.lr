@@ -1,11 +1,11 @@
-title: Bokeh 0.12.6 Released
+title: Styling Bokeh Visualizations
 ---
 summary:
 
-@todo
+Strategies for managing Bokeh styling code.
 
 ---
-pub_date: 2017-07-12
+pub_date: 2017-07-24
 ---
 author: Luke Canavan
 ---
@@ -27,8 +27,24 @@ business logic that generates them. In this post, I'll share two ways I've
 found helpful for doing this.
 
 Additionally, I've created a Monokai-inspired dark theme for Bokeh that you
-can use. You can download the file [here](link) and read below about how
-to use it.
+can use. It makes Bokeh visualizations look like this:
+
+<div>
+<br>
+<center>
+<script
+    src="./auto_theme.js"
+    id="03c6e4fc-3d9c-46d8-a343-9a51b7339794"
+    data-bokeh-model-id="8d155e08-7d33-4fb5-84fd-7a7738e994df"
+    data-bokeh-doc-id="58e8b09d-d61a-49c7-b541-2404988bbc89"
+></script>
+</center>
+<br>
+</div>
+
+You can download the Theme file
+[here](https://gist.github.com/canavandl/4ed8e3d1fccacfb9b5b237821decfda7)
+and read below about how to use it.
 
 ### Using Styling Dictionaries
 
@@ -72,7 +88,7 @@ AXIS_OPTS = dict(
 Next, I'll splat these style dictionaries into the appropriate Models when
 instantiating them. Here's how it looks in practice:
 
-```
+```python
 from bokeh.models import Plot, Range1d, LinearAxis
 from .styles import PLOT_OPTS, AXIS_OPTS
 
@@ -90,8 +106,6 @@ The benefit of using style dictionaries is their simplicity. They make
 visualization code much shorter and readable because they pull out all of your
 styling code into a separate module. I think styles dictionaries most useful
 for simpler visualization, perhaps embedding a single plot within a web app.
-
-***
 
 ### Using Bokeh Themes
 
@@ -156,20 +170,21 @@ have different style dictionaries for distinct model instances (i.e. having
 Alternatively, since Themes just change the model defaults, it's possible to
 override the new defaults however you normally would.
 
-Finally, Themes are easier to share with others. I've created a
-Monokai-inspired dark theme. You should be able to download or copy and paste
-its contents into a file and attach it to any visualization you already have.
+Finally, Themes are easier to share with others. You should be able to
+download or copy and paste the Theme file from
+[here](https://gist.github.com/canavandl/4ed8e3d1fccacfb9b5b237821decfda7)
+into a local file and attach it to any visualization you already have.
 
 ### Grab Bag of Bokeh Styling Tips
 
 Unrelated to styling dictionaries or themes, I have a couple of styling
 pro-tips that I'd like to share:
 
-* If you want your HTML body (or whatever HTML element your layout is inside of)
+*If you want your HTML body (or whatever HTML element your layout is inside of)
 style to be visible behind your plots, set the Plot ``background_fill_color``
 and ``border_fill_color`` attributes to ``None``.
 
-* If you want to add custom CSS to your layout (i.e. in order to change the html
+*If you want to add custom CSS to your layout (i.e. in order to change the html
 body background color) you can specify a custom template for your Document and
 either inline or load your custom CSS there.
 
