@@ -27,7 +27,7 @@ business logic that generates them. In this post, I'll share two ways I've
 found helpful for doing this.
 
 Additionally, I've created a Monokai-inspired dark theme for Bokeh that you
-can use. You can download the gist [here](link) or read down below about how
+can use. You can download the file [here](link) and read below about how
 to use it.
 
 ### Using Styling Dictionaries
@@ -88,12 +88,10 @@ plot.add_layout(
 
 The benefit of using style dictionaries is their simplicity. They make
 visualization code much shorter and readable because they pull out all of your
-styling code into a separate styling module. If I want to change the axis
-labels, I know to look in the styles module. If I want to change the axis type,
-I know to look at my implementation.
+styling code into a separate module. I think styles dictionaries most useful
+for simpler visualization, perhaps embedding a single plot within a web app.
 
-I think styles dictionaries most useful for simpler visualization, perhaps
-embedding a single plot within a web app.
+***
 
 ### Using Bokeh Themes
 
@@ -104,8 +102,8 @@ consistent style across a larger set of visualizations because you don't have
 to remember to explicitly add styles to individual models. Here's an example of
 a YAML theme file:
 
-contents of theme.yaml
 ```yaml
+### contents of theme.yaml
 attrs:
     Plot:
         background_fill_color: "#282828"
@@ -126,16 +124,20 @@ When you set your Document's ``theme`` property, all of your custom styles
 are applied to the appropriate models. You can read more in the [Themes
 documentation](http://bokeh.pydata.org/en/latest/docs/reference/themes.html#bokeh-themes).
 
+Here, we're attaching our Theme to our Bokeh Document:
+
 ```python
 from bokeh.theme import Theme
 
 theme = Theme(filename="./theme.yaml")
 
-doc = Document(theme=theme)
-### or Document().theme = theme
+doc = Document(theme=theme) ### or Document().theme = theme
 doc.add_root(plot)
 
 ```
+
+Now the Axis styles in our yaml file are applied to all Axis Models within
+our Document!
 
 ### When to Use Styling Dictionaries or Themes
 
@@ -154,12 +156,11 @@ have different style dictionaries for distinct model instances (i.e. having
 Alternatively, since Themes just change the model defaults, it's possible to
 override the new defaults however you normally would.
 
-Finally, Themes are easier to share with others. I've created a gist [add link]
-that contains a Monokai Dark-inspired theme that I've created. You should be
-able to download or copy and paste it into a file an attach to any visualization
-you already have.
+Finally, Themes are easier to share with others. I've created a
+Monokai-inspired dark theme. You should be able to download or copy and paste
+its contents into a file and attach it to any visualization you already have.
 
-### A Grab Bag of Bokeh Styling Tips
+### Grab Bag of Bokeh Styling Tips
 
 Unrelated to styling dictionaries or themes, I have a couple of styling
 pro-tips that I'd like to share:
@@ -174,7 +175,12 @@ either inline or load your custom CSS there.
 
 ### Conclusion
 
-@todo
+Bokeh's styling is very nice by default. However, extending Bokeh with your
+own custom styles can add an impressive level of polish to your visualizations.
+Now that you're an expert in styling, here are some things to do next:
+
+* Try out the dark theme and share your feedback
+* Develop a theme of your own and share with us
 
 ----
 class: default
