@@ -180,11 +180,10 @@ into a local file and attach it to any visualization you already have.
 Unrelated to styling dictionaries or themes, I have a couple of styling
 pro-tips that I'd like to share:
 
-*If you want your HTML body (or whatever HTML element your layout is inside of)
+* If you want your HTML body (or whatever HTML element your layout is inside of)
 style to be visible behind your plots, set the Plot ``background_fill_color``
 and ``border_fill_color`` attributes to ``None``.
-
-*If you want to add custom CSS to your layout (i.e. in order to change the html
+* If you want to add custom CSS to your layout (i.e. in order to change the html
 body background color) you can specify a custom template for your Document and
 either inline or load your custom CSS there.
 
