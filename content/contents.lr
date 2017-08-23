@@ -16,32 +16,31 @@ body:
         </p>
         <p>
         It consists of a number of related projects under the
-        <a href="https://github.com/bokeh">Bokeh GitHub Organization</a>.
+        <a href='https://github.com/bokeh'>Bokeh GitHub Organization</a>.
         </p>
     </div>
 
     <div class="row">
         <ul>
-
-        <li class="talk-header">
-            <a href="https://bokeh.pydata.org/en/latest/">Bokeh</a>:
-            Core library&mdash;BokehJS client library, Python bindings, and Bokeh Server
-        </li>
             <li class="talk-header">
-            <a href="http://hafen.github.io/rbokeh/">rBokeh</a>:
+                <a href='https://bokeh.pydata.org/en/latest/'>Bokeh</a>:
+                Core library&mdash;BokehJS client library, Python bindings, and Bokeh Server
+            </li>
+            <li class="talk-header">
+            <a href='http://hafen.github.io/rbokeh/'>rBokeh</a>:
                 R bindings for BokehJS
             </li>
             <li class="talk-header">
-                <a href="https://github.com/bokeh/bokeh-scala">bokeh-scala</a>:
+                <a href='https://github.com/bokeh/bokeh-scala'>bokeh-scala</a>:
                 Scala bindings for BokehJS
             </li>
             <li class="talk-header">
-                <a href="http://datashader.readthedocs.org">datashader</a>:
+                <a href='http://datashader.readthedocs.org'>datashader</a>:
                 A graphics pipeline and visual query system for creating meaningful
                 visual representations from large data sets.
             </li>
             <li class="talk-header">
-                <a href="http://holoviews.org">HoloViews</a>:
+                <a href='http://holoviews.org'>HoloViews</a>:
                 A high-level declarative interface to Bokeh for exploring and
                 interacting with data.
             </li>
