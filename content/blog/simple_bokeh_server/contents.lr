@@ -21,7 +21,7 @@ text:
 This blogpost shows how to start a *very simple* bokeh server application
 *programmatically*.  For more complex examples, or for the more standard
 command line interface, see the [Bokeh
-documentation](http://bokeh.pydata.org/en/latest/docs/user_guide/server.html).
+documentation](https://bokeh.pydata.org/en/latest/docs/user_guide/server.html).
 
 Motivation
 ---------

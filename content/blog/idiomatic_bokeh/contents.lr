@@ -25,7 +25,7 @@ Tom Auspurger's recent [Modern Pandas](https://tomaugspurger.github.io/modern-1.
 series. As a Bokeh developer who has written a lot of Bokeh visualizations,
 I've developed a some personal opinions on best practices for using Bokeh. A
 great resource for following along is the
-[User Guide](http://bokeh.pydata.org/en/latest/docs/user_guide.html)
+[User Guide](https://bokeh.pydata.org/en/latest/docs/user_guide.html)
 section of the Bokeh documentation.
 
 ## Introduction
@@ -38,13 +38,13 @@ some associated event handling (i.e. changing the
 ``Plot.background_fill_color`` property will cause the plot to re-render and
 update the background_fill_color).
 
-Models Reference: http://bokeh.pydata.org/en/latest/docs/reference/models.html
+Models Reference: https://bokeh.pydata.org/en/latest/docs/reference/models.html
 
 Glyphs are a subset of Models and represent Bokeh's plotting primitives-
 the Lines, Circles and Rects that compose visualizations. You could think
 of them as the equivalent to D3's elements.
 
-Glyphs Reference: http://bokeh.pydata.org/en/latest/docs/reference/models/glyphs.html
+Glyphs Reference: https://bokeh.pydata.org/en/latest/docs/reference/models/glyphs.html
 
 Bokeh has two main API levels for assemble these Models and Glyphs into
 full-fledged visualization:
@@ -80,7 +80,7 @@ Bokeh visualization is composed - it holds all of axes, grids, glyphs and
 toolbar tools. Additionally, there are a few Plot-specific properties like
 height, width and background color. A good reference for understanding these
 is the ``Plot``
-[documentation](http://bokeh.pydata.org/en/latest/docs/reference/models/plots.html#bokeh.models.plots.Plot).
+[documentation](https://bokeh.pydata.org/en/latest/docs/reference/models/plots.html#bokeh.models.plots.Plot).
 
 You only have to specify a ``Plot`` object's ``x_range`` and ``y_range``
 attributes for it to be renderable. Creating a range-only Plot will yield an

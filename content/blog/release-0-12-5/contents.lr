@@ -35,7 +35,7 @@ This update has the following highlights:
 
 As well as many other small bugfixes and docs additions.
 For full details, see the [CHANGELOG](https://github.com/bokeh/bokeh/blob/master/CHANGELOG)
-and [Release Notes](http://bokeh.pydata.org/en/latest/docs/releases/0.12.5.html).
+and [Release Notes](https://bokeh.pydata.org/en/latest/docs/releases/0.12.5.html).
 
 As a reminder, we now package and upload examples for each Bokeh release
 to our CDN. [Click here to download](https://cdn.pydata.org/bokeh/examples/examples-0.12.5.zip).

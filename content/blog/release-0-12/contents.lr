@@ -62,13 +62,13 @@ Here are just a few of the things that are new:
 * New color palettes: *Viridis, Magma, Inferno, and Plasma*
 * Expanded WebGL support to all markers and fixed WebGL bugs
 * New annotations: *Arrow, Title, Label, LogColorMapper, FuncTickFormatter*
-* Support for computed transforms (e.g. [Jitter](http://bokeh.pydata.org/en/latest/docs/gallery/jitter.html)) on data columns
+* Support for computed transforms (e.g. [Jitter](https://bokeh.pydata.org/en/latest/docs/gallery/jitter.html)) on data columns
 * Server features for threading and simpler deployments
 * New hosted demos at https://demo.bokehplots.com
 
 And as usual, many bugfixes and documentation additions. For full details,
 see the [CHANGELOG](https://github.com/bokeh/bokeh/blob/0.12.0/CHANGELOG)
-and [Release Notes](http://bokeh.pydata.org/en/latest/docs/releases/0.12.0.html).
+and [Release Notes](https://bokeh.pydata.org/en/latest/docs/releases/0.12.0.html).
 
 This release can most easily be installed in the usual ways:
 ``conda install -c bokeh bokeh`` if you are using [Anaconda](https://www.continuum.io/downloads)
@@ -116,7 +116,7 @@ months.
 
 NOTE: In order to accomplish this undertaking, some old interfaces had to be
 deprecated and two small breaking changes introduced. For full details,
-consult the [Migration Guide](http://bokeh.pydata.org/en/latest/docs/releases/0.12.0.html#migration-guide).
+consult the [Migration Guide](https://bokeh.pydata.org/en/latest/docs/releases/0.12.0.html#migration-guide).
 
 ## Bokeh App Improvements and Examples
 
@@ -142,9 +142,9 @@ Until recently, BokehJS has mostly been an internal implementation detail to
 support the Python (and other language) bindings for Bokeh. But there has
 been interest in developing a BokehJS as a compelling JavaScript library in
 its own right. With the 0.12 release, BokehJS gains its own set of APIs:
-[Bokeh.Models](http://bokeh.pydata.org/en/latest/docs/user_guide/bokehjs.html#low-level-models)
-and [Bokeh.Plotting](http://bokeh.pydata.org/en/latest/docs/user_guide/bokehjs.html#bokeh-plotting), which largely follow the corresponding Python APIs, and
-[Bokeh.Charts](http://bokeh.pydata.org/en/latest/docs/user_guide/bokehjs.html#bokeh-charts)
+[Bokeh.Models](https://bokeh.pydata.org/en/latest/docs/user_guide/bokehjs.html#low-level-models)
+and [Bokeh.Plotting](https://bokeh.pydata.org/en/latest/docs/user_guide/bokehjs.html#bokeh-plotting), which largely follow the corresponding Python APIs, and
+[Bokeh.Charts](https://bokeh.pydata.org/en/latest/docs/user_guide/bokehjs.html#bokeh-charts)
 which is a new API for high-level charts unique to BokehJS.
 
 Below is a small example using *Bokeh.Plotting* and the streaming interface:
@@ -186,7 +186,7 @@ As is the code for streaming data to a data source:
 ```
 
 Besides the new User's Guide section on the BokehJS APIs, there is also
-a new section on [Extending Bokeh](http://bokeh.pydata.org/en/latest/docs/user_guide/extensions.html)
+a new section on [Extending Bokeh](https://bokeh.pydata.org/en/latest/docs/user_guide/extensions.html)
 that contains more information about using BokehJS directly, from the perspective
 of building custom user extensions.
 

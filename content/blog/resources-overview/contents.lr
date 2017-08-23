@@ -22,24 +22,24 @@ Recently, [@birdsarah](https://twitter.com/birdsarah) and I have given a few Bok
 
 ### Documentation
 
-The [Main Project Documentation Page](http://bokeh.pydata.org/en/latest) is always a good place to start. It has links to many other resources, but to help make navigating the docs easier, here are some shortcuts:
+The [Main Project Documentation Page](https://bokeh.pydata.org/en/latest) is always a good place to start. It has links to many other resources, but to help make navigating the docs easier, here are some shortcuts:
 
 
-*[User's Guide](http://bokeh.pydata.org/en/latest/docs/user_guide.html)* &mdash; The user's guide has many topic-oriented subsections, for example
- - [Plotting with Basic Glyphs](http://bokeh.pydata.org/en/latest/docs/user_guide/plotting.html)
- - [Adding Interactions](http://bokeh.pydata.org/en/latest/docs/user_guide/interaction.html)
- - [Running a Bokeh Server](http://bokeh.pydata.org/en/latest/docs/user_guide/server.html)
- - [Extending Bokeh](http://bokeh.pydata.org/en/latest/docs/user_guide/extensions.html).
+*[User's Guide](https://bokeh.pydata.org/en/latest/docs/user_guide.html)* &mdash; The user's guide has many topic-oriented subsections, for example
+ - [Plotting with Basic Glyphs](https://bokeh.pydata.org/en/latest/docs/user_guide/plotting.html)
+ - [Adding Interactions](https://bokeh.pydata.org/en/latest/docs/user_guide/interaction.html)
+ - [Running a Bokeh Server](https://bokeh.pydata.org/en/latest/docs/user_guide/server.html)
+ - [Extending Bokeh](https://bokeh.pydata.org/en/latest/docs/user_guide/extensions.html).
 
 And many others. Each user's guide section typically example code and corresponding live plots that demomnstrate how to accomplish various tasks.
 
 
-*[Gallery](http://bokeh.pydata.org/en/latest/docs/gallery.html)* &mdash; One of the best ways to learn is to find an existing example similar to what you want, and to study it and then use it as a starting place. Starting from a known working example can often save time and effort when getting started by allowing you to make small, incremental changes and observing the outcome. The Bokeh docs have a large thumbnail gallery that links to live plots and apps with corresponding code.
+*[Gallery](https://bokeh.pydata.org/en/latest/docs/gallery.html)* &mdash; One of the best ways to learn is to find an existing example similar to what you want, and to study it and then use it as a starting place. Starting from a known working example can often save time and effort when getting started by allowing you to make small, incremental changes and observing the outcome. The Bokeh docs have a large thumbnail gallery that links to live plots and apps with corresponding code.
 
 
-*[Reference Guide](http://bokeh.pydata.org/en/latest/docs/reference.html)* &mdash; If you are already familiar with Bokeh and have questions about specific details of the objects you are already using, the reference guide is a good resource for finding information. The reference guide is automatically generated from the project source code and is a complete resources for all Bokeh models and their properties.
+*[Reference Guide](https://bokeh.pydata.org/en/latest/docs/reference.html)* &mdash; If you are already familiar with Bokeh and have questions about specific details of the objects you are already using, the reference guide is a good resource for finding information. The reference guide is automatically generated from the project source code and is a complete resources for all Bokeh models and their properties.
 
-*[Search page](http://bokeh.pydata.org/en/latest/search.html)* &mdash; If you want to search the Bokeh docs, the search page on the site is the best place. General web searches can sometime return results for old versions or out of date information. The site search always returns information for the latest version, and results for any older versions in separate tabs.
+*[Search page](https://bokeh.pydata.org/en/latest/search.html)* &mdash; If you want to search the Bokeh docs, the search page on the site is the best place. General web searches can sometime return results for old versions or out of date information. The site search always returns information for the latest version, and results for any older versions in separate tabs.
 
 -----
 
@@ -89,7 +89,7 @@ From filing bug and feature issues, helping with documentation and small bugfixe
 
 **NOTE:** *The issue tracker is **not** an appropriate place to go for general support questions.* For those, see the "General Community Support" links above.
 
-*[Developer's Guide](http://bokeh.pydata.org/en/latest/docs/dev_guide.html)* &mdash; If you are interesting in becoming a contributor to Bokeh, the developer's guide is the place to start. It has information about getting a development environment set up, the library architecture, writing and running tests, and more.
+*[Developer's Guide](https://bokeh.pydata.org/en/latest/docs/dev_guide.html)* &mdash; If you are interesting in becoming a contributor to Bokeh, the developer's guide is the place to start. It has information about getting a development environment set up, the library architecture, writing and running tests, and more.
 
 -----
 

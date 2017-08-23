@@ -21,7 +21,7 @@ We're pleased to announce the release of Bokeh 0.12.6!
 This update includes the following highlights:
 
 * *Headless, programmatic export of SVG and PNG images*
-* *New annotations [`Whisker`](http://bokeh.pydata.org/en/0.12.6/docs/user_guide/annotations.html#whiskers) and [`Band`](http://bokeh.pydata.org/en/0.12.6/docs/user_guide/annotations.html#bands) for displaying error estimates*
+* *New annotations [`Whisker`](https://bokeh.pydata.org/en/0.12.6/docs/user_guide/annotations.html#whiskers) and [`Band`](https://bokeh.pydata.org/en/0.12.6/docs/user_guide/annotations.html#bands) for displaying error estimates*
 * *Fine-grained sub-element patching for images and other "multi" glyphs*
 * *Hover hit-testing extended to segments and all markers*
 * *Fixes for sorting and selecting from DataTables*
@@ -30,7 +30,7 @@ This update includes the following highlights:
 
 Additionally, this release contains many other small bugfixes and docs additions.
 For full details, see the [CHANGELOG](https://github.com/bokeh/bokeh/blob/master/CHANGELOG)
-and [Release Notes](http://bokeh.pydata.org/en/latest/docs/releases/0.12.6.html).
+and [Release Notes](https://bokeh.pydata.org/en/latest/docs/releases/0.12.6.html).
 
 As a reminder, we now package and upload examples for each Bokeh release
 to our CDN. [Click here to download](https://cdn.pydata.org/bokeh/examples/examples-0.12.6.zip).
@@ -78,7 +78,7 @@ Here is an SVG of the same unemployment example above:
 
 -----
 
-To use this new capability, some additional optional dependencies (such as Selenium) must first be installed. See the new User's Guide section [Exporting Plots](http://bokeh.pydata.org/en/0.12.6/docs/user_guide/export.html) for information about how to get everything up and running. Like all new features, there will almost certainly be some kinks to straighten out. Please report any issues (with full details) on the [issue tracker](https://github.com/bokeh/bokeh/issues).
+To use this new capability, some additional optional dependencies (such as Selenium) must first be installed. See the new User's Guide section [Exporting Plots](https://bokeh.pydata.org/en/0.12.6/docs/user_guide/export.html) for information about how to get everything up and running. Like all new features, there will almost certainly be some kinks to straighten out. Please report any issues (with full details) on the [issue tracker](https://github.com/bokeh/bokeh/issues).
 
 #### Layout System Improvements
 
@@ -100,7 +100,7 @@ Additionally, a lot of behind the scenes refactoring puts the Bokeh layout capab
 
 #### Bands and Whiskers
 
-Another long-requested feature is annotations for reporting errors and uncertainty. The plot below shows off the new [`Whisker`](http://bokeh.pydata.org/en/0.12.6/docs/user_guide/annotations.html#whiskers) and [`Band`](http://bokeh.pydata.org/en/0.12.6/docs/user_guide/annotations.html#bands) annotations:
+Another long-requested feature is annotations for reporting errors and uncertainty. The plot below shows off the new [`Whisker`](https://bokeh.pydata.org/en/0.12.6/docs/user_guide/annotations.html#whiskers) and [`Band`](https://bokeh.pydata.org/en/0.12.6/docs/user_guide/annotations.html#bands) annotations:
 
 <div>
 <center>
@@ -128,7 +128,7 @@ Bokeh has had `patch` and `stream` methods on `ColumnDataSource` for some time n
 
 <div class="image"><center><img src="patch.gif"></center></div>
 
-You can find more information in the [Reference Guide](http://bokeh.pydata.org/en/0.12.6/docs/reference/models/sources.html#bokeh.models.sources.ColumnDataSource.patch) or check out and run the source code for the above example at [`examples/howto/patch_app.py`](https://github.com/bokeh/bokeh/blob/0.12.6/examples/howto/patch_app.py).
+You can find more information in the [Reference Guide](https://bokeh.pydata.org/en/0.12.6/docs/reference/models/sources.html#bokeh.models.sources.ColumnDataSource.patch) or check out and run the source code for the above example at [`examples/howto/patch_app.py`](https://github.com/bokeh/bokeh/blob/0.12.6/examples/howto/patch_app.py).
 
 #### High-level Charts
 

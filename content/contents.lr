@@ -24,7 +24,7 @@ body:
         <ul>
 
         <li class="talk-header">
-            <a href="http://bokeh.pydata.org/en/latest/">Bokeh</a>:
+            <a href="https://bokeh.pydata.org/en/latest/">Bokeh</a>:
             Core library&mdash;BokehJS client library, Python bindings, and Bokeh Server
         </li>
             <li class="talk-header">

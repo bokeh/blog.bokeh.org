@@ -47,7 +47,7 @@ cool!
 -----
 
 For full details, see the [CHANGELOG](https://github.com/bokeh/bokeh/blob/0.12.2/CHANGELOG)
-and [Release Notes](http://bokeh.pydata.org/en/latest/docs/releases/0.12.2.html).
+and [Release Notes](https://bokeh.pydata.org/en/latest/docs/releases/0.12.2.html).
 
 This release can most easily be installed in the usual ways:
 ``conda install bokeh`` if you are using [Anaconda](https://www.continuum.io/downloads)
@@ -58,7 +58,7 @@ or ``pip install bokeh`` otherwise.
 #### LaTeX!!! (via support for loading external resources in custom models)
 
 One exciting aspect of Bokeh is the ability to create
-[custom extensions](http://bokeh.pydata.org/en/latest/docs/user_guide/extensions.html#extending-bokeh).
+[custom extensions](https://bokeh.pydata.org/en/latest/docs/user_guide/extensions.html#extending-bokeh).
 Bokeh v0.12.2 has added support for including third-party JavaScript libraries
 or CSS resources through the Python class attributes ``__javascript__`` and
 ``__css__`` of custom models. This new functionality allows users to include the necessary JS and CSS files
@@ -76,7 +76,7 @@ class LaTeXLabel(Label):
 ```
 
 See the LaTex example in the
-[extensions gallery](http://bokeh.pydata.org/en/latest/docs/user_guide/extensions.html#examples)
+[extensions gallery](https://bokeh.pydata.org/en/latest/docs/user_guide/extensions.html#examples)
 to see the full implementation. The output is below:
 
 <div class="bk-root">
@@ -99,7 +99,7 @@ from [IonDen](http://ionden.com/plugins.html) is now possible.
 
 Support for "computed transforms" was added in the 0.12.0 release, in order to
 do things like add a
-[jitter](http://bokeh.pydata.org/en/latest/docs/gallery/jitter.html) to a data
+[jitter](https://bokeh.pydata.org/en/latest/docs/gallery/jitter.html) to a data
 column. Thanks to Sarah Bird, color mapping is now a supported computed
 transform, making it possible to use a ``ColorMapper`` object to map a data
 column to a color palette.

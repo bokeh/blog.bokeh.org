@@ -23,12 +23,12 @@ This update has the following highlights:
 * Generalized mechanism to add `CustomJS` callbacks to any property.
 * Several fixes to log plots, as well as custom extensions.
 * Support for read-only (client-side) properties, such as a plot's "inner" screen dimensions.
-* [Guidance](http://bokeh.pydata.org/en/latest/docs/user_guide/server.html#embedding-bokeh-server-as-a-library) and [examples](https://github.com/bokeh/bokeh/tree/master/examples/howto/server_embed/) for embedding a Bokeh server directly in standalone scripts, Jupyter notebooks, and Tornado and Flask applications.
-* Improved documentation and Sphinx extensions for the [`bokeh.palettes`](http://bokeh.pydata.org/en/latest/docs/reference/palettes.html) module.
-* Major refactor of [`bokeh.core`](http://bokeh.pydata.org/en/latest/docs/reference/core.html)  including tests and expanded documentation relevant to extension authors.
+* [Guidance](https://bokeh.pydata.org/en/latest/docs/user_guide/server.html#embedding-bokeh-server-as-a-library) and [examples](https://github.com/bokeh/bokeh/tree/master/examples/howto/server_embed/) for embedding a Bokeh server directly in standalone scripts, Jupyter notebooks, and Tornado and Flask applications.
+* Improved documentation and Sphinx extensions for the [`bokeh.palettes`](https://bokeh.pydata.org/en/latest/docs/reference/palettes.html) module.
+* Major refactor of [`bokeh.core`](https://bokeh.pydata.org/en/latest/docs/reference/core.html)  including tests and expanded documentation relevant to extension authors.
 
 As well as many other small bugfixes and docs additions.
-For full details, see the [CHANGELOG](https://github.com/bokeh/bokeh/blob/master/CHANGELOG) and [Release Notes](http://bokeh.pydata.org/en/latest/docs/releases/0.12.4.html).
+For full details, see the [CHANGELOG](https://github.com/bokeh/bokeh/blob/master/CHANGELOG) and [Release Notes](https://bokeh.pydata.org/en/latest/docs/releases/0.12.4.html).
 
 As a reminder, we now package and upload examples for each Bokeh release to our CDN.
 [Click here to download](https://cdn.pydata.org/bokeh/examples/examples-0.12.4.zip).
@@ -172,11 +172,11 @@ The result is nice sections like this one:
 
 <div class="image"><center><img src="palette.png"></center></div>
 
-You can check out the full changes in the [`bokeh.palettes`](http://bokeh.pydata.org/en/latest/docs/reference/palettes.html) section of the [Reference Guide](http://bokeh.pydata.org/en/latest/docs/reference.html).
+You can check out the full changes in the [`bokeh.palettes`](https://bokeh.pydata.org/en/latest/docs/reference/palettes.html) section of the [Reference Guide](https://bokeh.pydata.org/en/latest/docs/reference.html).
 
-Speaking of the Reference Guide, some parts of the library that were previously "internal" are now more interesting to general users, especially those who might be writing [custom extensions](http://bokeh.pydata.org/en/latest/docs/user_guide/extensions.html).
+Speaking of the Reference Guide, some parts of the library that were previously "internal" are now more interesting to general users, especially those who might be writing [custom extensions](https://bokeh.pydata.org/en/latest/docs/user_guide/extensions.html).
 Accordingly, we've made a big push to document those parts much more thoroughly.
-Check out the [`bokeh.core`](http://bokeh.pydata.org/en/latest/docs/reference/core.html) docs section.
+Check out the [`bokeh.core`](https://bokeh.pydata.org/en/latest/docs/reference/core.html) docs section.
 
 #### Client-side Read-only Properties
 
@@ -228,12 +228,12 @@ With that in mind, I expect the `0.12.5` release notes to look something like:
 * Continue strong pushes on documentation and testing.
 * Fix many other small (but annoying) bugs.
 
-For more details, see the current [`0.12.5` Milestone on GitHub](https://github.com/bokeh/bokeh/milestone/29) or the larger [Roadmap Document](http://bokehplots.com/pages/roadmap.html).
+For more details, see the current [`0.12.5` Milestone on GitHub](https://github.com/bokeh/bokeh/milestone/29) or the larger [Roadmap Document](https://bokehplots.com/pages/roadmap.html).
 These are not set in stone, and may certainly change.
 We do welcome feedback and discussion to help shape and set priorities.
 
 Of course, with more help, we can get more done, more quickly.
-So please consider [getting involved](http://bokehplots.com/pages/contribute.html).
+So please consider [getting involved](https://bokehplots.com/pages/contribute.html).
 
 -----
 

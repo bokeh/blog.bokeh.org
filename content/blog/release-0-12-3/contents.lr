@@ -40,7 +40,7 @@ building interactive applications with Bokeh. It can be viewed on
 -----
 
 For full details, see the [CHANGELOG](https://github.com/bokeh/bokeh/blob/0.12.3/CHANGELOG)
-and [Release Notes](http://bokeh.pydata.org/en/latest/docs/releases/0.12.3.html).
+and [Release Notes](https://bokeh.pydata.org/en/latest/docs/releases/0.12.3.html).
 
 This release can most easily be installed from the Bokeh channel on Anaconda.org via
 ``conda install -c bokeh bokeh`` if you are using [Anaconda](https://www.continuum.io/downloads)
@@ -75,7 +75,7 @@ circle_renderer = plot.add_glyph(renderer_source, circle_glyph)
 ```
 
 See the working Gapminder application and source code in the
-[example gallery](http://bokeh.pydata.org/en/latest/docs/gallery.html)
+[example gallery](https://bokeh.pydata.org/en/latest/docs/gallery.html)
 to see the full implementation.
 
 #### Support for generating legends from a DataSource column
@@ -128,7 +128,7 @@ plot.add_layout(Legend(items=[LegendItem(label=field('region'), renderers=[circl
 The resulting legend contains entries for each unique value in the column
 labeled 'region' in the data source attached to ``circle_renderer``. Again,
 you can view the live application in the
-[example gallery](http://bokeh.pydata.org/en/latest/docs/gallery.html).
+[example gallery](https://bokeh.pydata.org/en/latest/docs/gallery.html).
 
 -----
 
