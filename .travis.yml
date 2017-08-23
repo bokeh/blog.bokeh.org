@@ -1,6 +1,6 @@
 language: python
 python: 2.7
-install: "pip install Lektor"
+install: "pip install Lektor==2.3"
 script:
 - lektor build
 - '[ "${TRAVIS_BRANCH}" = "source" ] && lektor deploy ghpages || false'
