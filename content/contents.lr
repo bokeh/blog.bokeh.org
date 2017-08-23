@@ -9,32 +9,17 @@ body:
   </div>
 </section>
 
-<section class="home-section">
+Bokeh is a platform for interactive visualization and data applications in modern web browsers. It affords concise construction of versatile graphics can provide interactivity over large or streaming data sets.
 
-  <div class="row">
-    <p> Bokeh is a platform for interactive visualization and data applications in modern web browsers. It affords concise construction of versatile graphics can provide interactivity over large or streaming data sets.</p>
+It consists of a number of related projects under the [Bokeh GitHub Organization](https://github.com/bokeh).
 
-    <p> It consists of a number of related projects under the <a href="https://github.com/bokeh">Bokeh GitHub Organization</a>.</p>
-  </div>
+* [Bokeh](https://bokeh.pydata.org/en/latest): Core library — BokehJS client library, Python bindings, and Bokeh Server
 
-  <div class="row">
-    <ul>
-      <li class="talk-header">
-        <a href="https://bokeh.pydata.org/en/latest/">Bokeh</a>: Core library — BokehJS client library, Python bindings, and Bokeh Server
-      </li>
-      <li class="talk-header">
-        <a href="http://hafen.github.io/rbokeh/">rBokeh</a>: R bindings for BokehJS
-      </li>
-      <li class="talk-header">
-        <a href="https://github.com/bokeh/bokeh-scala">bokeh-scala</a>: Scala bindings for BokehJS
-      </li>
-      <li class="talk-header">
-        <a href="http://datashader.readthedocs.org">datashader</a>: A graphics pipeline and visual query system for creating meaningful visual representations from large data sets.
-      </li>
-      <li class="talk-header">
-        <a href="http://holoviews.org">HoloViews</a>: A high-level declarative interface to Bokeh for exploring and interacting with data.
-      </li>
-    </ul>
-  </div>
+* [rBokeh](http://hafen.github.io/rbokeh): R bindings for BokehJS
 
-</section>
+* [bokeh-scala](https://github.com/bokeh/bokeh-scala): Scala bindings for BokehJS
+
+* [datashader](http://datashader.readthedocs.org): A graphics pipeline and visual query system for creating meaningful visual representations from large data sets.
+
+* [HoloViews](http://holoviews.org): A high-level declarative interface to Bokeh for exploring and interacting with data.
+
