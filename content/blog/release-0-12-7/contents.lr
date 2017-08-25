@@ -24,7 +24,7 @@ This update includes the following highlights:
 * Filterable and groupable `ColumnDataSource` views.
 * Explicit control over plot aspect ratios.
 * New `Expression` models for client-side computations, e.g. `Stack`.
-* New module `bokeh.transform` with helpers for simplifying `DataSpec` transforms.
+* New `bokeh.transform` helpers for simplifying `DataSpec` transforms.
 * Improvements for using Bokeh with Categorical data, including hierarchical axes.
 * Added `hbar_stack` and `vbar_stack` for easy stacked bar charts.
 * Integration with JupyterLab
@@ -56,10 +56,9 @@ please consult the
 [Release Notes](https://bokeh.pydata.org/en/0.12.7/docs/releases/0.12.7.html)
 carefully.
 
-* Removal of `bokeh.mpl` and `bokeh.charts` is being accelerated. It was planned
-to remove them both at the `1.0` release, but there have been few comments
-or issues about their deprecation. Instead, they will be removed after this release.
-Doing so will help lighten the burden on the core team during the hectic and busy
+* Removal of `bokeh.mpl` and `bokeh.charts` is accelerated. With almost no comments
+about their deprecation, they will be removed after this release.
+Doing so will help lighten the burden on the core team during the busy
 lead-up to `1.0`.
 
 * GitHub user [p-himik](https://github.com/p-himik) has been added to **`@bokeh/dev`**
@@ -72,10 +71,10 @@ and [`#6738`](https://github.com/bokeh/bokeh/pull/6738).
 We would love to add you too! Come by the [Dev Chat Channel](https://gitter.im/bokeh/bokeh-dev)
 to ask about how to get started contributing to Bokeh.
 
-* All the example and tutorial notebooks in the
-[`bokeh/bokeh-notebooks`](https://github.com/bokeh/bokeh-notebooks) repository have
-been revamped, cleaned-up, and brought up to date with current features. You can
-clone the repo to run the notebooks locally, or see statically rendered versions on
+* All example and tutorial notebooks in
+[`bokeh/bokeh-notebooks`](https://github.com/bokeh/bokeh-notebooks) have
+been cleaned up and brought to date with current features. You can
+clone the repository to run the notebooks locally, or see statically rendered versions on
 [nbviewer.org](https://nbviewer.jupyter.org/github/bokeh/bokeh-notebooks/blob/master/index.ipynb).
 
 Now, on to what's new!
@@ -84,9 +83,9 @@ Now, on to what's new!
 
 #### Network/Graph Visualizations
 
-One of the oldest open issues in tracker was
+One of the oldest issues in tracker was
 [#187 &mdash; Support graphs/trees/networks](https://github.com/bokeh/bokeh/issues/187)
-from way back in 2013. I am happy to report that all pieces that were needed finally
+from way back in 2013. I am happy to report that all the necessary pieces finally
 became available, and core dev [canavandl](https://github.com/canavandl) put them
 together to add the long-awaited feature to Bokeh! This includes flexible and
 extensible policies for highlighting and selection, as seen in the examples below:
@@ -95,9 +94,9 @@ extensible policies for highlighting and selection, as seen in the examples belo
 
 Check out the new User's Guide section
 [Visualizing Network Graphs](http://bokeh.pydata.org/en/0.12.7/docs/user_guide/graph.html)
-for documentation and examples. Note that Bokeh itself is suitable for small to
-mid-sized graphs. But if you have very large graphs, help is on the way from
-[Datashader](https://datashader.readthedocs.io/en/latest/). There is also ongoing work to
+for docs and examples. Note that Bokeh itself is suitable for small to
+mid-sized graphs. However, if you have very large graphs, help is on the way from
+[Datashader](https://datashader.readthedocs.io/en/latest/). Ongoing work will
 make the two projects play well together, so interactive exploration of large graphs
 across different scales is seamless.
 
@@ -108,7 +107,7 @@ Another very old feature request was
 The lack of this feature spawned bug reports such as
 [#517](https://github.com/bokeh/bokeh/issues/517),
 [#6603](https://github.com/bokeh/bokeh/issues/6603), and many others over the years.
-I am happy to report that this is has been closed by **brand new contributor**
+I am happy to say that this is has been closed by **brand new contributor**
 [DuCorey](https://github.com/DuCorey). Now, if you'd like to have auto-ranged
 data bounds match the pixel aspect ratio of the axes, it's as simple as:
 
@@ -143,16 +142,20 @@ create:
     <td rowspan="3"><img src="interval.png" style="max-height:100%; max-width:100%"></td>
   </tr>
   <tr>
-    <td colspan="2"><img src="simple_bar.png" style="max-height:100%; max-width:100%"></td>
+    <td colspan="1"><img src="simple_bar.png" style="max-height:100%; max-width:100%"></td>
   </tr>
   <tr>
-    <td colspan="2"><img src="stacked_bar.png" style="max-height:100%; max-width:100%"></td>
+    <td colspan="1"><img src="stacked_bar.png" style="max-height:100%; max-width:100%"></td>
   </tr>
   <tr>
-    <td colspan="3"><img src="grouped_bar.png" style="max-height:100%; max-width:100%"></td>
+    <td colspan="2"><img src="grouped_bar.png" style="max-height:100%; max-width:100%"></td>
   </tr>
   <tr>
-    <td colspan="3"><img src="jitter_scatter.png" style="max-height:100%; max-width:100%"></td>
+    <td colspan="1"><img src="mixed_bar.png" style="max-height:100%; max-width:100%"></td>
+    <td colspan="1"><img src="split_bar.png" style="max-height:100%; max-width:100%"></td>
+  </tr>
+  <tr>
+    <td colspan="2"><img src="jitter_scatter.png" style="max-height:100%; max-width:100%"></td>
   </tr>
 
 </table>
@@ -160,7 +163,7 @@ create:
 *(Note: all the images were made with the [`export_png`](http://bokeh.pydata.org/en/dev/docs/user_guide/export.html#png-generation) function added last release!)*
 
 Some of the improvements are foundational enhancements, such as the ability to
-specify (and display axes for) hierarchical categories. Other improvements come in
+specify (and display axes for) hierarchical categories. Others come in
 the form of new convenience API, such as the `jitter`, `dodge` and `factor_cmap` functions,
 or the `hbar_stack` and `vbar_stack` glyph methods that make stacking bars trivial:
 
