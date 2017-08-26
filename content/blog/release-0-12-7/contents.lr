@@ -27,8 +27,6 @@ This update includes the following highlights:
 * New `bokeh.transform` helpers for simplifying `DataSpec` transforms.
 * Improvements for using Bokeh with Categorical data, including hierarchical axes.
 * Added `hbar_stack` and `vbar_stack` for easy stacked bar charts.
-* Integration with JupyterLab
-
 
 Additionally, this release contains many bugfixes and docs additions,
 including three new chapters in the User's Guide.
@@ -59,7 +57,7 @@ carefully.
 * Removal of `bokeh.mpl` and `bokeh.charts` is accelerated. With almost no comments
 about their deprecation, they will be removed after this release.
 Doing so will help lighten the burden on the core team during the busy
-lead-up to `1.0`.
+lead-up to 1.0.
 
 * GitHub user [p-himik](https://github.com/p-himik) has been added to **`@bokeh/dev`**
 after successfully finishing PRs
@@ -224,37 +222,29 @@ As part of this work, Claire added an entirely new User's Guide chapter
 that not only documents this feature, but also provides a (long overdue) discussion of the
 ins and outs of `ColumnDataSource` in general.
 
-#### JupyterLab Integration
-
-Last week saw the very first [JupyterCon](https://conferences.oreilly.com/jupyter/jup-ny),
-which had many great talks and sessions about the present and future Jupyter universe.
-One of the most important elements of that future is [JupyterLab](https://github.com/jupyterlab/jupyterlab), the next generation successor to the classic Jupyter Notebook that everyone knows
-and loves.
-
-[Anaconda, Inc](https://www.anaconda.com/) (which is [formerly Continuum Analytics]())
-is a primary supporter of both Bokeh and JupyterLab, and has made it a priority that both work
-together seamlessly. More great work by core dev [canavandl](https://github.com/canavandl)
-brings the two together, so things work just as smoothly as in the classic notebook:
-
-<center><h5>***[ SCREEN CAPTURE ANIMATION HERE ]***</h5></center>
-
 #### Next Steps
 
-As stated above, there aren't a lot of big-ticket features left to put in to Bokeh before we are ready to cut a `1.0` release. Here is a rough outline (subject to change) of the work we plan to do over the next few months:
-
-###### ``0.12.8``
+There aren't a lot of big-ticket features left to put in to Bokeh before we are
+ready to draw a line in the sand. The only "must-do" tasks for considering 1.0 are:
 
 * Complete BokehJS migration to TypeScript
+* Integrate Bokeh and JupyterLab
+* Remove all existing deprecations
+* Cleanup: bugfixes, docs, automation, polish
+
+Apart from these, there are some "nice-to-have" tasks:
+
 * Improved binary transport for array data
 * Scriptable animations and transitions
 * New events for document init, busy/done, etc.
 * Support "Patches with holes" for GIS usage
-
-###### ``1.0``
-
 * Publish BokehJS reference documentation
-* Remove all existing deprecations
-* Cleanup: bugfixes, docs, automation, polish
+
+We will be working hard to get in as many of these additional points as possible as
+complete the "must-do" tasks. But once the TypeScript and JupyterLab work is done,
+we will begin immediately planning to make the very next release 1.0. Any remaining
+"nice-to-haves" can be addressed afterwards &mdash; there is still plenty of work to
+finish after 1.0 comes out!
 
 -----
 
