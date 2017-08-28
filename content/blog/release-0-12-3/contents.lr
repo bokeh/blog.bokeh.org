@@ -43,7 +43,7 @@ For full details, see the [CHANGELOG](https://github.com/bokeh/bokeh/blob/0.12.3
 and [Release Notes](https://bokeh.pydata.org/en/latest/docs/releases/0.12.3.html).
 
 This release can most easily be installed from the Bokeh channel on Anaconda.org via
-``conda install -c bokeh bokeh`` if you are using [Anaconda](https://www.continuum.io/downloads)
+``conda install -c bokeh bokeh`` if you are using [Anaconda](https://www.anaconda.com/downloads)
 or ``pip install bokeh`` otherwise.
 
 -----
@@ -136,7 +136,7 @@ As we're nearing in on the Bokeh 1.0 release, I'd like to thank the nearly 200
 total contributors who have helped make Bokeh such an amazing project. As 
 always, for questions, technical assistance or if you're interested in
 contributing, please ask the
-[Bokeh mailing list](https://groups.google.com/a/continuum.io/forum/#!forum/bokeh)
+[Bokeh mailing list](https://groups.google.com/a/anaconda.com/forum/#!forum/bokeh)
 or join the chat on [Gitter](https://gitter.im/bokeh/bokeh).
 
 Thanks,

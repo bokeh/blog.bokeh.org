@@ -45,7 +45,7 @@ to our CDN. [Click here to download](https://cdn.pydata.org/bokeh/examples/examp
 This release can most easily be installed from the Bokeh channel on
 [Anaconda.org](https://anaconda.org/bryanv/dashboard) by executing the
 command ``conda install -c bokeh bokeh`` if you are using
-[Anaconda](https://www.continuum.io/downloads) or ``pip install bokeh``
+[Anaconda](https://www.anaconda.com/downloads) or ``pip install bokeh``
 otherwise.
 
 -----
@@ -283,7 +283,7 @@ As we're getting closer to a Bokeh 1.0 release, I'd like to thank the 216
 total [contributors](https://github.com/bokeh/bokeh/graphs/contributors) who
 have helped make Bokeh such an amazing project. As always, for questions,
 technical assistance or if you're interested in contributing, please ask the
-[Bokeh mailing list](https://groups.google.com/a/continuum.io/forum/#!forum/bokeh)
+[Bokeh mailing list](https://groups.google.com/a/anaconda.com/forum/#!forum/bokeh)
 or join the chat on [Gitter](https://gitter.im/bokeh/bokeh).
 
 Thanks,

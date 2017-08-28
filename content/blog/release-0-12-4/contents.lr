@@ -37,7 +37,7 @@ As a reminder, we now package and upload examples for each Bokeh release to our 
 
 
 This release can most easily be installed from the Bokeh channel on [Anaconda.org](https://anaconda.org/bryanv/dashboard) by executing the command
-``conda install -c bokeh bokeh`` if you are using [Anaconda](https://www.continuum.io/downloads) or ``pip install bokeh`` otherwise.
+``conda install -c bokeh bokeh`` if you are using [Anaconda](https://www.anaconda.com/downloads) or ``pip install bokeh`` otherwise.
 
 -----
 
@@ -45,14 +45,14 @@ This release can most easily be installed from the Bokeh channel on [Anaconda.or
 
 Before getting to the technical details of this release, I wanted to take a moment to recognize some stats about the community:
 
-* The [public mailing list](https://groups.google.com/a/continuum.io/forum/?pli=1#!forum/bokeh) has more than **700** members
+* The [public mailing list](https://groups.google.com/a/anaconda.com/forum/?pli=1#!forum/bokeh) has more than **700** members
 * [@BokehPlots](https://twitter.com/bokehplots) has nearly **4000** followers
 * The number of GitHub stars just hit **5200** (!)
 * Before the holidays, combined conda+pip downloads exceeded **120k/month**
 
 Any one of these facts alone is humbling, and a testament to the work of so many contributors over the last few years.
 Which brings me to the most impressive number yet.
-Several people rose to the [End of 2016 Contributor Challenge](https://groups.google.com/a/continuum.io/forum/?pli=1#!topic/bokeh/Gb8CLTVopLY) I posted on the mailing list, and I am happy to report that the tally is now:
+Several people rose to the [End of 2016 Contributor Challenge](https://groups.google.com/a/anaconda.com/forum/?pli=1#!topic/bokeh/Gb8CLTVopLY) I posted on the mailing list, and I am happy to report that the tally is now:
 
 <div class="image"><center><img src="contributors.png"></center></div>
 
@@ -241,7 +241,7 @@ As we're getting closer to a Bokeh 1.0 release, I'd like to thank the 200+
 total contributors who have helped make Bokeh such an amazing project. As
 always, for questions, technical assistance or if you're interested in
 contributing, please ask the
-[Bokeh mailing list](https://groups.google.com/a/continuum.io/forum/#!forum/bokeh)
+[Bokeh mailing list](https://groups.google.com/a/anaconda.com/forum/#!forum/bokeh)
 or join the chat on [Gitter](https://gitter.im/bokeh/bokeh).
 
 Thanks,

@@ -71,7 +71,7 @@ see the [CHANGELOG](https://github.com/bokeh/bokeh/blob/0.12.0/CHANGELOG)
 and [Release Notes](https://bokeh.pydata.org/en/latest/docs/releases/0.12.0.html).
 
 This release can most easily be installed in the usual ways:
-``conda install -c bokeh bokeh`` if you are using [Anaconda](https://www.continuum.io/downloads)
+``conda install -c bokeh bokeh`` if you are using [Anaconda](https://www.anaconda.com/downloads)
 or ``pip install bokeh`` otherwise.
 
 -----

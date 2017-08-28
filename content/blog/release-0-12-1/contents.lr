@@ -40,7 +40,7 @@ For full details, see the [CHANGELOG](https://github.com/bokeh/bokeh/blob/0.12.1
 and [Release Notes](https://bokeh.pydata.org/en/latest/docs/releases/0.12.1.html).
 
 This release can most easily be installed in the usual ways:
-``conda install bokeh`` if you are using [Anaconda](https://www.continuum.io/downloads)
+``conda install bokeh`` if you are using [Anaconda](https://www.anaconda.com/downloads)
 or ``pip install bokeh`` otherwise.
 
 -----

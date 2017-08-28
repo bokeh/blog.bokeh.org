@@ -16,7 +16,7 @@ body:
 #### text-block ####
 text:
 
-*This work is supported by [Continuum Analytics](http://continuum.io)*.
+*This work is supported by [Anaconda, Inc.](http://anaconda.com)*
 
 This blogpost shows how to start a *very simple* bokeh server application
 *programmatically*.  For more complex examples, or for the more standard

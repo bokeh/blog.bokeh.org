@@ -33,7 +33,7 @@ fixes including:
 We'd also like to highlight a new project for creating map-based
 visualizations that offers Bokeh as a back-end:
 [GeoViews](http://geo.holoviews.org/). The GeoViews team has an introductory
-[blog post](https://www.continuum.io/blog/developer-blog/introducing-geoviews)
+[blog post](https://www.anaconda.com/blog/developer-blog/introducing-geoviews)
 that's a worthwhile read.
 
 Finally, we'd like to share a fun
@@ -50,7 +50,7 @@ For full details, see the [CHANGELOG](https://github.com/bokeh/bokeh/blob/0.12.2
 and [Release Notes](https://bokeh.pydata.org/en/latest/docs/releases/0.12.2.html).
 
 This release can most easily be installed in the usual ways:
-``conda install bokeh`` if you are using [Anaconda](https://www.continuum.io/downloads)
+``conda install bokeh`` if you are using [Anaconda](https://www.anaconda.com/downloads)
 or ``pip install bokeh`` otherwise.
 
 -----
@@ -183,7 +183,7 @@ contributions.
 
 Finally (as always), for questions, technical assistance or if you're interested in
 contributing, please ask the
-[Bokeh mailing list](https://groups.google.com/a/continuum.io/forum/#!forum/bokeh)
+[Bokeh mailing list](https://groups.google.com/a/anaconda.com/forum/#!forum/bokeh)
 or join the chat on [Gitter](https://gitter.im/bokeh/bokeh).
 
 Thanks,
