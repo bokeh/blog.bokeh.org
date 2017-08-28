@@ -41,8 +41,7 @@ to our CDN. [Click here to download](https://cdn.pydata.org/bokeh/examples/examp
 This release can most easily be installed from the Bokeh channel on
 [Anaconda.org](https://anaconda.org/bryanv/dashboard) by executing the
 command ``conda install -c bokeh bokeh`` if you are using
-[Anaconda](https://www.anaconda.com/downloads), or ``pip install bokeh``
-otherwise.
+[Anaconda](https://www.anaconda.com/downloads), otherwise use ``pip install bokeh``.
 
 -----
 
@@ -85,7 +84,7 @@ One of the oldest issues in tracker was
 [#187 &mdash; Support graphs/trees/networks](https://github.com/bokeh/bokeh/issues/187)
 from way back in 2013. I am happy to report that all the necessary pieces finally
 became available, and core dev [canavandl](https://github.com/canavandl) put them
-together to add the long-awaited feature to Bokeh! This includes flexible and
+together to add this long-awaited feature to Bokeh! This includes flexible and
 extensible policies for highlighting and selection, as seen in the examples below:
 
 <center><h5>***[ EXAMPLES HERE ]***</h5></center>
@@ -93,10 +92,10 @@ extensible policies for highlighting and selection, as seen in the examples belo
 Check out the new User's Guide section
 [Visualizing Network Graphs](http://bokeh.pydata.org/en/0.12.7/docs/user_guide/graph.html)
 for docs and examples. Note that Bokeh itself is suitable for small to
-mid-sized graphs. However, if you have very large graphs, help is on the way from
+mid-sized graphs, but if you have very large graphs, help is on the way from
 [Datashader](https://datashader.readthedocs.io/en/latest/). Ongoing work will
-make the two projects play well together, so interactive exploration of large graphs
-across different scales is seamless.
+make the two projects work together seamlessly for interactive exploration of large graphs
+across different scales.
 
 #### Aspect Ratio Control
 
@@ -105,7 +104,7 @@ Another very old feature request was
 The lack of this feature spawned bug reports such as
 [#517](https://github.com/bokeh/bokeh/issues/517),
 [#6603](https://github.com/bokeh/bokeh/issues/6603), and many others over the years.
-I am happy to say that this is has been closed by **brand new contributor**
+I am happy to say that this issue has been closed by **brand new contributor**
 [DuCorey](https://github.com/DuCorey). Now, if you'd like to have auto-ranged
 data bounds match the pixel aspect ratio of the axes, it's as simple as:
 
@@ -130,7 +129,7 @@ get started.
 Another area where Bokeh has needed improvement for a long time is in its handling
 of Categorical data. There was basic support, but it did not cover common cases like
 nested categories or hierarchical axes. There was also a clumsy and problematic system
-for fine tuning visual appearance and location of categorical quantities. For this
+for fine-tuning visual appearance and location of categorical quantities. For this
 release, Bokeh's handling of categorical data has been rebuilt from the ground up. All
 the plots below, which would have been difficult or impossible before, are now easy to
 create:
@@ -232,6 +231,13 @@ ready to draw a line in the sand. The only "must-do" tasks for considering 1.0 a
 * Remove all existing deprecations
 * Cleanup: bugfixes, docs, automation, polish
 
+[Anaconda, Inc](https://anaconda.com/) (which is [formerly Continuum Analytics](https://www.anaconda.com/company-blog/continuum-analytics-officially-becomes-anaconda/))
+is a primary supporter of both Bokeh and JupyterLab, and has made it a priority that both work
+together. We were close to having things working for this release, but there is still
+some coordination between projects needed to get things working seamlessly on classic Notebook,
+new JupyterLab, and `nbconvert` all at the same time. We will likely have an extra
+release very soon, just to add this support as soon as possible.
+
 Apart from these, there are some "nice-to-have" tasks:
 
 * Improved binary transport for array data
@@ -240,7 +246,7 @@ Apart from these, there are some "nice-to-have" tasks:
 * Support "Patches with holes" for GIS usage
 * Publish BokehJS reference documentation
 
-We will be working hard to get in as many of these additional points as possible as
+We will be working hard to get in as many of these additional points as possible as we
 complete the "must-do" tasks. But once the TypeScript and JupyterLab work is done,
 we will begin immediately planning to make the very next release 1.0. Any remaining
 "nice-to-haves" can be addressed afterwards &mdash; there is still plenty of work to
