@@ -52,12 +52,10 @@ breaking changes were unavoidable. It is not expected they will affect many user
 please consult the
 [Release Notes](https://bokeh.pydata.org/en/0.12.7/docs/releases/0.12.7.html)
 carefully.
-
 * Removal of `bokeh.mpl` and `bokeh.charts` is accelerated. With almost no comments
 about their deprecation, they will be removed after this release.
 Doing so will help lighten the burden on the core team during the busy
 lead-up to 1.0.
-
 * GitHub user [p-himik](https://github.com/p-himik) has been added to **`@bokeh/dev`**
 after successfully finishing PRs
 [`#6685`](https://github.com/bokeh/bokeh/pull/6685),
@@ -67,7 +65,6 @@ after successfully finishing PRs
 and [`#6738`](https://github.com/bokeh/bokeh/pull/6738).
 We would love to add you too! Come by the [Dev Chat Channel](https://gitter.im/bokeh/bokeh-dev)
 to ask about how to get started contributing to Bokeh.
-
 * All example and tutorial notebooks in
 [`bokeh/bokeh-notebooks`](https://github.com/bokeh/bokeh-notebooks) have
 been cleaned up and brought to date with current features. You can
