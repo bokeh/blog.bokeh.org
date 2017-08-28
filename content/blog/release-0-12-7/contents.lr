@@ -85,9 +85,19 @@ One of the oldest issues in tracker was
 from way back in 2013. I am happy to report that all the necessary pieces finally
 became available, and core dev [canavandl](https://github.com/canavandl) put them
 together to add this long-awaited feature to Bokeh! This includes flexible and
-extensible policies for highlighting and selection, as seen in the examples below:
+extensible policies for highlighting and selection, as seen in the examples below (hover
+over the graphs to see different interactions):
 
-<center><h5>***[ EXAMPLES HERE ]***</h5></center>
+<div>
+<center>
+<script
+    src="graphs.js"
+    id="ffc8a4d5-726a-44db-af00-c21149b09c5c"
+    data-bokeh-model-id="a813aa6e-3616-49ed-a52b-70e3c4714f32"
+    data-bokeh-doc-id="dd6669cf-03bf-4337-9ecc-bb4fb4b4244c"
+></script>
+</center>
+</div>
 
 Check out the new User's Guide section
 [Visualizing Network Graphs](http://bokeh.pydata.org/en/0.12.7/docs/user_guide/graph.html)
