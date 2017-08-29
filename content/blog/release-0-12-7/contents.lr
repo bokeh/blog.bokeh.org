@@ -16,7 +16,7 @@ body:
 #### text-block ####
 text:
 
-We're pleased to announce the release of Bokeh 0.12.7!
+We are pleased to announce the release of Bokeh 0.12.7!
 
 This update includes the following highlights:
 
@@ -67,7 +67,7 @@ We would love to add you too! Come by the [Dev Chat Channel](https://gitter.im/b
 to ask about how to get started contributing to Bokeh.
 * All example and tutorial notebooks in
 [`bokeh/bokeh-notebooks`](https://github.com/bokeh/bokeh-notebooks) have
-been cleaned up and brought to date with current features. You can
+been cleaned and brought up to date with current features. You can
 clone the repository to run the notebooks locally, or see statically rendered versions on
 [nbviewer.org](https://nbviewer.jupyter.org/github/bokeh/bokeh-notebooks/blob/master/index.ipynb).
 
@@ -275,5 +275,3 @@ Bryan Van de Ven
 
 ----
 class: default
----
-_discoverable: no
