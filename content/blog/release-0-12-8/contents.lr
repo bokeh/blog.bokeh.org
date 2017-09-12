@@ -1,8 +1,8 @@
-title: Bokeh 0.12.8 Released
+title: Bokeh 0.12.9 Released
 ---
 summary:
 
-Bokeh 0.12.8 has been released, bringing support for Graph/Network visualizations and JupyterLab!
+Bokeh 0.12.9 has been released, bringing support for Graph/Network visualizations and JupyterLab!
 
 ---
 pub_date: 2017-09-12
@@ -15,7 +15,7 @@ body:
 #### text-block ####
 text:
 
-Hot on the heels of 0.12.7, we are pleased to announce the release of Bokeh 0.12.8!
+Hot on the heels of the last version, we are pleased to announce the release of Bokeh 0.12.9!
 
 This update includes the following important new features:
 
@@ -24,9 +24,9 @@ This update includes the following important new features:
 
 This release also contains several bugfixes and docs additions.
 For full details, see the [CHANGELOG](https://github.com/bokeh/bokeh/blob/master/CHANGELOG)
-and [Release Notes](https://bokeh.pydata.org/en/0.12.8/docs/releases/0.12.8.html).
+and [Release Notes](https://bokeh.pydata.org/en/0.12.9/docs/releases/0.12.9.html).
 Additionally, examples for each release are uploaded to CDN.
-[Click here to download](https://cdn.pydata.org/bokeh/examples/examples-0.12.8.zip).
+[Click here to download](https://cdn.pydata.org/bokeh/examples/examples-0.12.9.zip).
 
 -----
 
@@ -34,6 +34,22 @@ If you are using
 [Anaconda](https://www.anaconda.com/downloads), Bokeh can most easily be installed
 by executing the command ``conda install -c bokeh bokeh`` . Otherwise, use
 ``pip install bokeh``.
+
+-----
+
+First a quick note. You may have noticed that this announcement is not for 0.12.8
+as expected. Last night, about 10 minutes after the release build finished,
+a [showstopper issue was discovered](https://github.com/bokeh/bokeh/issues/6922).
+A "re-release" was attempted but was not possible. So here we are, early, at 0.12.9!
+
+This problem was caught by the extremely astute and eager user
+[@Pierretherenard](https://github.com/pierretherenard). I very much appreciate their
+help late last night to resolve things, and
+also want stress: if you are an active Bokeh user, **please always help us test by installing
+and trying out [dev builds and release candidates](https://bokeh.pydata.org/en/latest/docs/installation.html#developer-builds).** The more eyes there are on things, the
+more likely issues can be caught earlier, and that is better for everyone.
+
+Now on to the fun bits!
 
 -----
 
@@ -126,7 +142,7 @@ That's ***it!***
 In order to make some improvements for the long term, a few small, immediate
 breaking changes were unavoidable. It is not expected they will affect many users, but
 please consult the
-[Release Notes](https://bokeh.pydata.org/en/0.12.8/docs/releases/0.12.8.html)
+[Release Notes](https://bokeh.pydata.org/en/0.12.9/docs/releases/0.12.9.html)
 carefully.
 
 As of this Release, Python 3.4 support is no longer maintained under test. Python 2.7
@@ -172,5 +188,3 @@ Bryan Van de Ven
 
 ----
 class: default
----
-_discoverable: no
