@@ -25,7 +25,7 @@ This update includes the following important new features:
 This release also contains several bugfixes and docs additions.
 For full details, see the [CHANGELOG](https://github.com/bokeh/bokeh/blob/master/CHANGELOG)
 and [Release Notes](https://bokeh.pydata.org/en/0.12.8/docs/releases/0.12.8.html).
-Additioanlly, examples for each release are uploaded to CDN.
+Additionally, examples for each release are uploaded to CDN.
 [Click here to download](https://cdn.pydata.org/bokeh/examples/examples-0.12.8.zip).
 
 -----
