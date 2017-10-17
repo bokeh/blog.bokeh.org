@@ -43,8 +43,8 @@ by executing the command ``conda install -c bokeh bokeh`` . Otherwise, use
 
 #### Improvements to `push_notebook`
 
-The `push_notebook` function, which is a complementary tool for embedding a Bokeh server
-app in Jupyter notebooks, has been greatly improved. It now uses the same protocol as
+The `push_notebook` function, which is a complementary tool for Bokeh interactions
+in Jupyter notebooks, has been greatly improved. It now uses the same protocol as
 the Bokeh server under the covers. This streamlines and unifies code, making maintenance
 and testing much easier. More importantly, from a user perspective, things are much
 faster and more stable now.
