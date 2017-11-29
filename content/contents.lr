@@ -15,7 +15,10 @@ It consists of a number of related projects under the [Bokeh GitHub Organization
 
 * [Bokeh](https://bokeh.pydata.org/en/latest): Core library — BokehJS client library, Python bindings, and Bokeh Server
 * [rBokeh](http://hafen.github.io/rbokeh): R bindings for BokehJS
-* [bokeh-scala](https://github.com/bokeh/bokeh-scala): Scala bindings for BokehJS
-* [datashader](http://datashader.readthedocs.org): A graphics pipeline and visual query system for creating meaningful visual representations from large data sets.
+* [Bokeh-Scala](https://github.com/bokeh/bokeh-scala): Scala bindings for BokehJS
+* [Datashader](https://bokeh.github.io/datashader-docs): A graphics pipeline and visual query system for creating meaningful visual representations from large data sets.
 * [HoloViews](http://holoviews.org): A high-level declarative interface to Bokeh for exploring and interacting with data.
+* [GeoViews](http://geo.holoviews.org): Geographic projection and dataset support for HoloViews
+* [Colorcet](https://bokeh.github.io/colorcet): Perceptually uniform colormaps for use with Bokeh, Datashader, HoloViews, and Matplotlib
+
 
