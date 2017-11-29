@@ -36,7 +36,7 @@ body:
                 Scala bindings for BokehJS
             </li>
             <li class="talk-header">
-                <a href="http://datashader.readthedocs.org">datashader</a>:
+                <a href="https://bokeh.github.io/datashader-docs">datashader</a>:
                 A graphics pipeline and visual query system for creating meaningful
                 visual representations from large data sets.
             </li>
