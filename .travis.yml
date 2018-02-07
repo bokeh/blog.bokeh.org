@@ -1,6 +1,6 @@
 language: python
 python: 2.7
-install: "conda install -c conda-forge lektor"
+install: "pip install lektor==3.0.1"
 script:
 - lektor build
 - '[ "${TRAVIS_BRANCH}" = "source" ] && lektor deploy ghpages || false'
