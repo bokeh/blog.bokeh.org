@@ -1,0 +1,87 @@
+title: Bokeh 0.12.14 Released
+---
+summary:
+
+Bokeh 0.12.14 has been released, bringing support for Multi-Gesture editing tools!
+
+---
+pub_date: 2018-02-07
+---
+author: Bryan Van de Ven
+---
+---
+body:
+
+#### text-block ####
+text:
+
+We are pleased to announce the release of Bokeh 0.12.14!
+
+This incremental release has the following highlights:
+
+* New multi-gesture tools for editing glyphs directly
+* Update for compatibility with upcoming Tornado 5.0
+
+Plus several other bug fixes and documentation improvements.
+For full details, see the [CHANGELOG](https://github.com/bokeh/bokeh/blob/master/CHANGELOG)
+and [Release Notes](https://bokeh.pydata.org/en/0.12.14/docs/releases/0.12.14.html).
+Additionally, examples for each release are uploaded to CDN.
+[Click here to download](https://cdn.pydata.org/bokeh/examples/examples-0.12.14.zip).
+
+-----
+
+If you are using
+[Anaconda](https://www.anaconda.com/downloads), Bokeh can most easily be installed
+by executing the command ``conda install -c bokeh bokeh`` . Otherwise, use
+``pip install bokeh``.
+
+-----
+
+#### Edit tools
+
+Thanks to Philipp Rudiger, this release sees the addition of some neat new tools that have been
+asked about for some time. Specifically users have wanted the ability to edit glyph positions and
+shapes, and have those changes reflected in the underlying data source. This releases sees four
+initial tools, including a Point Edit Tool:
+
+<div class="image"><center><img src="http://bokeh.pydata.org/static/point_draw_keyboard_optimized.gif" width="40%"></center></div>
+
+As well as a Polygon Edit tool:
+
+<div class="image"><center><img src="http://bokeh.pydata.org/static/poly_edit_keyboard_optimized.gif" width="40%"></center></div>
+
+There are also tools for editing boxes as well as drwing new plygons and lines. See the new
+[Edit Tools](https://bokeh.pydata.org/en/dev/docs/user_guide/tools.html#edit-tools) section
+of the User's Guide for full details and live examples to try out.
+
+#### Upcoming Work
+
+As mentioned in the previous release, we are reaching a point of relative stability
+with respect to Bokeh development. The major tasks for the next few Bokeh releases
+are these:
+
+* Complete migration of BokehJS to TypeScript
+* Allow Bokeh application components to be individually included in arbitrary HTML templates
+* Refactor and improve how selections are handled for data sources
+* Finish the work to clearly delineate and standardize all modules and APIs
+
+With the exception of the work on selections, I do not expect any major user-facing changes.
+The selection architecture has badly needed an overhaul for a long time. Now that we have
+resources to dive into it, it must be done before 1.0 since there may be some unavoidable
+breaking changes necessary in some situations. (We will strive to keep these to a bare minimum and
+provide compatibility where possible.) Any changes will be thoroughly documented in future
+releases.
+
+-----
+
+As we get closer to a Bokeh 1.0 release, I'd like to thank the [268
+total contributors](https://github.com/bokeh/bokeh/graphs/contributors) who
+have helped make Bokeh such an amazing project. If you're interested in
+helping out, drop by the [Dev Chat Channel](https://gitter.im/bokeh/bokeh-dev)!
+
+Thanks,
+
+Bryan Van de Ven
+
+----
+class: default
