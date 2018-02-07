@@ -50,7 +50,7 @@ As well as a Polygon Edit tool:
 
 <div class="image"><center><img src="http://bokeh.pydata.org/static/poly_edit_keyboard_optimized.gif" width="40%"></center></div>
 
-There are also tools for editing boxes as well as drwing new plygons and lines. See the new
+There are also tools for editing boxes as well as drawing new polygons and lines. See the new
 [Edit Tools](https://bokeh.pydata.org/en/dev/docs/user_guide/tools.html#edit-tools) section
 of the User's Guide for full details and live examples to try out.
 
