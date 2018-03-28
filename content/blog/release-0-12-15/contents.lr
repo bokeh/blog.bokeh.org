@@ -24,15 +24,10 @@ This release has the following highlights:
     [`#7087`](https://github.com/bokeh/bokeh/issues/7087),
     [`#7211`](https://github.com/bokeh/bokeh/issues/7211),
     [`#7681`](https://github.com/bokeh/bokeh/issues/7681)
-
 * Switched to Chrome headless for tests, which will support  WebGL testing [`#6594`](https://github.com/bokeh/bokeh/issues/6594)
-
 * Updated data source selections to be proper Bokeh models [`#6845`](https://github.com/bokeh/bokeh/issues/6845)
-
 * Fixed memory leaks with certain kinds of Bokeh server usage [`#7468`](https://github.com/bokeh/bokeh/issues/7468)
-
 * Added new glyphs for hexagon markers and hex tiles, and a new `hexbin` method [`#7638`](https://github.com/bokeh/bokeh/issues/7638), [`#4786`](https://github.com/bokeh/bokeh/issues/4786)
-
 * Completed BokehJS port to TypeScript [`#6481`](https://github.com/bokeh/bokeh/issues/6481)
 
 Plus several other bug fixes and documentation improvements.
