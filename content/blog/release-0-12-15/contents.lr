@@ -197,7 +197,7 @@ source.selected['0d']['indices'].flag
 source.selected['1d']['indices']
 ```
 
-This has needed improment for a long time. Happily, Claire
+This has needed improvement for a long time. Happily, Claire
 Tang decided to tackle this issue, and now there is a proper Bokeh model `Selection` with
 meaningful properties.
 
