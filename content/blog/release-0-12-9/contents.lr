@@ -2,7 +2,7 @@ title: Bokeh 0.12.9 Released
 ---
 summary:
 
-Bokeh 0.12.9 has been released, bringing support for Graph/Network visualizations and JupyterLab!
+Bokeh 0.12.9 has been released, bringing JupyterLab updates and a fast binary array transport!
 
 ---
 pub_date: 2017-09-12

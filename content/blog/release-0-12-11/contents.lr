@@ -2,7 +2,7 @@ title: Bokeh 0.12.11 Released
 ---
 summary:
 
-Bokeh 0.12.11 has been released, bringing support for Graph/Network visualizations and JupyterLab!
+Bokeh 0.12.11 has been released, bringing a new Step glyph and simpler Bokeh apps in notebooks.
 
 ---
 pub_date: 2017-11-28
