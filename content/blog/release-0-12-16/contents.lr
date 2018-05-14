@@ -44,7 +44,7 @@ by executing the command ``conda install -c bokeh bokeh`` . Otherwise, use
 
 #### Hover Tooltips for images
 
-With the "Selection Refator" from the last release over with, it was possible to add
+With the "Selection Refactor" from the last release over with, it was possible to add
 hover tooltips for images, an often requested feature!
 
 <script
