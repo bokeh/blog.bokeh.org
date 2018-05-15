@@ -29,7 +29,7 @@ This release has the following highlights:
 
 Plus several other bug fixes and documentation improvements.
 For full details, see the [CHANGELOG](https://github.com/bokeh/bokeh/blob/master/CHANGELOG)
-and [Release Notes](https://bokeh.pydata.org/en/0.12.16/docs/releases/0.12.16.html).
+and [Release Notes](https://bokeh.pydata.org/en/latest/docs/releases.html).
 Additionally, examples for each release are uploaded to CDN.
 [Click here to download](https://cdn.pydata.org/bokeh/examples/examples-0.12.16.zip).
 
