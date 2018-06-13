@@ -85,23 +85,25 @@ for allowing users to zoom in on long time series plots:
 </center>
 </div>
 
-It's also possible to configure the tool with both an `x_range` and a `y_range` a the
+It's also possible to configure the tool with both an `x_range` and a `y_range` at the
 same time, in which case the overlay is a box that can be dragged and resized in both
 horizontal and vertical directions.
 
+
+
 #### New Cumulative Sum Transform
 
-A new `cumsum` transform was added to `bokeh.transorms`. This transform generates a
+A new `cumsum` transform was added to `bokeh.transforms`. This transform generates a
 sequence of cumulative sums from the values in a `ColumnDataSource` column. This can be
 useful for simplifying any plot that needs to position things based on running totals, such
 as pie or donut charts:
 
 ```python
-pie.wedge(x=0, y=1, radius=0.4,
-          line_color="white", fill_color='color', legend='country', source=data
+p.wedge(x=0, y=1, radius=0.4,
+        line_color="white", fill_color='color', legend='country', source=data
 
-          # Use a cumulative sum on the angles to compute start/end
-          start_angle=cumsum('angle', include_zero=True), end_angle=cumsum('angle'))
+        # Use a cumulative sum on the angles to compute start/end
+        start_angle=cumsum('angle', include_zero=True), end_angle=cumsum('angle'))
 ```
 
 <div>
@@ -110,10 +112,12 @@ pie.wedge(x=0, y=1, radius=0.4,
 </center>
 </div>
 
+
+
 #### Hover Tooltip Improvements
 
 The hover tool has had some limitations in some circumstances in the past.
-Specfically, users have wanted to display a hover name depending on the glyphs
+Specfically, users have wanted to display a hover name depending on the glyph
 that is hovered over. Previously, this would require creating and sending an
 entire column filled with the name, which is wasteful and redundant. Now, the
 `name` property of a glyph may be displayed in a hover tooltip by using the new
@@ -125,12 +129,13 @@ p.circle(..., name="bar")  # and displays "bar" over these
 ```
 
 Additionally, there were some difficultes with stacked charts. Basically, there was
-no easy way to have the different glyphs for each stack refer to different columns.
+no easy way to have the different glyphs for each stack level refer to different columns.
 Before, the only way to accomplish this was to create a separate new `HoverTool` for each stack layer.
 Now, there is a way to add some indirection, by using the column variable `@$name`.
-This syntax means: use the `name` property of the glyph as the column name to display
+This syntax means: use the value of `$name` to specify the column name to display
 in the tooltip. Stack methods such as `vbar_stack` also
-now automatically set `name` of each renderer to the corresponding stack value.
+now automatically set `name` of each renderer to the corresponding stack value, to make
+things even simpler:
 
 ```python
 regions = ("East", "Central", "West")
