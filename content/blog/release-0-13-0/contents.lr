@@ -66,18 +66,35 @@ and ask about how to get started.
 
 #### Range Selection Tool
 
+It's always nice when a very old issue can be closed, and I am happy to report that the
+long standing request for a "range" tool has been completed. It is now possible to create
+a `RangeTool` to automatically control a range:
+
 ```python
 # This tool will control the x range on `plot`
 range_rool = RangeTool(x_range=plot.x_range)
 ```
 
+The tool will display an overlay on the plot it is added to, and this overlay can
+be dragged and resized to update the range it is configured with. This is often useful
+for allowing users to zoom in on long time series plots:
+
 <div>
 <center>
-<script src="range_tool.js" id="de5c16af-866c-4d08-b2d1-16aff1136119"></script>
+<script src="range_tool.js" id="57c9e703-b1a1-466d-8a88-bbe0af0eeaaa"></script>
 </center>
 </div>
 
+It's also possible to configure the tool with both an `x_range` and a `y_range` a the
+same time, in which case the overlay is a box that can be dragged and resized in both
+horizontal and vertical directions.
+
 #### New Cumulative Sum Transform
+
+A new `cumsum` transform was added to `bokeh.transorms`. This transform generates a
+sequence of cumulative sums from the values in a `ColumnDataSource` column. This can be
+useful for simplifying any plot that needs to position things based on running totals, such
+as pie or donut charts:
 
 ```python
 pie.wedge(x=0, y=1, radius=0.4,
@@ -89,11 +106,47 @@ pie.wedge(x=0, y=1, radius=0.4,
 
 <div>
 <center>
-<script src="pie.js" id="f84a0c6d-6a64-4018-87ca-cf531af7991b"></script>
+<script src="pie.js" id="cc1d0eea-3619-4f3f-9cfa-245b02781b60"></script>
 </center>
 </div>
 
 #### Hover Tooltip Improvements
+
+The hover tool has had some limitations in some circumstances in the past.
+Specfically, users have wanted to display a hover name depending on the glyphs
+that is hovered over. Previously, this would require creating and sending an
+entire column filled with the name, which is wasteful and redundant. Now, the
+`name` property of a glyph may be displayed in a hover tooltip by using the new
+`$name` special variable:
+
+```python
+p.circle(..., name="foo")  # "$name" displays "foo" over these circles
+p.circle(..., name="bar")  # and displays "bar" over these
+```
+
+Additionally, there were some difficultes with stacked charts. Basically, there was
+no easy way to have the different glyphs for each stack refer to different columns.
+Before, the only way to accomplish this was to create a separate new `HoverTool` for each stack layer.
+Now, there is a way to add some indirection, by using the column variable `@$name`.
+This syntax means: use the `name` property of the glyph as the column name to display
+in the tooltip. Stack methods such as `vbar_stack` also
+now automatically set `name` of each renderer to the corresponding stack value.
+
+```python
+regions = ("East", "Central", "West")
+
+# The glyph for each stack level will set name to a different region,
+# and "@$name" will display values from a corresponding column for each
+# glyph, e.g. @East, @Central, @North
+p.vbar_stack(departments, ...)
+```
+
+Finally, in an effort to streamline the use of hover tools, the `figure` function
+now accepts an optional `tooltips` argument. Supplying tooltips this way will cause
+a `HoverTool` to be created and added to the plot (if needed), and configured with
+those tooltips.
+
+A stacked bar example below demonstrates all of these changes:
 
 ```python
 fruits = ['Apples', 'Pears', 'Nectarines', 'Plums', 'Grapes', 'Strawberries']
@@ -118,7 +171,7 @@ p.vbar_stack(years, x='fruits', width=0.9, color=colors, source=data,
 
 <div>
 <center>
-<script src="hover.js" id="edb464e0-87a0-4b5b-a96e-a050a34cf9c8"></script>
+<script src="hover.js" id="958ee0e3-7c57-471b-b3d0-baa2b1341491"></script>
 </center>
 </div>
 
