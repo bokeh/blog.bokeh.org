@@ -26,7 +26,6 @@ This release has the following highlights:
 * Simplified hover tool usage [`#7921`](https://github.com/bokeh/bokeh/pull/7921)
 * DataTable regressions fixed [`#7891`](https://github.com/bokeh/bokeh/issues/7891), [`#7924`](https://github.com/bokeh/bokeh/issues/7924)
 
-
 Plus several other bug fixes and documentation improvements.
 For full details, see the [CHANGELOG](https://github.com/bokeh/bokeh/blob/master/CHANGELOG)
 and [Release Notes](https://bokeh.pydata.org/en/latest/docs/releases.html).
@@ -60,9 +59,54 @@ please help test with them as much as possible. Of course, any code or documenta
 help is also still very appreciated. Come by the [Gitter "Dev" channel](https://gitter.im/bokeh/bokeh-dev)
 and ask about how to get started.
 
+For those curious: the reason for the version bump to 13 now after such a long `0.12.x` series
+it that some build and deployment infrastructure switched over to NumFocus assets, and
+we wanted to have a clear demaraction of that switchover.
+
 #### Improved Support for Custom Templates
 
+When Bokeh was started, we had a grand ambition of being able to work purely from Python,
+"No web-tech required!" To that end we built a layout system that can be used to construct
+web UIs with rows and columns and grids of things. And it works reasonably well for simple
+things. If you are prioritizing ease-of-use it can even do for some less simple things.
+But inevitably, users wanted to use Bokeh for very sophisticated layouts that&mdash;more
+sophisticated than the built-in layout can handle.
 
+Until now, only Bokeh standalone documents could flexibly embed individual plots and widgets,
+using the `components` function. Bokeh applications were constrained to use only a single top-level Bokeh
+layout, and this proved to be extremely limiting for users that wished to build sophisticated
+dashboards with Bokeh. With the release of `0.13.0`, it
+is now possible to embed individual application components as well. As an example, here is a Bokeh app with
+several components placed individually inside a Bootstrap dashboard layout template:
+
+<div class="image"><center><img src="dash.png" width="90%"></center></div>
+
+In this case we add roots to the document that have a `name` property set:
+
+```python
+plot = figure(..., sizing_mode="scale_both", name="region")
+
+curdoc().add_root(plot)
+```
+
+Then in the Jinja template, those roots can be referred to in blocks like this:
+
+```html
+<div class="col-md-4 col-sm-4 col-xs-12">
+  <div class="x_panel tile fixed_height_320 overflow_hidden">
+    <div class="x_title">
+      <h2>By Region</h2>
+      <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+      {{ embed(roots.region) }}
+    </div>
+  </div>
+</div>
+```
+
+To be sure, there are still issues and kinks to work out. But this advances the possibilities
+for Bokeh applications a long way, and we look forward to seeing what users come up with!
 
 #### Range Selection Tool
 
