@@ -16,7 +16,7 @@ text:
 
 We are pleased to announce the release of Bokeh 0.13.0!
 
-This release has the following highlights:
+Highlights include:
 
 * Bokeh app components are embeddable in custom templates [`#4986`](https://github.com/bokeh/bokeh/issues/4986), [`#7978`](https://github.com/bokeh/bokeh/issues/7978)
 * New RangeTool added for selecting ranges interactively [`#7795`](https://github.com/bokeh/bokeh/issues/7795)
@@ -44,11 +44,11 @@ by executing the command ``conda install -c bokeh bokeh`` . Otherwise, use
 #### Upcoming 1.0
 
 Bokeh development has reached a point of stability.
-The core feature set is largely complete with respect to the original roadmap.
-There is still plenty of work to do&mdash;expanding test coverage,
-improving documentation, fixing lots of bugs, and adding some new features.
-However, the API is now in a place that the core team is happy with and prepared
-to defend over a longer term. In recognition of this:
+While there is still plenty of work to be done (expanding test coverage,
+improving documentation,  fixing lots of bugs, and adding new features), the
+core feature set is largely complete with respect to the original roadmap.
+Most importantly, the API is now in a place that the core team is happy
+with and prepared to defend over a longer term. In recognition of this development:
 
 <center><h5><b>The next release will be Bokeh 1.0</b></h5></center>
 
@@ -59,9 +59,9 @@ please help test with them as much as possible. Of course, any code or documenta
 help is also still very appreciated. Come by the [Gitter "Dev" channel](https://gitter.im/bokeh/bokeh-dev)
 and ask about how to get started.
 
-For those curious: the reason for the version bump to 13 now after such a long `0.12.x` series
+*For those curious: the reason for the version bump to 13 now after such a long `0.12.x` series
 it that some build and deployment infrastructure switched over to NumFocus assets, and
-we wanted to have a clear demaraction of that switchover.
+we wanted to have a clear demaraction of that switchover.*
 
 #### Improved Support for Custom Templates
 
