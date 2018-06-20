@@ -60,7 +60,7 @@ help is also still very appreciated. Come by the [Gitter "Dev" channel](https://
 and ask about how to get started.
 
 *For those curious: the reason for the version bump to 13 now after such a long `0.12.x` series
-it that some build and deployment infrastructure switched over to NumFocus assets, and
+is that some build and deployment infrastructure switched over to NumFocus assets, and
 we wanted to have a clear demarcation of that switchover.*
 
 #### Improved Support for Custom Templates
@@ -69,7 +69,7 @@ When Bokeh was started, we had a grand ambition of being able to work purely fro
 "No web-tech required!" To that end we built a layout system that can be used to construct
 web UIs with rows and columns and grids of things. And it works reasonably well for simple
 things. If you are prioritizing ease-of-use it can even do for some less simple things.
-But inevitably, users wanted to use Bokeh for very sophisticated layouts that&mdash;more
+But inevitably, users wanted to use Bokeh for very sophisticated layouts&mdash;more
 sophisticated than the built-in layout can handle.
 
 Until now, only Bokeh standalone documents could flexibly embed individual plots and widgets,
@@ -103,6 +103,11 @@ blocks like this:
   </div>
 </div>
 ```
+
+You find the code for this example
+[in the GitHub respitory](https://github.com/bokeh/bokeh/tree/master/examples/app/dash).
+The User's Guide also has a new section describing a [standard template](https://bokeh.pydata.org/en/latest/docs/user_guide/embed.html#standard-template)
+that anyone can use to quickly get started.
 
 To be sure, there are still issues and kinks to work out. But this advances the possibilities
 for Bokeh applications a long way, and we look forward to seeing what users come up with!
