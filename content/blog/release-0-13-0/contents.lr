@@ -124,7 +124,7 @@ for allowing users to zoom in on long time series plots:
 
 <div>
 <center>
-<script src="range_tool.js" id="d6cf2d68-5dfe-4b25-af9f-2ecf1dbbca90"></script>
+<script src="range_tool.js" id="7fce7b88-5bb2-4c7d-9e6e-20b94bf95ff1"></script>
 </center>
 </div>
 
@@ -151,7 +151,7 @@ p.wedge(x=0, y=1, radius=0.4,
 
 <div>
 <center>
-<script src="pie.js" id="c3e60fe5-7a1d-4d61-94ed-c29ac1d250a0"></script>
+<script src="pie.js" id="b297c624-57f8-442d-8cf8-2703ee7fa550"></script>
 </center>
 </div>
 
@@ -219,7 +219,7 @@ p.vbar_stack(years, x='fruits', width=0.9, color=colors, source=data,
 
 <div>
 <center>
-<script src="hover.js" id="15f5d637-f07e-463b-adab-8057f04a33ff"></script>
+<script src="hover.js" id="1125d527-a5d1-4882-9032-77fff062c52f"></script>
 </center>
 </div>
 
