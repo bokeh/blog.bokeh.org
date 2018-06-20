@@ -61,7 +61,7 @@ and ask about how to get started.
 
 *For those curious: the reason for the version bump to 13 now after such a long `0.12.x` series
 it that some build and deployment infrastructure switched over to NumFocus assets, and
-we wanted to have a clear demaraction of that switchover.*
+we wanted to have a clear demarcation of that switchover.*
 
 #### Improved Support for Custom Templates
 
