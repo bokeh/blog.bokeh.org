@@ -1,0 +1,89 @@
+title: Bokeh 1.0 Released
+---
+summary:
+
+Bokeh 1.0 has been released.
+---
+pub_date: 2018-10-22
+---
+author: Bryan Van de Ven
+---
+---
+body:
+
+#### text-block ####
+text:
+
+*<small>&lt; clears throat &gt; Well... here we are at last.</small>*
+
+We are pleased to announce the release of Bokeh 1.0!
+
+Highlights include:
+
+* Support for `MultiPolygons` with holes [`#2321`](https://github.com/bokeh/bokeh/issues/2321)
+* Fixes and improvements to `DataTable` [`#6454`](https://github.com/bokeh/bokeh/pull/6454), [`#7116`](https://github.com/bokeh/bokeh/pull/7116), [`#7417`](https://github.com/bokeh/bokeh/pull/7417), [`#8021`](https://github.com/bokeh/bokeh/pull/8021), [`#8040`](https://github.com/bokeh/bokeh/pull/8040), [`#8050`](https://github.com/bokeh/bokeh/pull/8309), [`#8201`](https://github.com/bokeh/bokeh/pull/8201)
+* `CustomAction` for user-defined Toolbar buttons [`#8099`](https://github.com/bokeh/bokeh/issues/8099)
+* Option to auto-hide toolbars [`#8284`](https://github.com/bokeh/bokeh/pull/8284)
+* `Scatter` glyph for parameterizable marker type [`#5884`](https://github.com/bokeh/bokeh/issues/5884)
+* Reuse webdrivers for faster PNG/SVG export by default [`#8329`](https://github.com/bokeh/bokeh/pull/8329)
+* Improved testing capabilities [`#2596`](https://github.com/bokeh/bokeh/pull/2596), [`#8078`](https://github.com/bokeh/bokeh/pull/8078), [`#8139`](https://github.com/bokeh/bokeh/pull/8139), [`#8146`](https://github.com/bokeh/bokeh/pull/8146), [`#8217`](https://github.com/bokeh/bokeh/pull/8217), [`#8225`](https://github.com/bokeh/bokeh/pull/8225)
+* Faster import times [`#8309`](https://github.com/bokeh/bokeh/pull/8309)
+
+Plus several other bug fixes and documentation improvements.
+For full details, see the [CHANGELOG](https://github.com/bokeh/bokeh/blob/master/CHANGELOG)
+and [Release Notes](https://bokeh.pydata.org/en/latest/docs/releases.html).
+Additionally, examples for each release are uploaded to CDN.
+[Click here to download](https://cdn.pydata.org/bokeh/examples/examples-1.0.0.zip).
+
+-----
+
+If you are using
+[Anaconda](https://www.anaconda.com/downloads), Bokeh can most easily be installed
+by executing the command ``conda install -c bokeh bokeh`` . Otherwise, use
+``pip install bokeh``.
+
+-----
+
+#### What 1.0 Means
+
+
+
+#### Patches With Holes
+
+
+
+#### A New Scatter
+
+
+
+#### Just Toolbar Things
+
+
+
+#### Testing, Testing...
+
+
+-----
+
+##### Gracias धन्यवाद  Cпасибо 谢谢 Obrigado شكرا Danke ありがとう Merci
+
+I'd like to thank the [322 total contributors](https://github.com/bokeh/bokeh/graphs/contributors)
+to date who have helped make Bokeh such an amazing project, personally, and on behalf
+of the entire [Core Team](https://github.com/bokeh/bokeh/wiki/BEP-4:-Project-Roles#core-team).
+
+If you are one of these 322 people who have made a PR up until now,
+we have a special "pre 1.0 contributor" laptop sticker just for you, as a small token
+of appreciation. Reach out on [Gitter chat](https://gitter.im/bokeh/bokeh) and
+we will figure out how to send it to you!
+
+As always, anyone interested in helping out should drop by the [Dev Chat Channel](https://gitter.im/bokeh/bokeh-dev)!
+and say hello!
+
+Thanks,
+
+Bryan Van de Ven
+
+----
+class: default
+---
+_discoverable: no
