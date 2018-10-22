@@ -77,8 +77,8 @@ glyph. Hexagonal tilings are useful for several things including binned aggregat
 such as these plots of one million NCAA shots:
 
 
-<link rel="stylesheet" href="https://cdn.pydata.org/bokeh/dev/bokeh-0.12.15.min.css">
-<script type="text/javascript" src="https://cdn.pydata.org/bokeh/dev/bokeh-0.12.15.min.js"></script>
+<link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-0.12.15.min.css">
+<script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-0.12.15.min.js"></script>
 
 <script type="text/javascript">
   (function() {
