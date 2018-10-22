@@ -23,7 +23,9 @@ Highlights include:
 * Support for `MultiPolygons` with holes [`#2321`](https://github.com/bokeh/bokeh/issues/2321)
 * Fixes and improvements to `DataTable` [`#6454`](https://github.com/bokeh/bokeh/pull/6454), [`#7116`](https://github.com/bokeh/bokeh/pull/7116), [`#7417`](https://github.com/bokeh/bokeh/pull/7417), [`#8021`](https://github.com/bokeh/bokeh/pull/8021), [`#8040`](https://github.com/bokeh/bokeh/pull/8040), [`#8050`](https://github.com/bokeh/bokeh/pull/8309), [`#8201`](https://github.com/bokeh/bokeh/pull/8201)
 * `CustomAction` for user-defined Toolbar buttons [`#8099`](https://github.com/bokeh/bokeh/issues/8099)
-* Option to auto-hide toolbars [`#8284`](https://github.com/bokeh/bokeh/pull/8284)
+* Plain JSON export/embed functions [`#5231`](https://github.com/bokeh/bokeh/issues/5231)
+* Toolbar `autohide` property to hide toolbars when not in use [`#8284`](https://github.com/bokeh/bokeh/pull/8284)
+* Callback to allow `AjaxDataSource` to adapt JSON responses [`#8321`](https://github.com/bokeh/bokeh/pull/8321)
 * `Scatter` glyph for parameterizable marker type [`#5884`](https://github.com/bokeh/bokeh/issues/5884)
 * Reuse webdrivers for faster PNG/SVG export by default [`#8329`](https://github.com/bokeh/bokeh/pull/8329)
 * Improved testing capabilities [`#2596`](https://github.com/bokeh/bokeh/pull/2596), [`#8078`](https://github.com/bokeh/bokeh/pull/8078), [`#8139`](https://github.com/bokeh/bokeh/pull/8139), [`#8146`](https://github.com/bokeh/bokeh/pull/8146), [`#8217`](https://github.com/bokeh/bokeh/pull/8217), [`#8225`](https://github.com/bokeh/bokeh/pull/8225)
@@ -47,6 +49,7 @@ by executing the command ``conda install -c bokeh bokeh`` . Otherwise, use
 #### What 1.0 Means
 
 
+-----
 
 #### Patches With Holes
 
@@ -56,7 +59,12 @@ by executing the command ``conda install -c bokeh bokeh`` . Otherwise, use
 
 
 
+#### JSON Export and Embed
+
+
+
 #### Just Toolbar Things
+
 
 
 
@@ -67,8 +75,8 @@ by executing the command ``conda install -c bokeh bokeh`` . Otherwise, use
 
 ##### Gracias धन्यवाद  Cпасибо 谢谢 Obrigado شكرا Danke ありがとう Merci
 
-I'd like to thank the [322 total contributors](https://github.com/bokeh/bokeh/graphs/contributors)
-to date who have helped make Bokeh such an amazing project, personally, and on behalf
+I'd like to thank the [322 GitHub contributors](https://github.com/bokeh/bokeh/graphs/contributors)
+who have helped make Bokeh such an amazing project to date, personally, and on behalf
 of the entire [Core Team](https://github.com/bokeh/bokeh/wiki/BEP-4:-Project-Roles#core-team).
 
 If you are one of these 322 people who have made a PR up until now,
@@ -76,8 +84,30 @@ we have a special "pre 1.0 contributor" laptop sticker just for you, as a small 
 of appreciation. Reach out on [Gitter chat](https://gitter.im/bokeh/bokeh) and
 we will figure out how to send it to you!
 
-As always, anyone interested in helping out should drop by the [Dev Chat Channel](https://gitter.im/bokeh/bokeh-dev)!
-and say hello!
+In addition, I'd like to personally recognize a few individuals who have made
+a profound impact on the developement of Bokeh over the last five years:
+
+* Damian Avila
+* Sarah Bird
+* Luke Canavan
+* Brendan Collins
+* Maggie Mari
+* Paddy Mullen
+* Mateusz Paprocki
+* Havoc Pennington
+* Fabio Pliger
+* Philipp Rudiger
+* Jean-Luc Stevens
+* Hugo Shi
+* Peter Wang
+
+Beyond all these folks, I'd also like to thank everyone who has made issues,
+provided valuable feedback or ideas for improvements, helped answer questions on
+the mailing list or Stack Overflow, or supported the Bokeh community in any
+capacity.
+
+As always, anyone interested in helping out should drop by the
+[Dev Chat Channel](https://gitter.im/bokeh/bokeh-dev)! and say hello!
 
 Thanks,
 
