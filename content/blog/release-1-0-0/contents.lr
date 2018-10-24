@@ -93,8 +93,22 @@ valuable, please consider making a concrete contribution towards sustaining the 
 This could be by [making a financial donation through NumFOCUS](https://www.flipcause.com/secure/cause_pdetails/MzE5NjE=)
 or by [getting involved with development](https://gitter.im/bokeh/bokeh-dev).
 
-
 Long story short: right now marks a *fantastic* time to get more involved.
+
+#### Community
+
+Before getting to the technical details of this release, I wanted to take a moment
+to recognize some stats about our community:
+
+* The [public mailing list](https://groups.google.com/a/anaconda.com/forum/?pli=1#!forum/bokeh) has more than **1000** members
+* [@BokehPlots](https://twitter.com/bokehplots) has over **8000** followers
+* The number of [GitHub stars](https://github.com/bokeh/bokeh) just hit **8300**
+* Combined conda+pip installs regularly exceed **600k/month** (!)
+* The docs site has **55-60k** unique monthly visitors.
+
+Any one of these facts is humbling, but the current success of Bokeh is owed to the
+work of very many contributors. Please be sure to read all the way to the end,
+and the full "Thank You" section below.
 
 -----
 
