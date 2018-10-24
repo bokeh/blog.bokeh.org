@@ -106,19 +106,18 @@ The resulting output has two multi-polygons, some with holes and some without:
 
 These "patches with holes" are often useful for working with GIS data or maps,
 and support all the usual and expected hover and hit-testing interactions. In
-the future, we plan to add more convenience methods to integrsate directly with
+the future, we plan to add more convenience methods to integrate directly with
 GeoJSON sources.
 
-Another use case case is filled contour plots. Althout it currently takes some
-effort to create the necessary coordinates from single iso-lines, thanks to this
-foundational work it is possible to generate filled contour plots for the first
-time:
+Another use case is filled contour plots. Althout it currently takes some
+effort to create the necessary coordinates from single iso-lines, it is possible
+to generate filled contour plots for the first time:
 
 <div class="image"><center><img src="contour.png" width="60%"></center></div>
 
-As reources permit, we also plan to add convenience methods to make generating
-the necessary multi-polygons for filled contours simpler. (Or, this would
-make a great self-contained project for a new contributor!)
+As resources permit, we also plan to add methods to make generating
+filled contours plots simpler. (This would also
+make a great self-contained project for an interested  new contributor!)
 
 #### A New Scatter
 
@@ -130,7 +129,8 @@ glyph, which can specify the marker type of each data point individually:
 plot.scatter(x=[1,2,3], y-[4,5,6], marker=['circle', 'hex', 'square'])
 ```
 
-This capability is especially useful together with a new `factor_marker`
+This capability is especially useful together with a new `factor_marker` transform
+that can map categorical values to marker types:
 
 ```python
 SPECIES = ['setosa', 'versicolor', 'virginica']
@@ -140,12 +140,15 @@ p = figure(title = "Iris Morphology")
 
 p.scatter("petal_length", "petal_width", source=flowers, legend="species",
           fill_alpha=0.4, size=12,
-          marker=factor_marker('species', MARKERS, SPECIES),
+          marker=factor_marker('species', MARKERS, SPECIES)
           color=factor_cmap('species', 'Category10_3', SPECIES))
 
 ```
 
 <div class="image"><center><img src="markers.png" width="60%"></center></div>
+
+This approach with a parameterized scatter is useful whenever you want to
+keep all the data inside a single `ColumnDataSource`.
 
 #### JSON Export and Embed
 
@@ -157,7 +160,7 @@ json_item(obj)
 
 This function can be called on any Bokeh object, e.g plots or layouts, and the
 output of the call is a block of JSON that represents a Bokeh Document for `obj`.
-(You might notice that Bokeh now also uses "simple" IDs by default):
+(You might also note that Bokeh now uses "simple" IDs by default):
 
 ```
 {'target_id': None,
@@ -244,14 +247,15 @@ behaviors:
 
 These are both very important improvements to our testing capability that will
 help us to ensure much better stability in 1.x releases. Still, they are only
-the beginning, with the new infrastructure it is easier than ever to add these
+the beginning. With the new infrastructure it is easier than ever to add these
 kinds of tests, and we plan to do just that!
 
 #### Examples Refresh
 
 Leading up to this release we also tried to make a pass over all the examoples in
 the documentation. There are several hundred examples available now, and many
-could use some gentle attention.
+were in need of some gentle attention. All examples were reviewed to improve their
+visual style, and to make them reflect current best practices.
 
 Additionally, some new examples were added in places. One worth mentioning in particular
 is the face dectection demo written by Luke Canavan. Here it is, identifying me (but not our dog):
@@ -273,11 +277,11 @@ installed.
 
 ##### Gracias धन्यवाद  Cпасибо 谢谢 Obrigado شكرا Danke ありがとう Merci
 
-I'd like to thank the [322 GitHub contributors](https://github.com/bokeh/bokeh/graphs/contributors)
+I'd like to thank the [321 GitHub contributors](https://github.com/bokeh/bokeh/graphs/contributors)
 who have helped make Bokeh such an amazing project to date, personally, and on behalf
 of the entire [Core Team](https://github.com/bokeh/bokeh/wiki/BEP-4:-Project-Roles#core-team).
 
-If you are one of these 322 people who have made a PR up until now,
+If you are one of these 321 people who have made a PR up until now,
 we have a special "pre 1.0 contributor" laptop sticker just for you, as a small token
 of appreciation. Reach out on [Gitter chat](https://gitter.im/bokeh/bokeh) and
 we will figure out how to send it to you!
