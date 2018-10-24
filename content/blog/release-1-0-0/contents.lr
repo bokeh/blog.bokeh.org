@@ -16,10 +16,31 @@ text:
 
 *<small>&lt; clears throat &gt; Well... here we are at last.</small>*
 
-We are pleased to announce the release of Bokeh 1.0!
+**We are pleased to announce the release of Bokeh 1.0!**
 
-Highlights include:
+Overall Bokeh highlights are:
 
+<small>
+<em>
+Powerful Bokeh server &mdash; ["Shiny For Python"](https://shiny.rstudio.com)
+
+&nbsp; - Python and Javascript callbacks for data updates and UI events
+
+&nbsp; - Connect PyData tools to web dashboards with plot tools and HTML widgets
+
+&nbsp; - Efficient protocol for streaming and array data
+
+Highly customizable plotting API, including graphs, hex tiles, and maps
+
+Full support for Jupyter Notebooks and Jupyter Lab
+</em>
+</small>
+
+------
+
+Specific issues completed for this release include:
+
+<small>
 * Support for `MultiPolygons` with holes [`#2321`](https://github.com/bokeh/bokeh/issues/2321)
 * Fixes and improvements to `DataTable` [`#6454`](https://github.com/bokeh/bokeh/pull/6454), [`#7116`](https://github.com/bokeh/bokeh/pull/7116), [`#7417`](https://github.com/bokeh/bokeh/pull/7417), [`#8021`](https://github.com/bokeh/bokeh/pull/8021), [`#8040`](https://github.com/bokeh/bokeh/pull/8040), [`#8050`](https://github.com/bokeh/bokeh/pull/8309), [`#8201`](https://github.com/bokeh/bokeh/pull/8201)
 * `CustomAction` for user-defined Toolbar buttons [`#8099`](https://github.com/bokeh/bokeh/issues/8099)
@@ -30,14 +51,13 @@ Highlights include:
 * Reuse webdrivers for faster PNG/SVG export by default [`#8329`](https://github.com/bokeh/bokeh/pull/8329)
 * Improved testing capabilities [`#2596`](https://github.com/bokeh/bokeh/pull/2596), [`#8078`](https://github.com/bokeh/bokeh/pull/8078), [`#8139`](https://github.com/bokeh/bokeh/pull/8139), [`#8146`](https://github.com/bokeh/bokeh/pull/8146), [`#8217`](https://github.com/bokeh/bokeh/pull/8217), [`#8225`](https://github.com/bokeh/bokeh/pull/8225)
 * Faster import times [`#8309`](https://github.com/bokeh/bokeh/pull/8309)
+</small>
 
 Plus several other bug fixes and documentation improvements.
 For full details, see the [CHANGELOG](https://github.com/bokeh/bokeh/blob/master/CHANGELOG)
 and [Release Notes](https://bokeh.pydata.org/en/latest/docs/releases.html).
 Additionally, examples for each release are uploaded to CDN.
 [Click here to download](https://cdn.pydata.org/bokeh/examples/examples-1.0.0.zip).
-
------
 
 If you are using
 [Anaconda](https://www.anaconda.com/downloads), Bokeh can most easily be installed
@@ -53,23 +73,177 @@ by executing the command ``conda install -c bokeh bokeh`` . Otherwise, use
 
 #### Patches With Holes
 
+Thanks to the efforts of Julia Signell, old issue [`#2321` - Patches with Holes](https://github.com/bokeh/bokeh/issues/2321)
+has been completed. The approach take was to add a new glyph type `MultiPolygons`
+that is inspired heavily by GeoJSON format of sub-polygons that specifcy an
+"exterior" run followed by any optional "holes". From the `bokeh.plotting` API,
+using this new glyph looks like:
 
+```python
+p.multi_polygons(
+    xs=[
+
+        # first multi-polygon (blue)
+        [[ [1, 1, 2, 2],
+           [1.2, 1.6, 1.6],
+           [1.8, 1.8, 1.6]], # sub-polygon with 2 holes
+
+         [ [3, 3, 4] ], # sub-polygon with no holes
+
+         # second multi-polygon (red)
+        [[ [1, 2, 2, 1],
+           [1.3, 1.3, 1.7, 1.7] ]], # sub-polygon with 1 hole
+    ],
+    ys=[
+        [[ [4, 3, 3, 4], [3.2, 3.2, 3.6], [3.4, 3.8, 3.8] ], [ [1, 3, 1] ]],
+        [[ [1, 1, 2, 2], [1.3, 1.7, 1.7, 1.3] ]]],
+    color=['navy', 'crimson'])
+```
+
+The resulting output has two multi-polygons, some with holes and some without:
+
+<div class="image"><center><img src="mpgon.png" width="40%"></center></div>
+
+These "patches with holes" are often useful for working with GIS data or maps,
+and support all the usual and expected hover and hit-testing interactions. In
+the future, we plan to add more convenience methods to integrsate directly with
+GeoJSON sources.
+
+Another use case case is filled contour plots. Althout it currently takes some
+effort to create the necessary coordinates from single iso-lines, thanks to this
+foundational work it is possible to generate filled contour plots for the first
+time:
+
+<div class="image"><center><img src="contour.png" width="60%"></center></div>
+
+As reources permit, we also plan to add conenvience methods to make it simpler
+to generate the necessary multi-polygons for filled contours. (Or, this would also
+make a great self-contained project for a new contributor!)
 
 #### A New Scatter
 
+Another old issue [`#5884` - Let Scatter marker type be parameterizable](https://github.com/bokeh/bokeh/issues/5884)
+made it into the 1.0 release. Now the `scatter` method of figures creates a new `Scatter`
+glyph, which can specify the marker type of each data point individually:
 
+```
+plot.scatter(x=[1,2,3], y-[4,5,6], marker=['circle', 'hex', 'square'])
+```
+
+```python
+SPECIES = ['setosa', 'versicolor', 'virginica']
+MARKERS = ['circle', 'diamond', 'triangle']
+
+p = figure(title = "Iris Morphology")
+
+p.scatter("petal_length", "petal_width", source=flowers, legend="species",
+          fill_alpha=0.4, size=12,
+          marker=factor_marker('species', MARKERS, SPECIES),
+          color=factor_cmap('species', 'Category10_3', SPECIES))
+
+```
+
+<div class="image"><center><img src="markers.png" width="60%"></center></div>
 
 #### JSON Export and Embed
 
+Bokeh 1.0 adds a new
 
+```python
+json_item(obj)
+```
 
-#### Just Toolbar Things
+This function can be called on any Bokeh object, e.g plots or layouts, and the
+output of the call is a block of JSON that represents a Bokeh Document for `obj`.
+(You might notice that Bokeh now also uses "simple" IDs by default):
 
+```
+{'target_id': None,
+ 'root_id': '1002',
+ 'doc': {'roots': {
+   'references': [
+      {'type': lob'PanTool',     'id': '1022', 'attributes': {}},
+      {'type': 'BasicTicker', 'id': '1013', 'attributes': {}},
+      {'type': 'LinearAxis',  'id': '1017', 'attributes': {
+        'axis_label': 'petal_length',
+        'formatter': {'id': '1043', 'type': 'BasicTickFormatter'},
+        'plot': {'id': '1002', 'subtype': 'Figure', 'type': 'Plot'},
+        'ticker': {'id': '1018', 'type': 'BasicTicker'}}},
+      {'type': 'DataRange1d', 'id': '1004', 'attributes': {'callback': None}},
+      {'type': 'Circle',      'id': '1038', 'attributes': {'fill_alpha': {'value': 0.2},
+        'fill_color': {'field': 'fill_color'},
+        'line_color': {'field': 'line_color'},
+        'size': {'units': 'screen', 'value': 10}
+        'x': {'field': 'x'},
+        'y': {'field': 'y'}}},
 
+...
+
+      {'type': 'BoxZoomTool', 'id': '1024', 'attributes': {
+        'overlay': {'id': '1030', 'type': 'BoxAnnotation'}}}
+    ],
+   'root_ids': ['1002']},
+  'title': '',
+  'version': '1.0.0'}}
+```
+
+Now you can use this JSON output in any HTML document by calling a single
+function from JavaScript: `Bokeh.embed.embed_item(item, "myplot")`
+The first paramter is the JSON output and the second parameter is the `id` of
+the div to embed the content into. (It's also possible to specify the id on the
+Python side instead if that is preferable.)
+
+As a concrete example, if you have a Flask applications that serves Bokeh
+JSON at an endpoint `/plot` like this:
+
+```python
+
+from bokeh.embed import json_item
+
+@app.route('/plot')
+def plot2():
+    p = make_plot('sepal_width', 'sepal_length')
+    return json.dumps(json_item(p))
+```
+
+That content can be embedded from a `fetch` call in the page template like this:
+
+```html
+<body>
+  <div id="myplot"></div>
+
+  <script>
+  fetch('/plot')
+    .then(function(response) { return response.json(); })
+    .then(function(item) { Bokeh.embed.embed_item(item, "myplot"); })
+  </script>
+</body>
+```
 
 
 #### Testing, Testing...
 
+Thanks to a few Pull Requests from revent new contributor [xavArtley](https://github.com/xavArtley),
+Bokeh unit test now run continously on Windows for the first time ever:
+
+<div class="image"><center><img src="appveyor.png" width="70%"></center></div>
+
+Another development concerns rigorous UI testing.
+Sometime in 2017 our previous Selenium integration testing infrastructure fell into
+disrepair. As a result unfortunate regressions and bugs started to slip past
+our review. I am happy to report that an important goal for 1.0 has been acheived,
+and our Selenium integration testing machinery has been re-built from the ground
+up, as well as greatly expanded. Where we previously only had roughly a dozen UI tests, now
+[almost 200 Selenium tests](https://travis-ci.org/bokeh/bokeh/jobs/445250958)
+run continously to rigourously and explicitly exercise various Bokeh features and
+behaviors:
+
+<div class="image"><center><img src="selenium.png" width="70%"></center></div>
+
+These are both very important improvements to our testing capability that will
+help us to ensure much better stability in 1.x releases. Still, they are only
+the beginning, with the new infrastructure it is easier than ever to add these
+kinds of tests, and we plan to do just that!
 
 -----
 
@@ -97,8 +271,10 @@ a profound impact on the developement of Bokeh over the last five years:
 * Havoc Pennington
 * Fabio Pliger
 * Philipp Rudiger
+* Julia Signell
 * Jean-Luc Stevens
 * Hugo Shi
+* Claire Teng
 * Peter Wang
 
 Beyond all these folks, I'd also like to thank everyone who has made issues,
