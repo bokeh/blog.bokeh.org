@@ -26,7 +26,7 @@ Powerful Bokeh Server &mdash; ["Shiny For Python"](https://shiny.rstudio.com)
 
 &nbsp; - Affords Python and Javascript callbacks for data updates and UI events
 
-&nbsp; - Connect PyData tools to web dashboards with plot tools and HTML widgets
+&nbsp; - Connects PyData tools to web dashboards with plot tools and HTML widgets
 
 &nbsp; - Uses an efficient protocol for streaming and array data
 
