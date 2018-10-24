@@ -24,11 +24,11 @@ Overall Bokeh highlights are:
 <em>
 Powerful Bokeh server &mdash; ["Shiny For Python"](https://shiny.rstudio.com)
 
-&nbsp; - Python and Javascript callbacks for data updates and UI events
+&nbsp; - Affords Python and Javascript callbacks for data updates and UI events
 
 &nbsp; - Connect PyData tools to web dashboards with plot tools and HTML widgets
 
-&nbsp; - Efficient protocol for streaming and array data
+&nbsp; - Uses an efficient protocol for streaming and array data
 
 Highly customizable plotting API, including graphs, hex tiles, and maps
 
@@ -41,7 +41,7 @@ Full support for Jupyter Notebooks and Jupyter Lab
 Specific issues completed for this release include:
 
 <small>
-* Support for `MultiPolygons` with holes [`#2321`](https://github.com/bokeh/bokeh/issues/2321)
+* New glyph for for `MultiPolygons` with holes [`#2321`](https://github.com/bokeh/bokeh/issues/2321)
 * Fixes and improvements to `DataTable` [`#6454`](https://github.com/bokeh/bokeh/pull/6454), [`#7116`](https://github.com/bokeh/bokeh/pull/7116), [`#7417`](https://github.com/bokeh/bokeh/pull/7417), [`#8021`](https://github.com/bokeh/bokeh/pull/8021), [`#8040`](https://github.com/bokeh/bokeh/pull/8040), [`#8050`](https://github.com/bokeh/bokeh/pull/8309), [`#8201`](https://github.com/bokeh/bokeh/pull/8201)
 * `CustomAction` for user-defined Toolbar buttons [`#8099`](https://github.com/bokeh/bokeh/issues/8099)
 * Plain JSON export/embed functions [`#5231`](https://github.com/bokeh/bokeh/issues/5231)
@@ -74,10 +74,10 @@ by executing the command ``conda install -c bokeh bokeh`` . Otherwise, use
 #### Patches With Holes
 
 Thanks to the efforts of Julia Signell, old issue [`#2321` - Patches with Holes](https://github.com/bokeh/bokeh/issues/2321)
-has been completed. The approach take was to add a new glyph type `MultiPolygons`
-that is inspired heavily by GeoJSON format of sub-polygons that specifcy an
-"exterior" run followed by any optional "holes". From the `bokeh.plotting` API,
-using this new glyph looks like:
+has been completed. The approach taken was to add a new glyph type `MultiPolygons`
+that is inspired heavily by GeoJSON format of sub-polygons that specify an
+"exterior" run followed by any optional "holes" inside the exterior ring.
+Using this glyph from the `bokeh.plotting` API looks like:
 
 ```python
 p.multi_polygons(
@@ -116,8 +116,8 @@ time:
 
 <div class="image"><center><img src="contour.png" width="60%"></center></div>
 
-As reources permit, we also plan to add conenvience methods to make it simpler
-to generate the necessary multi-polygons for filled contours. (Or, this would also
+As reources permit, we also plan to add convenience methods to make generating
+the necessary multi-polygons for filled contours simpler. (Or, this would
 make a great self-contained project for a new contributor!)
 
 #### A New Scatter
