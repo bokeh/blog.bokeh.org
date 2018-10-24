@@ -222,7 +222,7 @@ output of the call is a block of JSON that represents a Bokeh Document for `obj`
 
 Now you can use this JSON output in any HTML document by calling a single
 function from JavaScript: `Bokeh.embed.embed_item(item, "myplot")`
-The first paramter is the JSON output and the second parameter is the `id` of
+The first parameter is the JSON output and the second parameter is the `id` of
 the div to embed the content into. (It's also possible to specify the id on the
 Python side instead if that is preferable.)
 
@@ -315,7 +315,7 @@ of appreciation. Reach out on [Gitter chat](https://gitter.im/bokeh/bokeh) and
 we will figure out how to send it to you!
 
 In addition, I'd like to personally recognize a few individuals who have made
-a profound impact on the developement of Bokeh over the last five years:
+a profound impact on the development of Bokeh over the last five years:
 
 * Damian Avila
 * Sarah Bird
