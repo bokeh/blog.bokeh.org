@@ -150,11 +150,11 @@ make a great self-contained project for an interested new contributor!)
 #### A New Scatter
 
 Another old issue [`#5884` - Let Scatter marker type be parameterizable](https://github.com/bokeh/bokeh/issues/5884)
-made it into the 1.0 release. Now the `scatter` method of figures creates a new `Scatter`
-glyph, which can specify the marker type of each data point individually:
+made it into the 1.0 release. Now the `scatter` glyph method creates a new `Scatter`
+object, that can specify the marker type of each data point individually:
 
 ```python
-plot.scatter(x=[1,2,3], y-[4,5,6], marker=['circle', 'hex', 'square'])
+plot.scatter(x=[1,2,3], y=[4,5,6], marker=['circle', 'hex', 'square'])
 ```
 
 This capability is especially useful together with a new `factor_marker` transform
