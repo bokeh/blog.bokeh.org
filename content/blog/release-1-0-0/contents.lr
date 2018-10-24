@@ -274,7 +274,7 @@ behaviors:
 <div class="image"><center><img src="selenium.png" width="70%"></center></div>
 
 These are both very important improvements to our testing capability that will
-help us to ensure much better stability in 1.x releases. Still, they are only
+help us to ensure stability in 1.x releases. Still, they are only
 the beginning. With the new infrastructure it is easier than ever to add these
 kinds of tests, and we plan to do just that!
 
