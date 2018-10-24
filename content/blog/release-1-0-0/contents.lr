@@ -226,7 +226,7 @@ The first paramter is the JSON output and the second parameter is the `id` of
 the div to embed the content into. (It's also possible to specify the id on the
 Python side instead if that is preferable.)
 
-As a concrete example, if you have a Flask applications that serves Bokeh
+As a concrete example, if you have a Flask application that serves Bokeh
 JSON at an endpoint `/plot` like this:
 
 ```python
@@ -256,8 +256,8 @@ That content can be embedded from a `fetch` call in the page template like this:
 
 #### Testing, Testing...
 
-Thanks to a few Pull Requests from revent new contributor [xavArtley](https://github.com/xavArtley),
-Bokeh unit test now run continously on Windows for the first time ever:
+Thanks to a few Pull Requests from recent new contributor [xavArtley](https://github.com/xavArtley),
+Bokeh unit tests now run continously on Windows for the first time ever:
 
 <div class="image"><center><img src="appveyor.png" width="70%"></center></div>
 
