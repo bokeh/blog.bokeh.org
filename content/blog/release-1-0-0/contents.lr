@@ -70,14 +70,14 @@ by executing the command ``conda install -c bokeh bokeh`` . Otherwise, use
 
 First off, what "1.0" does *not* mean: It does not mean that all the work is done,
 or that all bugs are squashed.
-For instance, there are still a fair number of known issues with the built in
+For instance, there are still a fair number of known issues with the built-in
 layout system. A large [Work In Progress PR](https://github.com/bokeh/bokeh/pull/8085)
 will fix many of these issues in a future 1.1 release. Additionally, you can see
 larger "roadmap" items still TBD in the new
 [Vision and Work](https://bokeh.pydata.org/en/latest/docs/vision.html) section
 of the docs.
 
-But these things willbe done in a way compatible with current APIs. After a period of
+But these things will be done in a way compatible with current APIs. After a period of
 youthful "0.x" experimentation, the
 [Core Team](https://github.com/bokeh/bokeh/wiki/BEP-4:-Project-Roles#core-team)
 asserts that existing public APIs will now be defended. From now on, any
