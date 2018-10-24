@@ -137,7 +137,7 @@ and support all the usual and expected hover and hit-testing interactions. In
 the future, we plan to add more convenience methods to integrate directly with
 GeoJSON sources.
 
-Another use case is filled contour plots. Althout it currently takes some
+Another use case is filled contour plots. Although it currently takes some
 effort to create the necessary coordinates from single iso-lines, it is possible
 to generate filled contour plots for the first time:
 
