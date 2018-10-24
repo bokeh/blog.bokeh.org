@@ -268,7 +268,7 @@ our review. I am happy to report that an important goal for 1.0 has been acheive
 and our Selenium integration testing machinery has been re-built from the ground
 up, as well as greatly expanded. Where we previously only had roughly a dozen UI tests, now
 [almost 200 Selenium tests](https://travis-ci.org/bokeh/bokeh/jobs/445250958)
-run continously to rigourously and explicitly exercise various Bokeh features and
+run continously to explicitly exercise various Bokeh features and
 behaviors:
 
 <div class="image"><center><img src="selenium.png" width="70%"></center></div>
