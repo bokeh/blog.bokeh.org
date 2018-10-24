@@ -85,14 +85,16 @@ intentional breaking changes will precipitate a major version bump.
 Of course we will strive to avoid any *unintentional* changes as well&mdash;see the section
 below on improved testing. This commitment is the major purpose of releasing "1.0" now.
 
-This milestone also represents further progress in making Bokeh
+This milestone also represents the progress of making Bokeh
 a truly independent project in the context of a wider OSS community.
 However, to secure long-term success, the Bokeh project must diversify both its
 contributor base and its funding sources. So if you or your organization find Bokeh
 valuable, please consider making a concrete contribution towards further development
 and ongoing maintenance of Bokeh.
 This could be by [making a financial donation through NumFOCUS](https://www.flipcause.com/secure/cause_pdetails/MzE5NjE=)
-or by [getting involved with development]([Dev Chat Channel](https://gitter.im/bokeh/bokeh-dev)).
+or by [getting involved with development]([Dev Chat Channel](https://gitter.im/bokeh/bokeh-dev).
+Long story short: right now is a *fantastic* time to get more involved with
+Bokeh.
 
 -----
 
@@ -142,7 +144,7 @@ to generate filled contour plots for the first time:
 
 As resources permit, we also plan to add methods to make generating
 filled contours plots simpler. (This would also
-make a great self-contained project for an interested  new contributor!)
+make a great self-contained project for an interested new contributor!)
 
 #### A New Scatter
 
@@ -277,13 +279,13 @@ kinds of tests, and we plan to do just that!
 
 #### Examples Refresh
 
-Leading up to this release we also tried to make a pass over all the examoples in
+Leading up to this release we also tried to make a pass over all the examples in
 the documentation. There are several hundred examples available now, and many
 were in need of some gentle attention. All examples were reviewed to improve their
 visual style, and to make them reflect current best practices.
 
-Additionally, some new examples were added in places. One worth mentioning in particular
-is the face dectection demo written by Luke Canavan. Here it is, identifying me (but not our dog):
+Additionally, some new examples were added. One worth mentioning in particular
+is a face dectection demo written by Luke Canavan. Here it is, identifying me (but not our dog):
 
 <div class="image"><center><img src="faces.gif" width="70%"></center></div>
 
