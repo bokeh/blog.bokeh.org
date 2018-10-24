@@ -209,7 +209,7 @@ output of the call is a block of JSON that represents a Bokeh Document for `obj`
  'root_id': '1002',
  'doc': {'roots': {
    'references': [
-      {'type': lob'PanTool',     'id': '1022', 'attributes': {}},
+      {'type': 'PanTool',     'id': '1022', 'attributes': {}},
       {'type': 'BasicTicker', 'id': '1013', 'attributes': {}},
       {'type': 'LinearAxis',  'id': '1017', 'attributes': {
         'axis_label': 'petal_length',
@@ -224,7 +224,7 @@ output of the call is a block of JSON that represents a Bokeh Document for `obj`
         'x': {'field': 'x'},
         'y': {'field': 'y'}}},
 
-...
+      ...
 
       {'type': 'BoxZoomTool', 'id': '1024', 'attributes': {
         'overlay': {'id': '1030', 'type': 'BoxAnnotation'}}}
