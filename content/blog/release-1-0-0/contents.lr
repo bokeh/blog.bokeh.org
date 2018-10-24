@@ -126,9 +126,11 @@ Another old issue [`#5884` - Let Scatter marker type be parameterizable](https:/
 made it into the 1.0 release. Now the `scatter` method of figures creates a new `Scatter`
 glyph, which can specify the marker type of each data point individually:
 
-```
+```python
 plot.scatter(x=[1,2,3], y-[4,5,6], marker=['circle', 'hex', 'square'])
 ```
+
+This capability is especially useful together with a new `factor_marker`
 
 ```python
 SPECIES = ['setosa', 'versicolor', 'virginica']
@@ -147,7 +149,7 @@ p.scatter("petal_length", "petal_width", source=flowers, legend="species",
 
 #### JSON Export and Embed
 
-Bokeh 1.0 adds a new
+Bokeh 1.0 adds a new function to `bokeh.embed`:
 
 ```python
 json_item(obj)
@@ -244,6 +246,28 @@ These are both very important improvements to our testing capability that will
 help us to ensure much better stability in 1.x releases. Still, they are only
 the beginning, with the new infrastructure it is easier than ever to add these
 kinds of tests, and we plan to do just that!
+
+#### Examples Refresh
+
+Leading up to this release we also tried to make a pass over all the examoples in
+the documentation. There are several hundred examples available now, and many
+could use some gentle attention.
+
+Additionally, some new examples were added in places. One worth mentioning in particular
+is the face dectection demo written by Luke Canavan. Here it is, identifying me (but not our dog):
+
+<div class="image"><center><img src="faces.gif" width="70%"></center></div>
+
+This is a nice example because it ties together several great Bokeh features, all
+in under 80 lines of Python code.
+
+* Demonstrates data updates and streaming API
+* Connects web visualization to PyData tools (OpenCV)
+* Uses custom template for nice look and responsive layout
+
+This example is located at in the GitHub repository under [*examples/app/faces*](https://github.com/bokeh/bokeh/tree/1.0.0/examples/app/faces).
+To run it, you will need OpenCV and the latest [Bokeh sample data](https://bokeh.pydata.org/en/latest/docs/installation.html#sample-data)
+installed.
 
 -----
 
