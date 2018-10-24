@@ -41,7 +41,7 @@ Full support for Jupyter Notebooks and Jupyter Lab
 Specific issues completed for this release include:
 
 <small>
-* New glyph for for `MultiPolygons` with holes [`#2321`](https://github.com/bokeh/bokeh/issues/2321)
+* New glyph for `MultiPolygons` with holes [`#2321`](https://github.com/bokeh/bokeh/issues/2321)
 * Fixes and improvements to `DataTable` [`#6454`](https://github.com/bokeh/bokeh/pull/6454), [`#7116`](https://github.com/bokeh/bokeh/pull/7116), [`#7417`](https://github.com/bokeh/bokeh/pull/7417), [`#8021`](https://github.com/bokeh/bokeh/pull/8021), [`#8040`](https://github.com/bokeh/bokeh/pull/8040), [`#8050`](https://github.com/bokeh/bokeh/pull/8309), [`#8201`](https://github.com/bokeh/bokeh/pull/8201)
 * `CustomAction` for user-defined Toolbar buttons [`#8099`](https://github.com/bokeh/bokeh/issues/8099)
 * Plain JSON export/embed functions [`#5231`](https://github.com/bokeh/bokeh/issues/5231)
