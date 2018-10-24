@@ -50,7 +50,7 @@ Specific issues completed for this release include:
 * `Scatter` glyph for parameterizable marker type [`#5884`](https://github.com/bokeh/bokeh/issues/5884)
 * Reuse webdrivers for faster PNG/SVG export by default [`#8329`](https://github.com/bokeh/bokeh/pull/8329)
 * Improved testing capabilities [`#2596`](https://github.com/bokeh/bokeh/pull/2596), [`#8078`](https://github.com/bokeh/bokeh/pull/8078), [`#8139`](https://github.com/bokeh/bokeh/pull/8139), [`#8146`](https://github.com/bokeh/bokeh/pull/8146), [`#8217`](https://github.com/bokeh/bokeh/pull/8217), [`#8225`](https://github.com/bokeh/bokeh/pull/8225)
-* Faster import times [`#8309`](https://github.com/bokeh/bokeh/pull/8309)
+* Quicker import times [`#8309`](https://github.com/bokeh/bokeh/pull/8309)
 </small>
 
 Plus several other bug fixes and documentation improvements.
