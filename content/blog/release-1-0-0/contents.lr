@@ -22,7 +22,7 @@ Overall Bokeh highlights are:
 
 <small>
 <em>
-Powerful Bokeh server &mdash; ["Shiny For Python"](https://shiny.rstudio.com)
+Powerful Bokeh Server &mdash; ["Shiny For Python"](https://shiny.rstudio.com)
 
 &nbsp; - Affords Python and Javascript callbacks for data updates and UI events
 
@@ -68,6 +68,31 @@ by executing the command ``conda install -c bokeh bokeh`` . Otherwise, use
 
 #### What 1.0 Means
 
+First off, what "1.0" does *not* mean: It does not mean that all the work is done,
+or that all bugs are squashed.
+For instance, there are still a fair number of known issues with the built in
+layout system. A large [Work In Progress PR](https://github.com/bokeh/bokeh/pull/8085)
+will fix many of these issues in a future 1.1 release. Additionally, you can see
+larger "roadmap" items still TBD in the new
+[Vision and Work](https://bokeh.pydata.org/en/latest/docs/vision.html) section
+of the docs.
+
+But these things willbe done in a way compatible with current APIs. After a period of
+youthful "0.x" experimentation, the
+[Core Team](https://github.com/bokeh/bokeh/wiki/BEP-4:-Project-Roles#core-team)
+asserts that existing public APIs will now be defended. From now on, any
+intentional breaking changes will precipitate a major version bump.
+Of course we will strive to avoid any *unintentional* changes as well&mdash;see the section
+below on improved testing. This commitment is the major purpose of releasing "1.0" now.
+
+This milestone also represents further progress in making Bokeh
+a truly independent project in the context of a wider OSS community.
+However, to secure long-term success, the Bokeh project must diversify both its
+contributor base and its funding sources. So if you or your organization find Bokeh
+valuable, please consider making a concrete contribution towards further development
+and ongoing maintenance of Bokeh.
+This could be by [making a financial donation through NumFOCUS](https://www.flipcause.com/secure/cause_pdetails/MzE5NjE=)
+or by [getting involved with development]([Dev Chat Channel](https://gitter.im/bokeh/bokeh-dev)).
 
 -----
 
