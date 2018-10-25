@@ -22,4 +22,4 @@ There are also some closely associated projects related to Bokeh in the Pyviz or
 * [Datashader](https://bokeh.github.io/datashader-docs): A graphics pipeline and visual query system for creating meaningful visual representations from large data sets.
 * [HoloViews](http://holoviews.org): A high-level declarative interface to Bokeh for exploring and interacting with data.
 * [GeoViews](http://geo.holoviews.org): Geographic projection and dataset support for HoloViews
-* [Colorcet](https://bokeh.github.io/colorcet): Perceptually uniform colormaps for use with Bokeh, Datashader, HoloViews, and Matplotlib
+* [Colorcet](https://colorcet.pyviz.org/): Perceptually uniform colormaps for use with Bokeh, Datashader, HoloViews, and Matplotlib
