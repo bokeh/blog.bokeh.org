@@ -80,7 +80,7 @@ of the docs.
 But these things will be done in a way compatible with current APIs. After a period of
 youthful "0.x" experimentation, the
 [Core Team](https://github.com/bokeh/bokeh/wiki/BEP-4:-Project-Roles#core-team)
-asserts that existing public APIs will now be defended. From now on, any
+asserts that existing public APIs will now be defended. (\*) From now on, any
 intentional breaking changes will precipitate a major version bump.
 Of course we will strive to avoid any *unintentional* changes as well&mdash;see the section
 below on improved testing. This commitment is the major purpose of releasing "1.0" now.
@@ -94,6 +94,20 @@ This could be by [making a financial donation through NumFOCUS](https://www.flip
 or by [getting involved with development](https://gitter.im/bokeh/bokeh-dev).
 
 Long story short: right now marks a *fantastic* time to get more involved.
+
+<small>
+(\*) This applies without qualification to all public *Python* APIs. The public/private distinction for
+BohehJS is still somewhat murky. Our specific committment around BokehJS is this:
+
+**Any and all usage in
+currently published "CustomJS" or custom extension examples will continue to function without change,
+and synchronizable
+BokehJS models and events (e.g. "ColumnDataSource" or "Tap"), will not be removed or have their existing properties modified.**.
+
+In order to make improvements and bug fixes, we will continue to use
+discretion regarding any changes in other, low level BokehJS code that is not intended for general users, and we will work to make these BokehJS API boundaries more clear
+as time goes on.
+</small>
 
 #### Community
 
