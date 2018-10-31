@@ -7,4 +7,4 @@ dependencies:
 - bokeh
 - watchdog
 - flask
-- Lektor
+- Lektor=3.0.1
