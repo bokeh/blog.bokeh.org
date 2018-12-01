@@ -2,7 +2,7 @@
 title: 'Bokeh 1.0 Contributor Stickers'
 date: 2018-10-31
 author: Luke Canavan
-featured_image: '/images/demo/demo-square.jpg'
+featured_image:
 excerpt: Contributors are invited to submit their mailing addresses to receive a special gift.
 ---
 
