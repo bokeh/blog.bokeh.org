@@ -4,6 +4,8 @@ date: 2017-06-29
 author: Matthew Rocklin
 featured_image:
 excerpt: Starting programmatic Bokeh Servers for live-streaming applications.
+redirect_from:
+  - /blog/2017/6/29/simple_bokeh_server/
 ---
 
 This blog post shows how to start a *very simple* bokeh server application

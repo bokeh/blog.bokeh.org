@@ -47,7 +47,11 @@ sass:
 
 plugins:
   - jekyll-paginate
+  - jekyll-redirect-from
   - jekyll-sitemap
 
 paginate: 6
 paginate_path: "/posts/page:num/"
+
+whitelist:
+  - jekyll-redirect-from

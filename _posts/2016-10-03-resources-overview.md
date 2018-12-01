@@ -4,6 +4,8 @@ date: 2016-10-03
 author: Bryan Van de Ven
 featured_image:
 excerpt: An overview of all the community resources available for navigating Bokeh questions.
+redirect_from:
+  - /blog/2016/10/3/resources-overview/
 ---
 
 
