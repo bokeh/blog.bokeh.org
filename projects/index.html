@@ -1,0 +1,47 @@
+---
+layout: default
+title: Projects
+subtitle: What I've been working on lately.
+description: Journal is a stunning personal blog Jekyll theme with an image-focused design.
+featured_image: /images/demo/demo-portrait.jpg
+---
+
+<section class="intro">
+
+	<div class="wrap">
+
+		<h1>{{ page.title }}</h1>
+		<p>{{ page.subtitle }}</p>
+
+	</div>
+
+</section>
+
+<section class="portfolio">
+
+	<div class="wrap">
+
+		{% for project in site.projects reversed %}
+
+		<div class="portfolio-item">
+
+			<a class="portfolio-item__link" href="{{ project.url }}">
+
+				<div class="portfolio-item__image" style="background-image: url({{ project.featured_image  }});"></div>
+
+				<div class="portfolio-item__content">
+					<div class="portfolio-item__info">
+						<h2 class="portfolio-item__title">{{ project.title }}</h2>
+						<p class="portfolio-item__subtitle">{{ project.subtitle }}</p>
+					</div>
+				</div>
+
+			</a>
+
+		</div>
+
+		{% endfor %}
+
+	</div>
+
+</section>

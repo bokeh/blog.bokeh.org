@@ -1,0 +1,135 @@
+// - - - - - - - - - - - - - - - - - -
+
+// Blog
+
+// - - - - - - - - - - - - - - - - - -
+
+.blog {
+	margin-top: 0;
+	padding: 20px 0 0;
+
+	@include mq(tabletp) {
+		padding: 35px 0 0;
+	}
+
+	@include mq(tabletl) {
+		padding: 35px 40px 0;
+	}
+
+	@include mq(laptop) {
+		padding: 53px 60px 0;
+	}
+}
+
+.blog-post {
+	margin-top: 40px;
+
+	@include mq(tabletp) {
+		margin-top: 60px;
+	}
+
+	@include mq(tabletl) {
+		margin-top: 80px;
+	}
+
+	@include mq(laptop) {
+		margin-top: 100px;
+	}
+
+	&:first-child {
+		margin-top: 0;
+	}
+}
+
+.blog-post__image {
+	margin-top: 20px;
+	display: block;
+	width: 100%;
+	height: 0;
+	padding-bottom: 56.25%;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+
+	@include mq(tabletp) {
+		margin-top: 25px;
+	}
+
+	@include mq(tabletl) {
+		margin-top: 30px;
+	}
+
+	@include mq(laptop) {
+		margin-top: 40px;
+	}
+}
+
+.blog-post__content {
+	margin-top: 20px;
+
+	@include mq(tabletp) {
+		margin-top: 25px;
+	}
+
+	@include mq(tabletl) {
+		margin-top: 30px;
+	}
+
+	@include mq(laptop) {
+		margin-top: 40px;
+	}
+
+	p .button {
+		margin-top: 5px;
+
+		@include mq(tabletl) {
+			margin-top: 10px;
+		}
+	}
+}
+
+.blog-post__title {
+
+}
+
+.blog-post__subtitle {
+	margin-top: 5px;
+	color: $text-light-color;
+}
+
+.pagination {
+	margin-top: 0;
+	padding: 40px 20px 0;
+
+	@include mq(tabletp) {
+		padding: 55px 40px 0;
+	}
+
+	@include mq(tabletl) {
+		padding: 75px 40px 0;
+	}
+
+	@include mq(laptop) {
+		padding: 93px 60px 0;
+	}
+}
+
+.pagination__prev,
+.pagination__next {
+	width: 50%;
+
+	.button {
+		display: block;
+		text-align: center;
+	}
+}
+
+.pagination__prev {
+	float: left;
+	padding-right: $grid-spacing/2;
+}
+
+.pagination__next {
+	float: right;
+	padding-left: $grid-spacing/2;
+}

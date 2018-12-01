@@ -1,7 +1,4 @@
-.DS_Store
-*.pyc
-*.egg-info
-.cache
-packages/*/build
-packages/*/dist
-webpack/node_modules
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
