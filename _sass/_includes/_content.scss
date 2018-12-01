@@ -1,0 +1,260 @@
+// - - - - - - - - - - - - - - - - - -
+
+// Single page/post/project
+
+// - - - - - - - - - - - - - - - - - -
+
+.intro {
+	margin-top: 0;
+	padding: 20px 0 0;
+
+	@include mq(tabletp) {
+		padding: 35px 0 0;
+	}
+
+	@include mq(tabletl) {
+		padding: 35px 40px 0;
+	}
+
+	@include mq(laptop) {
+		padding: 53px 60px 0;
+	}
+
+	.wrap {
+
+		@include mq(tabletl) {
+			max-width: 80%;
+		}
+
+		@include mq(laptop) {
+			max-width: 75%;
+		}
+
+		@include mq(desktop) {
+			max-width: 70%;
+		}
+	}
+
+	h1 {
+
+		@include mq(tabletp) {
+			white-space: pre-line;
+		}
+	}
+
+	p {
+		margin-top: 5px;
+		color: $text-light-color;
+	}
+}
+
+.single {
+	margin-top: 0;
+	padding: 20px 0;
+	min-height: 100vh;
+
+	@include mq(tabletp) {
+		padding: 40px 0;
+	}
+
+	@include mq(tabletl) {
+		padding: 30px 40px 40px;
+	}
+
+	@include mq(laptop) {
+		padding: 40px 60px 60px;
+	}
+
+	h1, h2, h3, h4, h5, h6, p, ul, ol {
+		margin-left: auto;
+		margin-right: auto;
+
+		@include mq(tabletp) {
+		}
+
+		@include mq(tabletl) {
+			max-width: 80%;
+		}
+
+		@include mq(laptop) {
+			max-width: 75%;
+		}
+
+		@include mq(desktop) {
+			max-width: 70%;
+		}
+	}
+
+	hr {
+		margin: 20px auto;
+
+		@include mq(tabletp) {
+			margin-top: 40px;
+			margin-bottom: 40px;
+			width: auto;
+		}
+
+		@include mq(tabletl) {
+			max-width: 80%;
+		}
+
+		@include mq(laptop) {
+			max-width: 75%;
+		}
+
+		@include mq(desktop) {
+			max-width: 70%;
+		}
+	}
+
+	blockquote,
+	figure {
+		margin: 20px auto;
+
+		@include mq(tabletp) {
+			margin: 30px auto;
+		}
+
+		@include mq(laptop) {
+			margin: 40px auto;
+		}
+	}
+
+	blockquote p {
+		max-width: 100%;
+		padding: 0;
+	}
+
+	p a {
+		font-weight: $bold-weight;
+		border-bottom: 2px solid $accent-color;
+	}
+
+	p .button {
+		margin-top: 10px;
+	}
+
+	.highlighter-rouge,
+	table {
+		margin: 20px auto;
+		width: 100%;
+
+		@include mq(tabletp) {
+			margin: 30px auto;
+		}
+
+		@include mq(tabletl) {
+			max-width: 80%;
+		}
+
+		@include mq(laptop) {
+			margin: 40px auto;
+			max-width: 75%;
+		}
+
+		@include mq(desktop) {
+			max-width: 70%;
+		}
+	}
+
+	.highlight {
+		display: block;
+		padding: 0;
+		line-height: 1.5;
+		font-size: $p-small*0.75;
+		line-height: $p-lineheight;
+		overflow: auto;
+
+		@include mq(tabletp) {
+			font-size: $p-small*0.75;
+		}
+
+		@include mq(laptop) {
+			font-size: $p-medium*0.75;
+		}
+
+		.highlight {
+			padding: 10px 20px 10px 20px;
+
+			@include mq(tabletp) {
+				padding: 10px 20px 10px 20px;
+			}
+
+			@include mq(laptop) {
+				padding: 10px 20px 10px 20px;
+			}
+		}
+	}
+
+	table {
+		border: 2px solid $text-dark-color;
+
+		thead {
+			background: $text-dark-color;
+			color: $background-color;
+			text-align: left;
+			font-weight: $bold-weight;
+
+			th {
+				font-weight: $bold-weight;
+			}
+		}
+
+		th, td {
+			padding: 10px;
+			font-size: $p-small;
+			font-weight: $p-weight;
+
+			@include mq(tabletp) {
+				padding: 15px;
+			}
+
+			@include mq(laptop) {
+				padding: 20px;
+			}
+		}
+
+		tr {
+
+			&:nth-child(2n) {
+				background: $background-alt-color;
+			}
+		}
+	}
+}
+
+.image-wrap,
+.video-wrap {
+	position: relative;
+	margin: 20px auto;
+
+	@include mq(tabletp) {
+		margin: 30px auto;
+	}
+
+	@include mq(laptop) {
+		margin: 40px auto;
+	}
+
+	&:first-child {
+		margin-top: 0;
+	}
+}
+
+.image-wrap img {
+	margin: 0 auto;
+}
+
+.video {
+	position: relative;
+	width: 100%;
+	height: 0;
+
+	iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
