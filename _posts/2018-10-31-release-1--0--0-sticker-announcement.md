@@ -4,6 +4,8 @@ date: 2018-10-31
 author: Luke Canavan
 featured_image:
 excerpt: Contributors are invited to submit their mailing addresses to receive a special gift.
+redirect_from:
+  - /blog/2018/10/31/release-1-0-0-sticker-announcement/
 ---
 
 The Bokeh Core Team is incredibly grateful for each of our 322 [total contributors](https://github.com/bokeh/bokeh/graphs/contributors) and their efforts
