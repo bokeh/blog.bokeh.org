@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'jekyll', '3.8.4'
+gem 'github-pages', '>=193', group: :jekyll_plugins
+
+gem 'jekyll', '3.7.4'
 
 group :jekyll_plugins do
   gem 'jekyll-paginate'
