@@ -167,31 +167,31 @@ ul, ol {
 blockquote {
 	margin-top: 15px;
 	font-family: $title-font;
-	font-size: $blockquote-small;
+	font-size: $blockquote-small*0.8;
 	font-weight: $blockquote-weight;
 	letter-spacing: $blockquote-spacing;
 	line-height: $blockquote-lineheight;
 
 	@include mq(tabletp) {
-		font-size: $blockquote-medium;
+		font-size: $blockquote-small*0.8;
 	}
 
 	@include mq(laptop) {
-		font-size: $blockquote-large;
+		font-size: $blockquote-medium*0.8;
 	}
 
 	p {
-		font-size: $blockquote-small;
+		font-size: $blockquote-small*0.8;
 		font-weight: $blockquote-weight;
 		letter-spacing: $blockquote-spacing;
 		line-height: $blockquote-lineheight;
 
 		@include mq(tabletp) {
-			font-size: $blockquote-medium;
+			font-size: $blockquote-small*0.8;
 		}
 
 		@include mq(laptop) {
-			font-size: $blockquote-large;
+			font-size: $blockquote-medium*0.8;
 		}
 	}
 }
