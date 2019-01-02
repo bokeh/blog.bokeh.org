@@ -49,6 +49,7 @@ plugins:
   - jekyll-paginate
   - jekyll-redirect-from
   - jekyll-sitemap
+  - jekyll-feed
 
 paginate: 6
 paginate_path: "/posts/page:num/"
