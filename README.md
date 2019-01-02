@@ -1,1 +1,1 @@
-Blopg site for Bokeh project announcements
+Blog site for Bokeh project announcements
