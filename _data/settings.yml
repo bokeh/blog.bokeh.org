@@ -3,7 +3,7 @@ basic_settings:
   site_tagline: News and updates for all things Bokeh.
 
 header_settings:
-  logo_image:
+  logo_image: '/images/bokeh-logo.png'
   logo_width: 100
   overlay_opacity: 0.7
 
